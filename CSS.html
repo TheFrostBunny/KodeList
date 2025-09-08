@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/style.css">
+    <title>CSS Kommando Huskeliste</title>
+    <link rel="icon" href="./Assets/Logo.png" type="image/png">
+</head>
+<body class="app-bg">
+        <a href="index.html" class="back-link" id="back-link">&larr; Tilbake</a>
+            <h1 id="page-title">CSS Kommando Huskeliste</h1>¨
+        
+        <!-- Kategori: Grunnleggende HTML Struktur -->
+       <div class="category">
+            <h2>Velgelementer (Selectors)</h2>
+            
+            <div class="command">
+                <code>*</code>
+                <div class="description">Universalvelger – velger alle elementer</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Velger alle elementer på siden.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+* {
+    margin: 0;
+    padding: 0;
+}
+                    </pre>
+                </div>
+            </div>
+            
+            <div class="command">
+                <code>element</code>
+                <div class="description">Velger alle forekomster av et spesifikt HTML-element (f.eks. <code>p</code> eller <code>h1</code>)</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Når du angir et elementnavn, anvendes stilen på alle slike elementer.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+p {
+    font-size: 16px;
+}
+                    </pre>
+                </div>
+            </div>
+            
+            <div class="command">
+                <code>.klasse</code>
+                <div class="description">Velger alle elementer med en bestemt klasse</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Brukes for å gjenbruke stiler på flere elementer.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+.button {
+    background-color: blue;
+    color: white;
+}
+                    </pre>
+                </div>
+            </div>
+            
+            <div class="command">
+                <code>#id</code>
+                <div class="description">Velger et unikt element med et spesifikt ID</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>ID skal være unike for hvert element.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+#header {
+    background-color: #f0f0f0;
+}
+                    </pre>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Kategori: Grunnleggende Egenskaper -->
+        <div class="category">
+            <h2>Grunnleggende Egenskaper</h2>
+            
+            <div class="command">
+                <code>color</code>
+                <div class="description">Angir tekstfarge</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Farge kan angis med navn, hex-verdier, RGB eller RGBA.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+h1 {
+    color: #9b4da3;
+}
+                    </pre>
+                </div>
+            </div>
+            
+            <div class="command">
+                <code>background-color</code>
+                <div class="description">Angir bakgrunnsfarge</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Sørger for at elementet får ønsket bakgrunn.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+body {
+    background-color: #f8f0f9;
+}
+                    </pre>
+                </div>
+            </div>
+            
+            <div class="command">
+                <code>font-size</code>
+                <div class="description">Angir tekststørrelse</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Størrelsen kan spesifiseres i px, em, rem, % osv.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+p {
+    font-size: 16px;
+}
+                    </pre>
+                </div>
+            </div>
+            
+            <div class="command">
+                <code>margin</code>
+                <div class="description">Angir ytre avstand</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Kan settes med én, to, tre eller fire verdier.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+.section {
+    margin: 20px;
+}
+                    </pre>
+                </div>
+            </div>
+            
+            <div class="command">
+                <code>padding</code>
+                <div class="description">Angir indre avstand</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Lager mellomrom mellom innhold og kantlinje.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+.button {
+    padding: 10px 15px;
+}
+                    </pre>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Kategori: Layout og Display -->
+        <div class="category">
+            <h2>Layout og Display</h2>
+            
+            <div class="command">
+                <code>display</code>
+                <div class="description">Angir elementets visningsmodus, f.eks. <code>block</code>, <code>inline</code> eller <code>flex</code></div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Kontrollerer hvordan elementer og deres barn plasseres i layouten.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+nav {
+    display: flex;
+    justify-content: space-around;
+}
+                    </pre>
+                </div>
+            </div>
+            
+            <div class="command">
+                <code>position</code>
+                <div class="description">Setter posisjoneringen (static, relative, absolute, fixed, sticky)</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Brukes til å plassere elementer nøyaktig der du ønsker.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+.tooltip {
+    position: absolute;
+    top: 50px;
+    left: 100px;
+}
+                    </pre>
+                </div>
+            </div>
+            
+            <div class="command">
+                <code>flex-direction</code>
+                <div class="description">Angir retningen for elementer i en fleksbeholder (f.eks. <code>row</code> eller <code>column</code>)</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Endrer rekkefølgen på fleks-elementer.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+.container {
+    display: flex;
+    flex-direction: column;
+}
+                    </pre>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Kategori: Media Queries -->
+        <div class="category">
+            <h2>Media Queries</h2>
+            
+            <div class="command">
+                <code>@media (max-width: 600px)</code>
+                <div class="description">Tilpasser design for mindre skjermer</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Brukes for å lage responsive design.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+@media (max-width: 600px) {
+    body {
+        background-color: lightgray;
+    }
+}
+                    </pre>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Kategori: CSS Animasjoner -->
+        <div class="category">
+            <h2>CSS Animasjoner</h2>
+            
+            <div class="command">
+                <code>@keyframes</code>
+                <div class="description">Definerer animasjonssekvenser</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Setter opp rammer for en animasjon, som kan brukes med <code>animation</code>-egenskapen.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.element {
+    animation: fadeIn 2s ease-in;
+}
+                    </pre>
+                </div>
+            </div>
+        </div>
+        
+        <!-- NY Kategori: Pseudo-classes & Pseudo-elements -->
+        <div class="category">
+            <h2>Pseudo-classes &amp; Pseudo-elements</h2>
+            
+            <div class="command">
+                <code>:hover</code>
+                <div class="description">Styling som aktiveres ved hover-effekt</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Pseudo-klassen <code>:hover</code> endrer stil når brukeren peker med musen over et element.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+a:hover {
+    color: #E6C0E9;
+}
+                    </pre>
+                </div>
+            </div>
+            
+            <div class="command">
+                <code>::before</code>
+                <div class="description">Legger til innhold før et element</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Brukes til å sette inn dekorative elementer uten å endre HTML-strukturen.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+.button::before {
+    content: "★";
+    margin-right: 5px;
+}
+                    </pre>
+                </div>
+            </div>
+        </div>
+        
+        <!-- NY Kategori: CSS Grid &amp; Flexbox -->
+        <div class="category">
+            <h2>CSS Grid &amp; Flexbox</h2>
+            
+            <div class="command">
+                <code>display: grid;</code>
+                <div class="description">Oppretter et grid-layout</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>CSS Grid gir et fleksibelt og kraftig layoutsystem for komplekse design.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+                    </pre>
+                </div>
+            </div>
+            
+            <div class="command">
+                <code>display: flex;</code>
+                <div class="description">Oppretter et fleksibelt layout</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Med Flexbox kan du enkelt lage horisontale eller vertikale oppsett.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+                    </pre>
+                </div>
+            </div>
+        </div>
+        
+        <!-- NY Kategori: CSS Variabler -->
+        <div class="category">
+            <h2>CSS Variabler</h2>
+            
+            <div class="command">
+                <code>:root { --primary-color: #9b4da3; }</code>
+                <div class="description">Definerer globale CSS-variabler</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Variabler lar deg lagre verdier for farger, størrelser osv. som kan gjenbrukes over hele dokumentet.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+:root {
+    --primary-color: #9b4da3;
+    --secondary-color: #E6C0E9;
+}
+
+h1 {
+    color: var(--primary-color);
+}
+                    </pre>
+                </div>
+            </div>
+        </div>
+        
+        <!-- NY Kategori: Transitions &amp; Transforms -->
+        <div class="category">
+            <h2>Transitions &amp; Transforms</h2>
+            
+            <div class="command">
+                <code>transition</code>
+                <div class="description">Legger til jevne overganger</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Overgangseffekten angir hvordan en egenskap endres over tid.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+.button {
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: var(--secondary-color);
+}
+                    </pre>
+                </div>
+            </div>
+            
+            <div class="command">
+                <code>transform</code>
+                <div class="description">Endrer form og posisjon på et element</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Transform gir mulighet til funksjoner som rotate, scale, translate, med mer.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+.card:hover {
+    transform: scale(1.05) rotate(1deg);
+}
+                    </pre>
+                </div>
+            </div>
+        </div>
+        
+        <!-- NY Kategori: Avanserte Selektorer -->
+        <div class="category">
+            <h2>Avanserte Selektorer</h2>
+            
+            <div class="command">
+                <code>[attributtnavn]</code>
+                <div class="description">Velger elementer med et bestemt attributt</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Velger alle elementer som har den spesifiserte attributten, uavhengig av verdien.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+input[required] {
+    border: 2px solid red;
+}
+                </pre>
+                </div>
+            </div>
+            
+            <div class="command">
+                <code>[attributtnavn="verdi"]</code>
+                <div class="description">Velger elementer med en spesifikk verdi for et attributt</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Brukes for å velge elementer hvor attributtet har en nøyaktig verdi.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+a[href="https://www.example.com"] {
+    color: green;
+}
+                </pre>
+                </div>
+            </div>
+            
+            <div class="command">
+                <code>element + element</code>
+                <div class="description">Velger det første elementet umiddelbart etter et spesifikt element</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Plukker det første søskenelementet som kommer like etter et gitt element.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+h1 + p {
+    margin-top: 10px;
+}
+                </pre>
+                </div>
+            </div>
+            
+            <div class="command">
+                <code>element ~ element</code>
+                <div class="description">Velger alle søskenelementer etter et spesifikt element</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Velger alle elementer som er søsken og kommer etter et gitt element, uavhengig av avstand.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+h2 ~ p {
+    color: gray;
+}
+                </pre>
+                </div>
+            </div>
+            
+            <div class="command">
+                <code>:nth-child(n)</code>
+                <div class="description">Velger element basert på deres posisjon blant søsken</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Brukes for å velge et element basert på dets rekkefølge, for eksempel å velge den andre raden i en liste.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+li:nth-child(2) {
+    background-color: lightblue;
+}
+                </pre>
+                </div>
+            </div>
+        </div>
+        
+        <!-- NY Kategori: CSS Borders & Shadows -->
+        <div class="category">
+            <h2>CSS Borders & Shadows</h2>
+            
+            <div class="command">
+                <code>border</code>
+                <div class="description">Angir rammer rundt et element</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Setter bredde, stil og farge for rammen rundt et element.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+.box {
+    border: 2px solid #333;
+}
+                </pre>
+                </div>
+            </div>
+            
+            <div class="command">
+                <code>border-radius</code>
+                <div class="description">Gir elementet avrundede hjørner</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Brukes for å lage runde eller avrundede hjørner på et element.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+.box {
+    border-radius: 8px;
+}
+                </pre>
+                </div>
+            </div>
+            
+            <div class="command">
+                <code>box-shadow</code>
+                <div class="description">Legger til en skygge bak et element</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Gir en dybdeeffekt ved å legge til skygge rundt et element.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+.card {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+                </pre>
+                </div>
+            </div>
+        </div>
+        
+        <!-- NY Kategori: CSS Filters -->
+        <div class="category">
+            <h2>CSS Filters</h2>
+            
+            <div class="command">
+                <code>filter</code>
+                <div class="description">Legger til visuelle effekter som blur, kontrast og lysstyrke</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Effekten anvendes for å manipulere utseendet på et element, for eksempel å gjøre et bilde grått eller uskarpt.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+img {
+    filter: grayscale(50%) blur(2px);
+}
+                </pre>
+                </div>
+            </div>
+        </div>
+        
+        <!-- NY Kategori: CSS Tekst &amp; Typografi -->
+        <div class="category">
+            <h2>CSS Tekst &amp; Typografi</h2>
+            
+            <div class="command">
+                <code>font-family</code>
+                <div class="description">Definerer skrifttype for tekst</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Setter skrifttype og fallback-liste for et element.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+                </pre>
+                </div>
+            </div>
+            
+            <div class="command">
+                <code>line-height</code>
+                <div class="description">Angir linjeavstand for tekst</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Øker lesbarheten ved å definere vertikalt mellomrom mellom tekstlinjer.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+p {
+    line-height: 1.6;
+}
+                </pre>
+                </div>
+            </div>
+            
+            <div class="command">
+                <code>text-shadow</code>
+                <div class="description">Legger til skygge på teksten</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Skaper en 3D-effekt eller gir bedre kontrast ved å legge til en skygge bak teksten.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+h1 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+                </pre>
+                </div>
+            </div>
+        </div>
+        
+        <!-- NY Kategori: CSS Bakgrunn -->
+        <div class="category">
+            <h2>CSS Bakgrunn</h2>
+            
+            <div class="command">
+                <code>background-image</code>
+                <div class="description">Setter et bakgrunnsbilde for et element</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Brukes for å definere et bilde som bakgrunn på et element.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+.header {
+    background-image: url('/images/header-bg.jpg');
+}
+                </pre>
+                </div>
+            </div>
+            
+            <div class="command">
+                <code>background-size</code>
+                <div class="description">Angir størrelsen på bakgrunnsbildet</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Kan brukes for å dekke hele elementet (<code>cover</code>) eller tilpasse bildet til containeren (<code>contain</code>).</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+.header {
+    background-size: cover;
+}
+                </pre>
+                </div>
+            </div>
+            
+            <div class="command">
+                <code>background-position</code>
+                <div class="description">Kontrollerer posisjoneringen av bakgrunnsbildet</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Bestemmer hvor bakgrunnsbildet skal plasseres i forhold til elementet.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+.header {
+    background-position: center center;
+}
+                </pre>
+                </div>
+            </div>
+            
+            <div class="command">
+                <code>background-repeat</code>
+                <div class="description">Angir om bakgrunnsbildet skal repeteres</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Definerer om bakgrunnsbildet skal gjentas (<code>repeat</code>), ikke gjentas (<code>no-repeat</code>) eller gjentas bare horisontalt/vertikalt.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+.header {
+    background-repeat: no-repeat;
+}
+                </pre>
+                </div>
+            </div>
+        </div>
+        
+        <!-- NY Kategori: CSS Box Model -->
+        <div class="category">
+            <h2>CSS Box Model</h2>
+            
+            <div class="command">
+                <code>box-sizing</code>
+                <div class="description">Definerer hvordan bredde og høyde beregnes for et element</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Med <code>border-box</code> inkluderer elementet padding og border i den totale bredden og høyden.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+* {
+    box-sizing: border-box;
+}
+                </pre>
+                </div>
+            </div>
+            
+            <div class="command">
+                <code>overflow</code>
+                <div class="description">Kontrollerer visningen av overflødig innhold</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Bruk verdiene <code>hidden</code>, <code>scroll</code> eller <code>auto</code> for å styre hvordan innhold utenfor et elements dimensjoner vises.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+.container {
+    overflow: auto;
+}
+                </pre>
+                </div>
+            </div>
+            
+            <div class="command">
+                <code>z-index</code>
+                <div class="description">Angir stablingsrekkefølgen til posisjonerte elementer</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Elementer med høyere z-index vises foran elementer med lavere verdi.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+.modal {
+    position: fixed;
+    z-index: 1000;
+}
+                </pre>
+                </div>
+            </div>
+        </div>
+        
+        <!-- NY Kategori: CSS Avanserte Effekter -->
+        <div class="category">
+            <h2>CSS Avanserte Effekter</h2>
+            
+            <div class="command">
+                <code>clip-path</code>
+                <div class="description">Definerer en klippeflate for et element</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Begrenser synligheten til en bestemt form på elementet.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+.image {
+    clip-path: circle(50%);
+}
+                </pre>
+                </div>
+            </div>
+            
+            <div class="command">
+                <code>mix-blend-mode</code>
+                <div class="description">Angir hvordan et element skal blandes med bakgrunnen</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Skaper visuelle effekter ved å endre på hvordan farger kombineres med underliggende elementer.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+.overlay {
+    mix-blend-mode: multiply;
+}
+                </pre>
+                </div>
+            </div>
+            
+            <div class="command">
+                <code>object-fit</code>
+                <div class="description">Bestemmer hvordan medieinnhold (f.eks. bilder eller video) skal tilpasse seg containeren</div>
+                <div class="details">
+                    <h3>Detaljert Forklaring</h3>
+                    <ul>
+                        <li>Med verdiene <code>cover</code> eller <code>contain</code> kan du styre om mediet skal kuttes eller tilpasses helt innenfor containeren.</li>
+                    </ul>
+                    <h3>Eksempel</h3>
+                    <pre>
+img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+}
+                </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+      &copy; 2025 David 1IM1
+    </footer>
+    
+    <script src="./Javascript/script.js"></script>
+    <script>
+fetch('html-commands.json')
+  .then(response => response.json())
+  .then(data => {
+    // Tittel og tilbake-lenke
+    document.getElementById('page-title').textContent = data.title;
+    document.getElementById('back-link').innerHTML = '&larr; ' + data.back;
+
+    // Første kategori, første kommando
+    const cat = data.categories[0];
+    document.getElementById('cat-0-title').textContent = cat.name;
+    const cmd = cat.commands[0];
+    document.getElementById('cmd-0-0-syntax').textContent = cmd.syntax;
+    document.getElementById('cmd-0-0-desc').textContent = cmd.description;
+    document.getElementById('cmd-0-0-details-title').textContent = cmd.detailsTitle;
+    document.getElementById('cmd-0-0-example-title').textContent = cmd.exampleTitle;
+    document.getElementById('cmd-0-0-example').textContent = cmd.example;
+    document.getElementById('cmd-0-0-note').textContent = cmd.note || '';
+    // Fyll ut detaljer-liste
+    const ul = document.getElementById('cmd-0-0-details-list');
+    ul.innerHTML = '';
+    cmd.details.forEach(d => {
+      const li = document.createElement('li');
+      li.innerHTML = d;
+      ul.appendChild(li);
+    });
+  });
+</script>
+</body>
+</html>

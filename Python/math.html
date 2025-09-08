@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/style.css">
+    <title>Python Math Kommando Huskeliste</title>
+    <link rel="icon" href="/Bilder/math-icon.png" type="image/png">
+    <style>
+         pre {
+          background-color: #f4f4f4;
+          padding: 10px;
+          overflow-x: auto;
+        }
+        code {
+          font-family: Consolas, monospace;
+        }
+        /* Enkel styling for hamburger-menyen */
+        .hamburger-menu {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .hamburger-button {
+            font-size: 24px;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+        .menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        .menu ul li {
+            margin-right: 15px;
+        }
+        .menu ul li a {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Hamburger-meny på toppen -->
+    <div class="hamburger-menu">
+       <button class="hamburger-button" onclick="toggleHamburger()">&#9776;</button>
+       <nav class="menu" id="hamburgerNav">
+         <ul>
+            <li><a href="/Python/CustomTkinter.html">Customtkinter</a></li>
+            <li><a href="/Python/Hoved.html"><img src="/Bilder/home.png" alt="Home Icon" width="20" height="20"></a></li>
+
+         </ul>
+       </nav>
+    </div>
+    
+    <h1>Python Math Kommando Huskeliste</h1>
+    
+    <!-- Kategori: Grunnleggende Operasjoner -->
+    <div class="category">
+        <h2>Grunnleggende Operasjoner</h2>
+        
+        <div class="command">
+            <code>math.pow()</code>
+            <div class="description">Beregn potensverdier</div>
+            <div class="details">
+                <h3>Detaljert Forklaring</h3>
+                <ul>
+                    <li><code>math.pow(x, y)</code> beregner x opphøyd i y.</li>
+                </ul>
+                <h3>Eksempel</h3>
+                <pre>
+import math
+
+result = math.pow(2, 3)
+print("2 opphøyd i 3 er", result)
+                </pre>
+                <p>Denne funksjonen returnerer 8.0 som resultat.</p>
+            </div>
+        </div>
+        
+        <div class="command">
+            <code>math.gcd()</code>
+            <div class="description">Finn største felles divisor (GCD)</div>
+            <div class="details">
+                <h3>Detaljert Forklaring</h3>
+                <ul>
+                    <li><code>math.gcd(a, b)</code> returnerer den største felles divisoren til a og b.</li>
+                </ul>
+                <h3>Eksempel</h3>
+                <pre>
+import math
+
+gcd_value = math.gcd(48, 18)
+print("GCD av 48 og 18 er", gcd_value)
+                </pre>
+                <p>Resultatet vil være 6.</p>
+            </div>
+        </div>
+        
+        <div class="command">
+            <code>math.log10()</code>
+            <div class="description">Beregne logaritme med base 10</div>
+            <div class="details">
+                <h3>Detaljert Forklaring</h3>
+                <ul>
+                    <li><code>math.log10(x)</code> returnerer logaritmen til x med base 10.</li>
+                </ul>
+                <h3>Eksempel</h3>
+                <pre>
+import math
+
+log_value = math.log10(1000)
+print("Logaritmen til 1000 med base 10 er", log_value)
+                </pre>
+                <p>Returnerer 3.0.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Kategori: Avanserte Beregninger -->
+    <div class="category">
+        <h2>Avanserte Beregninger</h2>
+        
+        <div class="command">
+            <code>math.sqrt()</code>
+            <div class="description">Beregne kvadratroten</div>
+            <div class="details">
+                <h3>Detaljert Forklaring</h3>
+                <ul>
+                    <li><code>math.sqrt(x)</code> returnerer kvadratroten av x.</li>
+                </ul>
+                <h3>Eksempel</h3>
+                <pre>
+import math
+
+sqrt_value = math.sqrt(16)
+print("Kvadratroten av 16 er", sqrt_value)
+                </pre>
+                <p>Resultatet blir 4.0.</p>
+            </div>
+        </div>
+        
+        <div class="command">
+            <code>math.factorial()</code>
+            <div class="description">Beregne fakultet</div>
+            <div class="details">
+                <h3>Detaljert Forklaring</h3>
+                <ul>
+                    <li><code>math.factorial(n)</code> returnerer fakultetet til n.</li>
+                </ul>
+                <h3>Eksempel</h3>
+                <pre>
+import math
+
+fact = math.factorial(5)
+print("Fakultetet til 5 er", fact)
+                </pre>
+                <p>Returnerer 120.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Kategori: Trigonometriske Funksjoner -->
+    <div class="category">
+        <h2>Trigonometriske Funksjoner</h2>
+        
+        <div class="command">
+            <code>math.sin()</code>
+            <div class="description">Beregn sinus</div>
+            <div class="details">
+                <h3>Detaljert Forklaring</h3>
+                <ul>
+                    <li><code>math.sin(x)</code> returnerer sinusverdien til x (i radianer).</li>
+                </ul>
+                <h3>Eksempel</h3>
+                <pre>
+import math
+
+sin_value = math.sin(math.pi / 2)
+print("Sinus til pi/2 er", sin_value)
+                </pre>
+                <p>Resultatet blir 1.0.</p>
+            </div>
+        </div>
+        
+        <div class="command">
+            <code>math.cos()</code>
+            <div class="description">Beregn cosinus</div>
+            <div class="details">
+                <h3>Detaljert Forklaring</h3>
+                <ul>
+                    <li><code>math.cos(x)</code> returnerer cosinusverdien til x (i radianer).</li>
+                </ul>
+                <h3>Eksempel</h3>
+                <pre>
+import math
+
+cos_value = math.cos(0)
+print("Cosinus til 0 er", cos_value)
+                </pre>
+                <p>Returnerer 1.0.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Kategori: Konstantverdier -->
+    <div class="category">
+        <h2>Konstantverdier</h2>
+        
+        <div class="command">
+            <code>math.pi &amp; math.e</code>
+            <div class="description">Matematiske konstanter</div>
+            <div class="details">
+                <h3>Detaljert Forklaring</h3>
+                <ul>
+                    <li><code>math.pi</code> gir verdien av π.</li>
+                    <li><code>math.e</code> gir den matematiske konstanten e.</li>
+                </ul>
+                <h3>Eksempel</h3>
+                <pre>
+import math
+
+print("Verdien av pi er", math.pi)
+print("Verdien av e er", math.e)
+                </pre>
+                <p>Disse konstantene brukes ofte i matematiske beregninger.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Kategori: Andre Funksjoner -->
+    <div class="category">
+        <h2>Andre Funksjoner</h2>
+        
+        <div class="command">
+            <code>math.floor() &amp; math.ceil()</code>
+            <div class="description">Rundingsfunksjoner</div>
+            <div class="details">
+                <h3>Detaljert Forklaring</h3>
+                <ul>
+                    <li><code>math.floor(x)</code> runder ned til nærmeste heltall.</li>
+                    <li><code>math.ceil(x)</code> runder opp til nærmeste heltall.</li>
+                </ul>
+                <h3>Eksempel</h3>
+                <pre>
+import math
+
+print("Floor av 2.7 er", math.floor(2.7))
+print("Ceil av 2.7 er", math.ceil(2.7))
+                </pre>
+                <p>Denne koden demonstrerer hvordan man runder tall.</p>
+            </div>
+        </div>
+        
+        <div class="command">
+            <code>math.trunc()</code>
+            <div class="description">Fjerne desimaler</div>
+            <div class="details">
+                <h3>Detaljert Forklaring</h3>
+                <ul>
+                    <li><code>math.trunc(x)</code> fjerner desimaldelen av x uten avrunding.</li>
+                </ul>
+                <h3>Eksempel</h3>
+                <pre>
+import math
+
+print("Trunc av 2.9 er", math.trunc(2.9))
+                </pre>
+                <p>Resultatet blir 2.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Back link -->
+    <a href="/index.html" class="back-link">&larr; Tilbake</a>
+  </div>
+  
+  <footer>
+     &copy; 2025 David 1IM1
+  </footer>
+  
+  <script>
+      function toggleHamburger() {
+          var nav = document.getElementById("hamburgerNav");
+          if (nav.style.display === "block") {
+              nav.style.display = "none";
+          } else {
+              nav.style.display = "block";
+          }
+      }
+  </script>
+  <script src="/script.js"></script>
+</body>
+</html>

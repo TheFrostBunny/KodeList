@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python Kommando Huskeliste</title>
+    <link rel="stylesheet" href="/CSS/style.css" />
+    <link rel="icon" href="/Bilder/python-icon.png" type="image/png">
+    <style>
+      pre {
+        background-color: #f4f4f4;
+        padding: 10px;
+        overflow-x: auto;
+      }
+      code {
+        font-family: Consolas, monospace;
+      }
+      /* Enkel styling for hamburger-menyen */
+      .hamburger-menu {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 20px;
+      }
+      .hamburger-button {
+          font-size: 24px;
+          border: none;
+          background: none;
+          cursor: pointer;
+      }
+      .menu ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: flex;
+      }
+      .menu ul li {
+          margin-right: 15px;
+      }
+      .menu ul li a {
+          text-decoration: none;
+          color: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Hamburger-meny på toppen -->
+      <div class="hamburger-menu">
+          <button class="hamburger-button" onclick="toggleHamburger()">&#9776;</button>
+          <nav class="menu" id="hamburgerNav" style="display: none;">
+              <ul>
+                  <li><a href="/Python/CustomTkinter.html">Customtkinter</a></li>
+                  <li><a href="/Python/math.html">Math</a></li>
+              </ul>
+          </nav>
+      </div>
+      
+      <h1>Python Huskeliste</h1>
+      
+      <!-- Tilbake lenke med pil til index.html -->
+      <a href="/index.html" class="back-link">&larr; Tilbake</a>
+      
+      <!-- Kategori: Grunnleggende Variabler og Datatyper -->
+      <div class="category">
+        <h2>Grunnleggende Variabler og Datatyper</h2>
+        
+        <div class="command">
+          <code>x = 5</code>
+          <div class="description">Tildele et heltall til en variabel</div>
+          <div class="details">
+            <h3>Detaljert Forklaring</h3>
+            <ul>
+              <li><strong>x</strong> får verdien <strong>5</strong> (en integer).</li>
+            </ul>
+            <h3>Eksempel</h3>
+            <pre>
+x = 5
+print(x)
+            </pre>
+            <p>Denne syntaksen brukes til å definere og skrive ut heltallsvariabler i Python.</p>
+          </div>
+        </div>
+        
+        <div class="command">
+          <code>pi = 3.14</code>
+          <div class="description">Tildele et desimaltall (float) til en variabel</div>
+          <div class="details">
+            <h3>Detaljert Forklaring</h3>
+            <ul>
+              <li>Variabelen <strong>pi</strong> settes til verdien <strong>3.14</strong>, et flyttall.</li>
+            </ul>
+            <h3>Eksempel</h3>
+            <pre>
+pi = 3.14
+print("Verdien av pi er:", pi)
+            </pre>
+            <p>Flyttall brukes når du trenger presisjon med desimalverdier.</p>
+          </div>
+        </div>
+        
+        <div class="command">
+          <code>melding = "Hei, verden!"</code>
+          <div class="description">Definere en streng (str)</div>
+          <div class="details">
+            <h3>Detaljert Forklaring</h3>
+            <ul>
+              <li>Setter variabelen <strong>melding</strong> til en tekstverdi.</li>
+            </ul>
+            <h3>Eksempel</h3>
+            <pre>
+melding = "Hei, verden!"
+print(melding)
+            </pre>
+            <p>Strenger brukes for tekstlig data i Python.</p>
+          </div>
+        </div>
+        
+        <div class="command">
+          <code>active = True</code>
+          <div class="description">Definere en boolsk verdi</div>
+          <div class="details">
+            <h3>Detaljert Forklaring</h3>
+            <ul>
+              <li>Variabelen <strong>active</strong> settes til enten <strong>True</strong> eller <strong>False</strong>.</li>
+            </ul>
+            <h3>Eksempel</h3>
+            <pre>
+active = True
+print("Er aktiv:", active)
+            </pre>
+            <p>Boolske verdier brukes for logiske tester og betinget utførelse.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Kategori: Datastrukturer og Kontrollstrukturer -->
+      <div class="category">
+        <h2>Datastrukturer og Kontrollstrukturer</h2>
+        
+        <div class="command">
+          <code>frukter = ["eple", "banan", "cherry"]</code>
+          <div class="description">Opprette en liste</div>
+          <div class="details">
+            <h3>Detaljert Forklaring</h3>
+            <ul>
+              <li>En liste er en ordnet og endringsbar samling av elementer.</li>
+            </ul>
+            <h3>Eksempel</h3>
+            <pre>
+frukter = ["eple", "banan", "cherry"]
+print(frukter)
+            </pre>
+            <p>Lister er nyttige for å lagre grupper av data under ett navn.</p>
+          </div>
+        </div>
+        
+        <div class="command">
+          <code>if ... elif ... else</code>
+          <div class="description">Beslutningsstrukturer</div>
+          <div class="details">
+            <h3>Detaljert Forklaring</h3>
+            <ul>
+              <li>Lager en betinget blokk som utfører kode basert på ulike tilstander.</li>
+            </ul>
+            <h3>Eksempel</h3>
+            <pre>
+alder = 20
+if alder >= 18:
+    print("Voksen")
+else:
+    print("Ikke voksen")
+            </pre>
+            <p>Denne strukturen er essensiell for å lage dynamiske programmer.</p>
+          </div>
+        </div>
+        
+        <div class="command">
+          <code>for frukt in frukter:</code>
+          <div class="description">For-løkke for iterasjon</div>
+          <div class="details">
+            <h3>Detaljert Forklaring</h3>
+            <ul>
+              <li>Itererer over hvert element i en liste.</li>
+            </ul>
+            <h3>Eksempel</h3>
+            <pre>
+for frukt in frukter:
+    print(frukt)
+            </pre>
+            <p>For-løkker lar deg behandle alle elementer i en sekvens.</p>
+          </div>
+        </div>
+        
+        <div class="command">
+          <code>while teller &lt; 3:</code>
+          <div class="description">While-løkke</div>
+          <div class="details">
+            <h3>Detaljert Forklaring</h3>
+            <ul>
+              <li>Utfører en blokk med kode så lenge en betingelse er sann.</li>
+            </ul>
+            <h3>Eksempel</h3>
+            <pre>
+teller = 0
+while teller < 3:
+    print("Teller:", teller)
+    teller += 1
+            </pre>
+            <p>While-løkker er nyttige når antall iterasjoner ikke er forhåndsbestemt.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Kategori: Funksjoner og Lambda -->
+      <div class="category">
+        <h2>Funksjoner og Lambda</h2>
+        
+        <div class="command">
+          <code>def hils(navn):</code>
+          <div class="description">Definere en funksjon</div>
+          <div class="details">
+            <h3>Detaljert Forklaring</h3>
+            <ul>
+              <li>Funksjoner defineres med nøkkelordet <strong>def</strong> og kan ta imot parametere.</li>
+            </ul>
+            <h3>Eksempel</h3>
+            <pre>
+def hils(navn):
+    return "Hei " + navn
+
+print(hils("Verden"))
+            </pre>
+            <p>Funksjoner bidrar til å organisere og gjenbruke kode.</p>
+          </div>
+        </div>
+        
+        <div class="command">
+          <code>lambda x: x * 2</code>
+          <div class="description">Lambda-funksjon for enkle uttrykk</div>
+          <div class="details">
+            <h3>Detaljert Forklaring</h3>
+            <ul>
+              <li>Lambda-funksjoner er anonyme funksjoner for kortsiktige operasjoner.</li>
+            </ul>
+            <h3>Eksempel</h3>
+            <pre>
+dobbel = lambda x: x * 2
+print(dobbel(5))
+            </pre>
+            <p>Denne syntaksen er nyttig når funksjonen er enkel og brukes en gang.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Kategori: Klasser og Objekter -->
+      <div class="category">
+        <h2>Klasser og Objekter</h2>
+        
+        <div class="command">
+          <code>class Person:</code>
+          <div class="description">Definere en klasse</div>
+          <div class="details">
+            <h3>Detaljert Forklaring</h3>
+            <ul>
+              <li>Klasser benyttes i objektorientert programmering for å modellere objekter.</li>
+              <li>Konstruktøren <code>__init__</code> initialiserer klasseattributter.</li>
+            </ul>
+            <h3>Eksempel</h3>
+            <pre>
+class Person:
+    def __init__(self, navn, alder):
+        self.navn = navn
+        self.alder = alder
+
+    def hils(self):
+        return "Hei, jeg heter " + self.navn
+
+p = Person("Kari", 30)
+print(p.hils())
+            </pre>
+            <p>Objektorientert programmering gir en strukturert tilnærming til koding.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Kategori: Feilhåndtering og Moduler -->
+      <div class="category">
+        <h2>Feilhåndtering og Moduler</h2>
+        
+        <div class="command">
+          <code>try ... except</code>
+          <div class="description">Håndtere unntak</div>
+          <div class="details">
+            <h3>Detaljert Forklaring</h3>
+            <ul>
+              <li><strong>try</strong> brukes for å teste kode som kan kaste unntak, og <strong>except</strong> håndterer feilen.</li>
+            </ul>
+            <h3>Eksempel</h3>
+            <pre>
+try:
+    resultat = 10 / 0
+except ZeroDivisionError:
+    print("Kan ikke dele med null!")
+            </pre>
+            <p>Bruk feilhåndtering for å gjøre programmene dine sikrere og mer robuste.</p>
+          </div>
+        </div>
+        
+        <div class="command">
+          <code>import math</code>
+          <div class="description">Importere en modul</div>
+          <div class="details">
+            <h3>Detaljert Forklaring</h3>
+            <ul>
+              <li>Moduler gir deg tilgang til ekstra funksjonalitet utenfor standardbiblioteket.</li>
+            </ul>
+            <h3>Eksempel</h3>
+            <pre>
+import math
+print("Kvadratroten av 9 er", math.sqrt(9))
+            </pre>
+            <p>Ved å importere moduler kan du utvide Python-programmenes funksjonalitet.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Kategori: Dokumentasjon -->
+      <div class="category">
+        <h2>Dokumentasjon</h2>
+        
+        <div class="command">
+          <code>""" Docstring """</code>
+          <div class="description">Bruk av docstrings</div>
+          <div class="details">
+            <h3>Detaljert Forklaring</h3>
+            <ul>
+              <li>Docstrings benyttes for å dokumentere moduler, funksjoner og klasser i koden.</li>
+              <li>Følg PEP 257 for konsistente dokumentasjonsstandarder.</li>
+            </ul>
+            <h3>Eksempel</h3>
+            <pre>
+def legg_sammen(a, b):
+    """
+    Legger sammen to tall.
+    
+    Parametere:
+        a (int/float): Første tall.
+        b (int/float): Andre tall.
+    
+    Returnerer:
+        int/float: Summen av a og b.
+    """
+    return a + b
+            </pre>
+            <p>God dokumentasjon gjør koden enklere å forstå og vedlikeholde.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <footer>
+       &copy; 2025 David 1IM1
+    </footer>
+    
+    <script>
+      function toggleHamburger() {
+          var nav = document.getElementById("hamburgerNav");
+          if (nav.style.display === "block") {
+              nav.style.display = "none";
+          } else {
+              nav.style.display = "block";
+          }
+      }
+    </script>
+    <script src="/script.js"></script>
+  </body>
+</html>
