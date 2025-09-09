@@ -1,0 +1,211 @@
+{
+  "categories": [
+    {
+      "name": "Grunnleggende",
+      "commands": [
+        {
+          "syntax": "git init",
+          "description": "Oppretter et nytt git-repositorium",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>git init:</strong> Initialiserer et nytt, tomt git-repo i gjeldende mappe."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "git init",
+          "note": "Brukes første gang du vil begynne å versjonere et prosjekt."
+        },
+        {
+          "syntax": "git clone <url>",
+          "description": "Kopierer et eksternt repo til din maskin",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>git clone:</strong> Laster ned hele repoet fra en ekstern kilde (f.eks. GitHub)."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "git clone https://github.com/bruker/prosjekt.git",
+          "note": "Du får en lokal kopi av repoet med all historikk."
+        },
+        {
+          "syntax": "git status",
+          "description": "Viser status for endringer i repoet",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>git status:</strong> Viser hvilke filer som er endret, lagt til eller klare for commit."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "git status",
+          "note": "Gir deg oversikt over arbeidsområdet ditt."
+        },
+        {
+          "syntax": "git add <fil>",
+          "description": "Legger til fil(er) i staging-området",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>git add:</strong> Forbereder endringer for commit."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "git add index.html",
+          "note": "Endringene i index.html blir klare for commit."
+        },
+        {
+          "syntax": "git commit -m \"Melding\"",
+          "description": "Lagrer endringer med en beskrivende melding",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>git commit:</strong> Lagrer snapshot av endringene i repoet."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "git commit -m \"La til ny funksjon\"",
+          "note": "Bruk alltid en kort og beskrivende commit-melding."
+        },
+        {
+          "syntax": "git log",
+          "description": "Viser commit-historikken",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>git log:</strong> Viser en liste over tidligere commits."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "git log",
+          "note": "Gir deg oversikt over hvem som har gjort hva og når."
+        }
+      ]
+    },
+    {
+      "name": "Branch",
+      "commands": [
+        {
+          "syntax": "git branch",
+          "description": "Lister alle grener",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>git branch:</strong> Viser alle grener i repoet og markerer den aktive."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "git branch",
+          "note": "Brukes for å se hvilke grener som finnes."
+        },
+        {
+          "syntax": "git checkout <gren>",
+          "description": "Bytter til en annen gren",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>git checkout:</strong> Bytter arbeidsområdet til valgt gren."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "git checkout feature-login",
+          "note": "Du kan nå jobbe på en annen funksjon uten å påvirke main."
+        },
+        {
+          "syntax": "git merge <gren>",
+          "description": "Slår sammen en gren inn i aktiv gren",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>git merge:</strong> Kombinerer endringer fra en annen gren inn i den du står på."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "git merge feature-login",
+          "note": "Endringene fra feature-login blir lagt til i aktiv gren."
+        },
+        {
+          "syntax": "git branch -d <gren>",
+          "description": "Sletter en gren",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>git branch -d:</strong> Sletter en lokal gren etter at den er ferdig."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "git branch -d feature-login",
+          "note": "Rydd opp etter at en funksjon er ferdig og merget."
+        }
+      ]
+    },
+    {
+      "name": "Remote",
+      "commands": [
+        {
+          "syntax": "git remote -v",
+          "description": "Viser eksterne repo-URLer",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>git remote -v:</strong> Viser hvilke eksterne repoer som er koblet til."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "git remote -v",
+          "note": "Gir deg oversikt over hvor du kan pushe og hente fra."
+        },
+        {
+          "syntax": "git push",
+          "description": "Laster opp endringer til eksternt repo",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>git push:</strong> Sender dine commits til f.eks. GitHub."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "git push origin main",
+          "note": "Endringene dine blir tilgjengelige for andre."
+        },
+        {
+          "syntax": "git pull",
+          "description": "Henter og slår sammen endringer fra eksternt repo",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>git pull:</strong> Henter nye commits og oppdaterer din lokale gren."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "git pull origin main",
+          "note": "Hold ditt repo oppdatert med andres endringer."
+        },
+        {
+          "syntax": "git fetch",
+          "description": "Henter endringer fra eksternt repo uten å slå dem sammen",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>git fetch:</strong> Laster ned nye commits, men endrer ikke arbeidsområdet ditt."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "git fetch origin",
+          "note": "Brukes for å se hva som har skjedd eksternt før du eventuelt merger."
+        }
+      ]
+    },
+    {
+      "name": "Andre",
+      "commands": [
+        {
+          "syntax": "git diff",
+          "description": "Viser forskjeller mellom filer og commits",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>git diff:</strong> Viser endringer som ikke er staged eller committed."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "git diff",
+          "note": "Se hva som er endret før du committer."
+        },
+        {
+          "syntax": "git stash",
+          "description": "Lagrer midlertidig endringer for senere bruk",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>git stash:</strong> Lagrer endringer som ikke er klare for commit, slik at du kan bytte gren."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "git stash",
+          "note": "Hent dem tilbake med git stash pop."
+        },
+        {
+          "syntax": "git reset --hard",
+          "description": "Tilbakestiller repoet til siste commit",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>git reset --hard:</strong> Forkaster alle lokale endringer."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "git reset --hard",
+          "note": "ADVARSEL: Endringer som ikke er commitet forsvinner!"
+        }
+      ]
+    }
+  ]
+}

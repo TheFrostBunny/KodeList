@@ -1,0 +1,404 @@
+{
+  "categories": [
+    {
+      "name": "Velgelementer (Selectors)",
+      "commands": [
+        {
+          "syntax": "*",
+          "description": "Universalvelger – velger alle elementer",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Velger alle elementer på siden."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "* {\n    margin: 0;\n    padding: 0;\n}"
+        },
+        {
+          "syntax": "element",
+          "description": "Velger alle forekomster av et spesifikt HTML-element (f.eks. p eller h1)",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Når du angir et elementnavn, anvendes stilen på alle slike elementer."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "p {\n    font-size: 16px;\n}"
+        },
+        {
+          "syntax": ".klasse",
+          "description": "Velger alle elementer med en bestemt klasse",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Brukes for å gjenbruke stiler på flere elementer."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": ".button {\n    background-color: blue;\n    color: white;\n}"
+        },
+        {
+          "syntax": "#id",
+          "description": "Velger et unikt element med et spesifikt ID",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "ID skal være unike for hvert element."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "#header {\n    background-color: #f0f0f0;\n}"
+        },
+        {
+          "syntax": "element, element2",
+          "description": "Velger flere elementer samtidig",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Kombinerer flere selektorer for å gi samme stil til flere elementer."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "h1, h2 {\n    color: darkblue;\n}"
+        },
+        {
+          "syntax": "element element2",
+          "description": "Velger element2 inne i element",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Velger alle element2 som ligger inne i element."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "nav a {\n    color: green;\n}"
+        }
+      ]
+    },
+    {
+      "name": "Grunnleggende Egenskaper",
+      "commands": [
+        {
+          "syntax": "color",
+          "description": "Angir tekstfarge",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Farge kan angis med navn, hex-verdier, RGB eller RGBA."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "h1 {\n    color: #9b4da3;\n}"
+        },
+        {
+          "syntax": "background-color",
+          "description": "Angir bakgrunnsfarge",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Sørger for at elementet får ønsket bakgrunn."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "body {\n    background-color: #f8f0f9;\n}"
+        },
+        {
+          "syntax": "font-size",
+          "description": "Angir tekststørrelse",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Størrelsen kan spesifiseres i px, em, rem, % osv."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "p {\n    font-size: 16px;\n}"
+        },
+        {
+          "syntax": "margin",
+          "description": "Angir ytre avstand",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Kan settes med én, to, tre eller fire verdier."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": ".section {\n    margin: 20px;\n}"
+        },
+        {
+          "syntax": "padding",
+          "description": "Angir indre avstand",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Lager mellomrom mellom innhold og kantlinje."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": ".button {\n    padding: 10px 15px;\n}"
+        },
+        {
+          "syntax": "border",
+          "description": "Angir kantlinje rundt elementet",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Setter tykkelse, stil og farge på kantlinjen."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "div {\n    border: 2px solid black;\n}"
+        }
+      ]
+    },
+    {
+      "name": "Layout og Display",
+      "commands": [
+        {
+          "syntax": "display",
+          "description": "Angir elementets visningsmodus, f.eks. block, inline eller flex",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Kontrollerer hvordan elementer og deres barn plasseres i layouten."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "nav {\n    display: flex;\n    justify-content: space-around;\n}"
+        },
+        {
+          "syntax": "position",
+          "description": "Setter posisjoneringen (static, relative, absolute, fixed, sticky)",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Brukes til å plassere elementer nøyaktig der du ønsker."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": ".tooltip {\n    position: absolute;\n    top: 50px;\n    left: 100px;\n}"
+        },
+        {
+          "syntax": "flex-direction",
+          "description": "Angir retningen for elementer i en fleksbeholder (row eller column)",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Endrer rekkefølgen på fleks-elementer."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": ".container {\n    display: flex;\n    flex-direction: column;\n}"
+        },
+        {
+          "syntax": "justify-content",
+          "description": "Justerer innholdet horisontalt i flex-container",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Brukes sammen med display: flex for å styre plassering av barn."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": ".container {\n    display: flex;\n    justify-content: center;\n}"
+        },
+        {
+          "syntax": "align-items",
+          "description": "Justerer innholdet vertikalt i flex-container",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Brukes sammen med display: flex for å styre vertikal plassering."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": ".container {\n    display: flex;\n    align-items: center;\n}"
+        }
+      ]
+    },
+    {
+      "name": "Media Queries",
+      "commands": [
+        {
+          "syntax": "@media (max-width: 600px)",
+          "description": "Tilpasser design for mindre skjermer",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Brukes for å lage responsive design."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "@media (max-width: 600px) {\n    body {\n        background-color: lightgray;\n    }\n}"
+        }
+      ]
+    },
+    {
+      "name": "CSS Animasjoner",
+      "commands": [
+        {
+          "syntax": "@keyframes",
+          "description": "Definerer animasjonssekvenser",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Setter opp rammer for en animasjon, som kan brukes med animation-egenskapen."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "@keyframes fadeIn {\n    from { opacity: 0; }\n    to   { opacity: 1; }\n}\n\n.element {\n    animation: fadeIn 2s ease-in;\n}"
+        },
+        {
+          "syntax": "transition",
+          "description": "Lager myke overganger mellom tilstander",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Brukes for å animere endringer i CSS-egenskaper."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": ".button {\n    transition: background 0.3s;\n}\n.button:hover {\n    background: orange;\n}"
+        }
+      ]
+    },
+    {
+      "name": "Pseudo-klasser og -elementer",
+      "commands": [
+        {
+          "syntax": ":hover",
+          "description": "Stil når musen er over elementet",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Brukes for å endre stil på elementer når de hovres."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "a:hover {\n    color: red;\n}"
+        },
+        {
+          "syntax": "::after",
+          "description": "Setter innhold etter et element",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Lar deg legge til dekorativt innhold etter et element."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "h1::after {\n    content: \"✨\";\n}"
+        }
+      ]
+    },
+    {
+      "name": "Grid & Flexbox",
+      "commands": [
+        {
+          "syntax": "display: grid",
+          "description": "Aktiverer CSS Grid layout",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Brukes for å lage avanserte rutenett-oppsett."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": ".container {\n    display: grid;\n    grid-template-columns: 1fr 2fr;\n}"
+        },
+        {
+          "syntax": "grid-column",
+          "description": "Bestemmer hvor mange kolonner et element skal spenne over",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Brukes i grid-container for å styre plassering."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": ".item {\n    grid-column: 1 / 3;\n}"
+        }
+      ]
+    },
+    {
+      "name": "Variabler",
+      "commands": [
+        {
+          "syntax": "--navn: verdi;",
+          "description": "Definerer en CSS-variabel",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Variabler gjør det enkelt å gjenbruke verdier."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": ":root {\n    --hovedfarge: #4da3ff;\n}\n\n.button {\n    background: var(--hovedfarge);\n}"
+        }
+      ]
+    },
+    {
+      "name": "Border & Shadow",
+      "commands": [
+        {
+          "syntax": "box-shadow",
+          "description": "Legger skygge rundt elementet",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Gir dybde og effekt til bokser."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": ".kort {\n    box-shadow: 0 4px 8px rgba(0,0,0,0.2);\n}"
+        },
+        {
+          "syntax": "border-radius",
+          "description": "Runder hjørnene på elementet",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Brukes for å lage avrundede hjørner."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "img {\n    border-radius: 50%;\n}"
+        }
+      ]
+    },
+    {
+      "name": "Filter",
+      "commands": [
+        {
+          "syntax": "filter: blur(5px)",
+          "description": "Legger til uskarphet på et element",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Kan brukes for å lage visuelle effekter."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "img {\n    filter: blur(5px);\n}"
+        }
+      ]
+    },
+    {
+      "name": "Typografi",
+      "commands": [
+        {
+          "syntax": "font-family",
+          "description": "Angir skrifttype",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Bestemmer hvilken font som brukes."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "body {\n    font-family: Arial, sans-serif;\n}"
+        },
+        {
+          "syntax": "font-weight",
+          "description": "Angir tykkelse på tekst",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Vanlige verdier: normal, bold, 100–900."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "h1 {\n    font-weight: bold;\n}"
+        }
+      ]
+    },
+    {
+      "name": "Bakgrunn",
+      "commands": [
+        {
+          "syntax": "background-image",
+          "description": "Setter bakgrunnsbilde",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Brukes for å legge til bilder som bakgrunn."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "body {\n    background-image: url('bilde.jpg');\n}"
+        }
+      ]
+    },
+    {
+      "name": "Box Model",
+      "commands": [
+        {
+          "syntax": "box-sizing: border-box",
+          "description": "Inkluderer padding og border i elementets totale bredde/høyde",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Gjør det enklere å kontrollere størrelsen på elementer."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "* {\n    box-sizing: border-box;\n}"
+        }
+      ]
+    },
+    {
+      "name": "Effekter",
+      "commands": [
+        {
+          "syntax": "opacity",
+          "description": "Angir gjennomsiktighet",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Verdi fra 0 (helt gjennomsiktig) til 1 (helt synlig)."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": ".usynlig {\n    opacity: 0.5;\n}"
+        }
+      ]
+    }
+  ]
+}
