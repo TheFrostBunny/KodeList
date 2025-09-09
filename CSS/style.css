@@ -115,20 +115,21 @@ h1 {
 }
 
 .youtube-container {
-    background-color: white;
+    background-color: #1E2129;
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     text-align: center;
     margin-top: 40px;
     border: 1px solid #E6C0E9;
-    max-width: 1000px;
+    max-width: 1200px;      /* Økt fra 1000px */
+    width: 90%;             /* Responsiv bredde */
     margin-left: auto;
     margin-right: auto;
 }
 
 .youtube-container h2 {
-    color: #9b4da3;
+    color: #4583CD;
     font-size: 1.5em;
     margin-bottom: 15px;
     border-bottom: 2px solid #E6C0E9;
@@ -137,10 +138,16 @@ h1 {
 }
 
 .youtube-container iframe {
-    max-width: 100%;
+    width: 100%;
+    max-width: 900px;       /* Videoen blir ikke for bred */
+    aspect-ratio: 16/9;     /* Holder riktig proporsjon */
+    height: auto;
     border-radius: 8px;
     margin-bottom: 30px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .copy-btn {
@@ -172,3 +179,15 @@ footer {
     font-size: 0.9em;
     display: inline-block;
 }
+
+@media (min-width: 1400px) {
+    .youtube-container {
+        max-width: 1400px;
+        padding: 50px;
+    }
+    .youtube-container iframe {
+        max-width: 1200px;
+    }
+}
+
+

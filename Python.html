@@ -14,6 +14,8 @@
     <select id="lib-select">
         <option value="alle">Alle</option>
         <option value="standard">Standard</option>
+        <option value="Tkinter">tkinter</option>
+        <option value="Customtkinter">customtkinter</option>
         <option value="os">os</option>
         <option value="sys">sys</option>
         <option value="math">math</option>
@@ -36,10 +38,10 @@ fetch('./Lister/Python.json')
 
         // Hjelpefunksjon for å finne bibliotek for en kategori eller kommando
         function getCategoryLibrary(cat) {
-            // Hvis kategori-navn matcher et bibliotek
-            const libs = ['os','sys','math','random','requests','pandas','numpy'];
+            // Matcher eksakt navn eller laverecased navn
+            const libs = ['os','sys','math','random','requests','pandas','numpy', "customtkinter", "tkinter"];
             for (const lib of libs) {
-                if (cat.name.toLowerCase().includes(lib)) return lib;
+                if (cat.name && cat.name.toLowerCase() === lib) return lib;
             }
             return 'standard';
         }

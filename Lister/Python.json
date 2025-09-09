@@ -75,174 +75,174 @@
         }
       ]
     },
-          {
-            "name": "Strenger",
-            "commands": [
-              {
-                "syntax": "tekst.lower()",
-                "description": "Gjør alle bokstaver små",
-                "detailsTitle": "Detaljert Forklaring",
-                "details": [
-                  "<strong>lower()</strong>: Returnerer en kopi av strengen med små bokstaver."
-                ],
-                "exampleTitle": "Eksempel",
-                "example": "navn = 'OLA'\nprint(navn.lower())  # 'ola'"
-              },
-              {
-                "syntax": "tekst.upper()",
-                "description": "Gjør alle bokstaver store",
-                "detailsTitle": "Detaljert Forklaring",
-                "details": [
-                  "<strong>upper()</strong>: Returnerer en kopi av strengen med store bokstaver."
-                ],
-                "exampleTitle": "Eksempel",
-                "example": "navn = 'ola'\nprint(navn.upper())  # 'OLA'"
-              },
-              {
-                "syntax": "tekst.replace('gammel', 'ny')",
-                "description": "Bytter ut tekst i en streng",
-                "detailsTitle": "Detaljert Forklaring",
-                "details": [
-                  "<strong>replace()</strong>: Returnerer en ny streng der alle forekomster av 'gammel' er byttet ut med 'ny'."
-                ],
-                "exampleTitle": "Eksempel",
-                "example": "tekst = 'hei verden'\nny = tekst.replace('hei', 'hallo')\nprint(ny)  # 'hallo verden'"
-              },
-              {
-                "syntax": "tekst.split(',')",
-                "description": "Deler en streng i en liste",
-                "detailsTitle": "Detaljert Forklaring",
-                "details": [
-                  "<strong>split()</strong>: Deler strengen ved komma og returnerer en liste med delene."
-                ],
-                "exampleTitle": "Eksempel",
-                "example": "tekst = 'a,b,c'\nliste = tekst.split(',')\nprint(liste)  # ['a', 'b', 'c']"
-              },
-              {
-                "syntax": "tekst.strip()",
-                "description": "Fjerner mellomrom i starten og slutten av strengen",
-                "detailsTitle": "Detaljert Forklaring",
-                "details": [
-                  "<strong>strip()</strong>: Fjerner ledende og etterfølgende mellomrom."
-                ],
-                "exampleTitle": "Eksempel",
-                "example": "tekst = '  hei  '\nprint(tekst.strip())  # 'hei'"
-              },
-              {
-                "syntax": "len(tekst)",
-                "description": "Gir lengden på strengen",
-                "detailsTitle": "Detaljert Forklaring",
-                "details": [
-                  "<strong>len()</strong>: Returnerer antall tegn i strengen."
-                ],
-                "exampleTitle": "Eksempel",
-                "example": "tekst = 'hei'\nprint(len(tekst))  # 3"
-              }
-            ]
-          },
-          {
-            "name": "Dictionaries",
-            "commands": [
-              {
-                "syntax": "d = {'a': 1, 'b': 2}"
-                ,"description": "Oppretter en dictionary (ordbok)",
-                "detailsTitle": "Detaljert Forklaring",
-                "details": [
-                  "En dictionary lagrer nøkkel-verdi-par."
-                ],
-                "exampleTitle": "Eksempel",
-                "example": "d = {'navn': 'Ola', 'alder': 20}\nprint(d['navn'])  # 'Ola'"
-              },
-              {
-                "syntax": "d.keys()",
-                "description": "Gir alle nøklene i ordboken",
-                "detailsTitle": "Detaljert Forklaring",
-                "details": [
-                  "<strong>keys()</strong>: Returnerer en liste over alle nøklene."
-                ],
-                "exampleTitle": "Eksempel",
-                "example": "d = {'a': 1, 'b': 2}\nprint(list(d.keys()))  # ['a', 'b']"
-              },
-              {
-                "syntax": "d.values()",
-                "description": "Gir alle verdiene i ordboken",
-                "detailsTitle": "Detaljert Forklaring",
-                "details": [
-                  "<strong>values()</strong>: Returnerer en liste over alle verdiene."
-                ],
-                "exampleTitle": "Eksempel",
-                "example": "d = {'a': 1, 'b': 2}\nprint(list(d.values()))  # [1, 2]"
-              }
-            ]
-          },
-          {
-            "name": "Kontrollstrukturer",
-            "commands": [
-              {
-                "syntax": "if betingelse",
-                "name": "Funksjoner",
-                "description": "Enkel if-test",
-                "detailsTitle": "Detaljert Forklaring",
-                "details": [
-                  "<strong>if</strong>: Kjører koden kun hvis betingelsen er sann."
-                ],
-                "exampleTitle": "Eksempel",
-                "example": "x = 5\nif x > 0:\n    print('Positiv')"
-              },
-              {
-                "syntax": "for element in sekvens",
-                "commands": [
-                {
-                "description": "For-løkke over en sekvens",
-                "detailsTitle": "Detaljert Forklaring",
-                "details": [
-                  "<strong>for</strong>: Går gjennom alle elementene i en sekvens (liste, streng, etc.)."
-                ],
-                "exampleTitle": "Eksempel",
-                "example": "for bokstav in 'abc':\n    print(bokstav)"
-                }
-                ]
-              },
-              {
-                "syntax": "while betingelse",
-                "description": "While-løkke",
-                "detailsTitle": "Detaljert Forklaring",
-                "details": [
-                  "<strong>while</strong>: Gjentar koden så lenge betingelsen er sann."
-                ],
-                "exampleTitle": "Eksempel",
-                "example": "i = 0\nwhile i < 3:\n    print(i)\n    i += 1"
-              }
-            ]
-            },
-            {
-              "name": "Funksjoner",
-              "commands": [
-                {
-                  "syntax": "def funksjon_navn():\n    # kode her",
-                  "description": "Definerer en funksjon uten parametere",
-                  "detailsTitle": "Detaljert Forklaring",
-                  "details": [
-                    "<strong>def</strong>: Nøkkelord for å definere en funksjon."
-                  ],
-                  "exampleTitle": "Eksempel",
-                  "example": "def si_hei():\n    print('Hei!')\nsi_hei()  # Hei!"
-                },
-                {
-          "syntax": "def funksjon_navn(param1, param2):\n    # kode her",
-          "description": "Definerer en funksjon med parametere",
+    {
+      "name": "Strenger",
+      "commands": [
+        {
+          "syntax": "tekst.lower()",
+          "description": "Gjør alle bokstaver små",
           "detailsTitle": "Detaljert Forklaring",
           "details": [
-            "<strong>def</strong>: Nøkkelord for å definere en funksjon.",
-            "<strong>parametere</strong>: Variabler som funksjonen tar inn."
+            "<strong>lower()</strong>: Returnerer en kopi av strengen med små bokstaver."
           ],
           "exampleTitle": "Eksempel",
-          "example": "def legg_til(a, b):\n    return a + b\nprint(legg_til(2, 3))  # 5"
+          "example": "navn = 'OLA'\nprint(navn.lower())  # 'ola'"
+        },
+        {
+          "syntax": "tekst.upper()",
+          "description": "Gjør alle bokstaver store",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>upper()</strong>: Returnerer en kopi av strengen med store bokstaver."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "navn = 'ola'\nprint(navn.upper())  # 'OLA'"
+        },
+        {
+          "syntax": "tekst.replace('gammel', 'ny')",
+          "description": "Bytter ut tekst i en streng",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>replace()</strong>: Returnerer en ny streng der alle forekomster av 'gammel' er byttet ut med 'ny'."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "tekst = 'hei verden'\nny = tekst.replace('hei', 'hallo')\nprint(ny)  # 'hallo verden'"
+        },
+        {
+          "syntax": "tekst.split(',')",
+          "description": "Deler en streng i en liste",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>split()</strong>: Deler strengen ved komma og returnerer en liste med delene."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "tekst = 'a,b,c'\nliste = tekst.split(',')\nprint(liste)  # ['a', 'b', 'c']"
+        },
+        {
+          "syntax": "tekst.strip()",
+          "description": "Fjerner mellomrom i starten og slutten av strengen",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>strip()</strong>: Fjerner ledende og etterfølgende mellomrom."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "tekst = '  hei  '\nprint(tekst.strip())  # 'hei'"
+        },
+        {
+          "syntax": "len(tekst)",
+          "description": "Gir lengden på strengen",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>len()</strong>: Returnerer antall tegn i strengen."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "tekst = 'hei'\nprint(len(tekst))  # 3"
         }
       ]
-    }
-  ],
-  "name": "math",
+    },
+    {
+      "name": "Dictionaries",
+      "commands": [
+        {
+          "syntax": "d = {'a': 1, 'b': 2}"
+          ,"description": "Oppretter en dictionary (ordbok)",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "En dictionary lagrer nøkkel-verdi-par."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "d = {'navn': 'Ola', 'alder': 20}\nprint(d['navn'])  # 'Ola'"
+        },
+        {
+          "syntax": "d.keys()",
+          "description": "Gir alle nøklene i ordboken",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>keys()</strong>: Returnerer en liste over alle nøklene."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "d = {'a': 1, 'b': 2}\nprint(list(d.keys()))  # ['a', 'b']"
+        },
+        {
+          "syntax": "d.values()",
+          "description": "Gir alle verdiene i ordboken",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>values()</strong>: Returnerer en liste over alle verdiene."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "d = {'a': 1, 'b': 2}\nprint(list(d.values()))  # [1, 2]"
+        }
+      ]
+    },
+    {
+      "name": "Kontrollstrukturer",
+      "commands": [
+        {
+          "syntax": "if betingelse",
+          "name": "Funksjoner",
+          "description": "Enkel if-test",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>if</strong>: Kjører koden kun hvis betingelsen er sann."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "x = 5\nif x > 0:\n    print('Positiv')"
+        },
+        {
+          "syntax": "for element in sekvens",
+          "commands": [
+          {
+          "description": "For-løkke over en sekvens",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>for</strong>: Går gjennom alle elementene i en sekvens (liste, streng, etc.)."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "for bokstav in 'abc':\n    print(bokstav)"
+          }
+          ]
+        },
+        {
+          "syntax": "while betingelse",
+          "description": "While-løkke",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>while</strong>: Gjentar koden så lenge betingelsen er sann."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "i = 0\nwhile i < 3:\n    print(i)\n    i += 1"
+        }
+      ]
+      },
+      {
+        "name": "Funksjoner",
+        "commands": [
+          {
+            "syntax": "def funksjon_navn():\n    # kode her",
+            "description": "Definerer en funksjon uten parametere",
+            "detailsTitle": "Detaljert Forklaring",
+            "details": [
+              "<strong>def</strong>: Nøkkelord for å definere en funksjon."
+            ],
+            "exampleTitle": "Eksempel",
+            "example": "def si_hei():\n    print('Hei!')\nsi_hei()  # Hei!"
+          },
+          {
+    "syntax": "def funksjon_navn(param1, param2):\n    # kode her",
+    "description": "Definerer en funksjon med parametere",
+    "detailsTitle": "Detaljert Forklaring",
+    "details": [
+      "<strong>def</strong>: Nøkkelord for å definere en funksjon.",
+      "<strong>parametere</strong>: Variabler som funksjonen tar inn."
+    ],
+    "exampleTitle": "Eksempel",
+    "example": "def legg_til(a, b):\n    return a + b\nprint(legg_til(2, 3))  # 5"
+}
+]
+},
+{
+  "name": "Math",
   "commands": [
     {
       "syntax": "import math",
@@ -344,5 +344,117 @@
       "exampleTitle": "Eksempel",
       "example": "import math\nprint(math.degrees(math.pi))  # 180.0"
     }
+  ]
+},
+{
+  "name": "Tkinter",
+  "commands": [
+    {
+      "syntax": "import tkinter as tk",
+      "description": "Importerer tkinter-biblioteket",
+      "detailsTitle": "Detaljert Forklaring",
+      "details": [
+        "<strong>import tkinter as tk</strong>: Gjør alle funksjoner i tkinter tilgjengelig med aliaset tk."
+      ],
+      "exampleTitle": "Eksempel",
+      "example": "import tkinter as tk\nroot = tk.Tk()\nroot.mainloop()"
+    },
+    {
+      "syntax": "tk.Tk()",
+      "description": "Oppretter hovedvinduet",
+      "detailsTitle": "Detaljert Forklaring",
+      "details": [
+        "<strong>Tk()</strong>: Lager et nytt hovedvindu for applikasjonen."
+      ],
+      "exampleTitle": "Eksempel",
+      "example": "root = tk.Tk()"
+    },
+    {
+      "syntax": "tk.Label(root, text='Hei')",
+      "description": "Lager en tekstetikett",
+      "detailsTitle": "Detaljert Forklaring",
+      "details": [
+        "<strong>Label</strong>: Viser tekst i vinduet."
+      ],
+      "exampleTitle": "Eksempel",
+      "example": "label = tk.Label(root, text='Hei')\nlabel.pack()"
+    },
+    {
+      "syntax": "tk.Button(root, text='Klikk', command=funksjon)",
+      "description": "Lager en knapp",
+      "detailsTitle": "Detaljert Forklaring",
+      "details": [
+        "<strong>Button</strong>: Lager en knapp som kan utføre en funksjon når den trykkes."
+      ],
+      "exampleTitle": "Eksempel",
+      "example": "def hei():\n    print('Hei!')\nknapp = tk.Button(root, text='Klikk', command=hei)\nknapp.pack()"
+    },
+    {
+      "syntax": "widget.pack()",
+      "description": "Plasserer widgeten i vinduet",
+      "detailsTitle": "Detaljert Forklaring",
+      "details": [
+        "<strong>pack()</strong>: Automatisk plassering av widgeten i vinduet."
+      ],
+      "exampleTitle": "Eksempel",
+      "example": "label.pack()"
+    }
+  ]
+},
+{
+  "name": "Custom tkinter",
+  "commands": [
+    {
+      "syntax": "import customtkinter as ctk",
+      "description": "Importerer customtkinter-biblioteket",
+      "detailsTitle": "Detaljert Forklaring",
+      "details": [
+        "<strong>import customtkinter as ctk</strong>: Gjør alle funksjoner i customtkinter tilgjengelig med aliaset ctk."
+      ],
+      "exampleTitle": "Eksempel",
+      "example": "import customtkinter as ctk\nctk.set_appearance_mode('dark')\nroot = ctk.CTk()\nroot.mainloop()"
+    },
+    {
+      "syntax": "ctk.CTk()",
+      "description": "Oppretter hovedvinduet (customtkinter)",
+      "detailsTitle": "Detaljert Forklaring",
+      "details": [
+        "<strong>CTk()</strong>: Lager et nytt hovedvindu med customtkinter."
+      ],
+      "exampleTitle": "Eksempel",
+      "example": "root = ctk.CTk()"
+    },
+    {
+      "syntax": "ctk.CTkLabel(root, text='Hei')",
+      "description": "Lager en tekstetikett (customtkinter)",
+      "detailsTitle": "Detaljert Forklaring",
+      "details": [
+        "<strong>CTkLabel</strong>: Viser tekst i vinduet med customtkinter-stil."
+      ],
+      "exampleTitle": "Eksempel",
+      "example": "label = ctk.CTkLabel(root, text='Hei')\nlabel.pack()"
+    },
+    {
+      "syntax": "ctk.CTkButton(root, text='Klikk', command=funksjon)",
+      "description": "Lager en knapp (customtkinter)",
+      "detailsTitle": "Detaljert Forklaring",
+      "details": [
+        "<strong>CTkButton</strong>: Lager en knapp med customtkinter-stil."
+      ],
+      "exampleTitle": "Eksempel",
+      "example": "def hei():\n    print('Hei!')\nknapp = ctk.CTkButton(root, text='Klikk', command=hei)\nknapp.pack()"
+    },
+    {
+      "syntax": "widget.pack()",
+      "description": "Plasserer widgeten i vinduet",
+      "detailsTitle": "Detaljert Forklaring",
+      "details": [
+        "<strong>pack()</strong>: Automatisk plassering av widgeten i vinduet."
+      ],
+      "exampleTitle": "Eksempel",
+      "example": "label.pack()"
+    }
+  ]
+}
   ]
 }
