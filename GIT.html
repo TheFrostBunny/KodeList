@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/style.css">
+    <title>GIT Kommando Huskeliste</title>
+    <link rel="icon" href="./Assets/Logo.png" type="image/png">
+</head>
+<body class="app-bg">
+    <a href="index.html" class="back-link" id="back-link">&larr; Tilbake</a>
+    <h1 id="page-title">GIT Kommando Huskeliste</h1>
+
+    <div class="category">
+        <h2>Grunnleggende GIT-kommandoer</h2>
+        <div class="command">
+            <code>git init</code>
+            <div class="description">Oppretter et nytt git-repositorium</div>
+            <div class="details">
+                <h3>Detaljert Forklaring</h3>
+                <ul>
+                    <li><strong>git init:</strong> Initialiserer et nytt, tomt git-repo i gjeldende mappe.</li>
+                </ul>
+                <h3>Eksempel</h3>
+                <pre>git init</pre>
+                <p>Brukes første gang du vil begynne å versjonere et prosjekt.</p>
+            </div>
+        </div>
+        <div class="command">
+            <code>git clone &lt;url&gt;</code>
+            <div class="description">Kopierer et eksternt repo til din maskin</div>
+            <div class="details">
+                <h3>Detaljert Forklaring</h3>
+                <ul>
+                    <li><strong>git clone:</strong> Laster ned hele repoet fra en ekstern kilde (f.eks. GitHub).</li>
+                </ul>
+                <h3>Eksempel</h3>
+                <pre>git clone https://github.com/bruker/prosjekt.git</pre>
+                <p>Du får en lokal kopi av repoet med all historikk.</p>
+            </div>
+        </div>
+        <div class="command">
+            <code>git status</code>
+            <div class="description">Viser status for endringer i repoet</div>
+            <div class="details">
+                <h3>Detaljert Forklaring</h3>
+                <ul>
+                    <li><strong>git status:</strong> Viser hvilke filer som er endret, lagt til eller klare for commit.</li>
+                </ul>
+                <h3>Eksempel</h3>
+                <pre>git status</pre>
+                <p>Gir deg oversikt over arbeidsområdet ditt.</p>
+            </div>
+        </div>
+        <div class="command">
+            <code>git add &lt;fil&gt;</code>
+            <div class="description">Legger til fil(er) i staging-området</div>
+            <div class="details">
+                <h3>Detaljert Forklaring</h3>
+                <ul>
+                    <li><strong>git add:</strong> Forbereder endringer for commit.</li>
+                </ul>
+                <h3>Eksempel</h3>
+                <pre>git add index.html</pre>
+                <p>Endringene i index.html blir klare for commit.</p>
+            </div>
+        </div>
+        <div class="command">
+            <code>git commit -m "Melding"</code>
+            <div class="description">Lagrer endringer med en beskrivende melding</div>
+            <div class="details">
+                <h3>Detaljert Forklaring</h3>
+                <ul>
+                    <li><strong>git commit:</strong> Lagrer snapshot av endringene i repoet.</li>
+                </ul>
+                <h3>Eksempel</h3>
+                <pre>git commit -m "La til ny funksjon"</pre>
+                <p>Bruk alltid en kort og beskrivende commit-melding.</p>
+            </div>
+        </div>
+        <div class="command">
+            <code>git log</code>
+            <div class="description">Viser commit-historikken</div>
+            <div class="details">
+                <h3>Detaljert Forklaring</h3>
+                <ul>
+                    <li><strong>git log:</strong> Viser en liste over tidligere commits.</li>
+                </ul>
+                <h3>Eksempel</h3>
+                <pre>git log</pre>
+                <p>Gir deg oversikt over hvem som har gjort hva og når.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Arbeide med grener (branches)</h2>
+        <div class="command">
+            <code>git branch</code>
+            <div class="description">Lister alle grener</div>
+            <div class="details">
+                <h3>Detaljert Forklaring</h3>
+                <ul>
+                    <li><strong>git branch:</strong> Viser alle grener i repoet og markerer den aktive.</li>
+                </ul>
+                <h3>Eksempel</h3>
+                <pre>git branch</pre>
+                <p>Brukes for å se hvilke grener som finnes.</p>
+            </div>
+        </div>
+        <div class="command">
+            <code>git checkout &lt;gren&gt;</code>
+            <div class="description">Bytter til en annen gren</div>
+            <div class="details">
+                <h3>Detaljert Forklaring</h3>
+                <ul>
+                    <li><strong>git checkout:</strong> Bytter arbeidsområdet til valgt gren.</li>
+                </ul>
+                <h3>Eksempel</h3>
+                <pre>git checkout feature-login</pre>
+                <p>Du kan nå jobbe på en annen funksjon uten å påvirke main.</p>
+            </div>
+        </div>
+        <div class="command">
+            <code>git merge &lt;gren&gt;</code>
+            <div class="description">Slår sammen en gren inn i aktiv gren</div>
+            <div class="details">
+                <h3>Detaljert Forklaring</h3>
+                <ul>
+                    <li><strong>git merge:</strong> Kombinerer endringer fra en annen gren inn i den du står på.</li>
+                </ul>
+                <h3>Eksempel</h3>
+                <pre>git merge feature-login</pre>
+                <p>Endringene fra feature-login blir lagt til i aktiv gren.</p>
+            </div>
+        </div>
+        <div class="command">
+            <code>git branch -d &lt;gren&gt;</code>
+            <div class="description">Sletter en gren</div>
+            <div class="details">
+                <h3>Detaljert Forklaring</h3>
+                <ul>
+                    <li><strong>git branch -d:</strong> Sletter en lokal gren etter at den er ferdig.</li>
+                </ul>
+                <h3>Eksempel</h3>
+                <pre>git branch -d feature-login</pre>
+                <p>Rydd opp etter at en funksjon er ferdig og merget.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Arbeide med eksternt repo</h2>
+        <div class="command">
+            <code>git remote -v</code>
+            <div class="description">Viser eksterne repo-URLer</div>
+            <div class="details">
+                <h3>Detaljert Forklaring</h3>
+                <ul>
+                    <li><strong>git remote -v:</strong> Viser hvilke eksterne repoer som er koblet til.</li>
+                </ul>
+                <h3>Eksempel</h3>
+                <pre>git remote -v</pre>
+                <p>Gir deg oversikt over hvor du kan pushe og hente fra.</p>
+            </div>
+        </div>
+        <div class="command">
+            <code>git push</code>
+            <div class="description">Laster opp endringer til eksternt repo</div>
+            <div class="details">
+                <h3>Detaljert Forklaring</h3>
+                <ul>
+                    <li><strong>git push:</strong> Sender dine commits til f.eks. GitHub.</li>
+                </ul>
+                <h3>Eksempel</h3>
+                <pre>git push origin main</pre>
+                <p>Endringene dine blir tilgjengelige for andre.</p>
+            </div>
+        </div>
+        <div class="command">
+            <code>git pull</code>
+            <div class="description">Henter og slår sammen endringer fra eksternt repo</div>
+            <div class="details">
+                <h3>Detaljert Forklaring</h3>
+                <ul>
+                    <li><strong>git pull:</strong> Henter nye commits og oppdaterer din lokale gren.</li>
+                </ul>
+                <h3>Eksempel</h3>
+                <pre>git pull origin main</pre>
+                <p>Hold ditt repo oppdatert med andres endringer.</p>
+            </div>
+        </div>
+        <div class="command">
+            <code>git fetch</code>
+            <div class="description">Henter endringer fra eksternt repo uten å slå dem sammen</div>
+            <div class="details">
+                <h3>Detaljert Forklaring</h3>
+                <ul>
+                    <li><strong>git fetch:</strong> Laster ned nye commits, men endrer ikke arbeidsområdet ditt.</li>
+                </ul>
+                <h3>Eksempel</h3>
+                <pre>git fetch origin</pre>
+                <p>Brukes for å se hva som har skjedd eksternt før du eventuelt merger.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Andre nyttige kommandoer</h2>
+        <div class="command">
+            <code>git diff</code>
+            <div class="description">Viser forskjeller mellom filer og commits</div>
+            <div class="details">
+                <h3>Detaljert Forklaring</h3>
+                <ul>
+                    <li><strong>git diff:</strong> Viser endringer som ikke er staged eller committed.</li>
+                </ul>
+                <h3>Eksempel</h3>
+                <pre>git diff</pre>
+                <p>Se hva som er endret før du committer.</p>
+            </div>
+        </div>
+        <div class="command">
+            <code>git stash</code>
+            <div class="description">Lagrer midlertidig endringer for senere bruk</div>
+            <div class="details">
+                <h3>Detaljert Forklaring</h3>
+                <ul>
+                    <li><strong>git stash:</strong> Lagrer endringer som ikke er klare for commit, slik at du kan bytte gren.</li>
+                </ul>
+                <h3>Eksempel</h3>
+                <pre>git stash</pre>
+                <p>Hent dem tilbake med <code>git stash pop</code>.</p>
+            </div>
+        </div>
+        <div class="command">
+            <code>git reset --hard</code>
+            <div class="description">Tilbakestiller repoet til siste commit</div>
+            <div class="details">
+                <h3>Detaljert Forklaring</h3>
+                <ul>
+                    <li><strong>git reset --hard:</strong> Forkaster alle lokale endringer.</li>
+                </ul>
+                <h3>Eksempel</h3>
+                <pre>git reset --hard</pre>
+                <p>ADVARSEL: Endringer som ikke er commitet forsvinner!</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="youtube-container">
+        <h2>Se en nyttig GIT-video:</h2>
+        <iframe width="560" height="315" 
+            src="https://www.youtube.com/embed/8JJ101D3knE" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
+    </div>
+    
+    <footer>
+      &copy; 2025 David 2IT1
+    </footer>
+    <script src="/Javascript/script.js"></script>
+</body>
+</html>

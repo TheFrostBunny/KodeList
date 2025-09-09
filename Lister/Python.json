@@ -241,5 +241,108 @@
         }
       ]
     }
+  ],
+  "name": "math",
+  "commands": [
+    {
+      "syntax": "import math",
+      "description": "Importerer math-biblioteket",
+      "detailsTitle": "Detaljert Forklaring",
+      "details": [
+        "<strong>import math</strong>: Gjør alle funksjoner i math-biblioteket tilgjengelig."
+      ],
+      "exampleTitle": "Eksempel",
+      "example": "import math\nprint(math.pi)  # 3.141592653589793"
+    },
+    {
+      "syntax": "math.sqrt(x)",
+      "description": "Kvadratroten av x",
+      "detailsTitle": "Detaljert Forklaring",
+      "details": [
+        "<strong>sqrt()</strong>: Returnerer kvadratroten av tallet x."
+      ],
+      "exampleTitle": "Eksempel",
+      "example": "import math\nprint(math.sqrt(16))  # 4.0"
+    },
+    {
+      "syntax": "math.pow(x, y)",
+      "description": "x opphøyd i y",
+      "detailsTitle": "Detaljert Forklaring",
+      "details": [
+        "<strong>pow()</strong>: Returnerer x opphøyd i y (x^y)."
+      ],
+      "exampleTitle": "Eksempel",
+      "example": "import math\nprint(math.pow(2, 3))  # 8.0"
+    },
+    {
+      "syntax": "math.floor(x)",
+      "description": "Runder ned til nærmeste heltall",
+      "detailsTitle": "Detaljert Forklaring",
+      "details": [
+        "<strong>floor()</strong>: Returnerer det største heltallet mindre enn eller lik x."
+      ],
+      "exampleTitle": "Eksempel",
+      "example": "import math\nprint(math.floor(3.7))  # 3"
+    },
+    {
+      "syntax": "math.ceil(x)",
+      "description": "Runder opp til nærmeste heltall",
+      "detailsTitle": "Detaljert Forklaring",
+      "details": [
+        "<strong>ceil()</strong>: Returnerer det minste heltallet større enn eller lik x."
+      ],
+      "exampleTitle": "Eksempel",
+      "example": "import math\nprint(math.ceil(3.2))  # 4"
+    },
+    {
+      "syntax": "math.pi",
+      "description": "Verdien av pi",
+      "detailsTitle": "Detaljert Forklaring",
+      "details": [
+        "<strong>pi</strong>: Konstanten π (3.14159...)."
+      ],
+      "exampleTitle": "Eksempel",
+      "example": "import math\nprint(math.pi)  # 3.141592653589793"
+    },
+    {
+      "syntax": "math.sin(x)",
+      "description": "Sinus til x (radianer)",
+      "detailsTitle": "Detaljert Forklaring",
+      "details": [
+        "<strong>sin()</strong>: Returnerer sinusverdien til x, der x er i radianer."
+      ],
+      "exampleTitle": "Eksempel",
+      "example": "import math\nprint(math.sin(math.pi/2))  # 1.0"
+    },
+    {
+      "syntax": "math.cos(x)",
+      "description": "Cosinus til x (radianer)",
+      "detailsTitle": "Detaljert Forklaring",
+      "details": [
+        "<strong>cos()</strong>: Returnerer cosinusverdien til x, der x er i radianer."
+      ],
+      "exampleTitle": "Eksempel",
+      "example": "import math\nprint(math.cos(0))  # 1.0"
+    },
+    {
+      "syntax": "math.radians(x)",
+      "description": "Konverterer grader til radianer",
+      "detailsTitle": "Detaljert Forklaring",
+      "details": [
+        "<strong>radians()</strong>: Gjør om grader til radianer."
+      ],
+      "exampleTitle": "Eksempel",
+      "example": "import math\nprint(math.radians(180))  # 3.141592653589793"
+    },
+    {
+      "syntax": "math.degrees(x)",
+      "description": "Konverterer radianer til grader",
+      "detailsTitle": "Detaljert Forklaring",
+      "details": [
+        "<strong>degrees()</strong>: Gjør om radianer til grader."
+      ],
+      "exampleTitle": "Eksempel",
+      "example": "import math\nprint(math.degrees(math.pi))  # 180.0"
+    }
   ]
 }
