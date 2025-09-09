@@ -170,6 +170,79 @@
       ]
     },
     {
+      "name": "Autentisering og innlogging",
+      "commands": [
+        {
+          "syntax": "git config --global user.name \"Ditt Navn\"",
+          "description": "Setter globalt brukernavn for git-commits",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Brukes for å angi navnet som vises på dine commits."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "git config --global user.name \"Ola Nordmann\"",
+          "note": "Kjør denne én gang per maskin."
+        },
+        {
+          "syntax": "git config --global user.email \"din@email.no\"",
+          "description": "Setter global e-post for git-commits",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Brukes for å angi e-postadressen som vises på dine commits."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "git config --global user.email \"ola@nordmann.no\"",
+          "note": "Kjør denne én gang per maskin."
+        },
+        {
+          "syntax": "git credential-cache",
+          "description": "Lagrer innloggingsinformasjon midlertidig",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Gjør at du slipper å skrive inn brukernavn/passord hver gang."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "git config --global credential.helper cache",
+          "note": "Standard cache-tid er 15 minutter."
+        },
+        {
+          "syntax": "git credential-store",
+          "description": "Lagrer innloggingsinformasjon permanent (ikke anbefalt på delt PC)",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Brukes for å lagre brukernavn/passord på disk."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "git config --global credential.helper store",
+          "note": "Brukes kun på din egen, sikre maskin."
+        },
+        {
+          "syntax": "git login (med Personal Access Token)",
+          "description": "Logger inn mot GitHub med token",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Når du pusher/kloner med HTTPS, vil Git spørre om brukernavn og passord.",
+            "Brukernavn: Ditt GitHub-brukernavn",
+            "Passord: Lim inn ditt Personal Access Token (ikke GitHub-passord!)"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "git push origin main\n# Skriv inn brukernavn og lim inn token når du blir spurt.",
+          "note": "Du lager token på https://github.com/settings/tokens"
+        },
+        {
+          "syntax": "ssh-keygen -t ed25519 -C \"din@email.no\"",
+          "description": "Lager SSH-nøkkel for sikker innlogging",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Genererer en SSH-nøkkel som kan brukes for å logge inn uten passord."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "ssh-keygen -t ed25519 -C \"ola@nordmann.no\"",
+          "note": "Legg offentlig nøkkel inn på GitHub under Settings > SSH and GPG keys."
+        }
+      ]
+    },
+    {
       "name": "Andre",
       "commands": [
         {
@@ -204,6 +277,86 @@
           "exampleTitle": "Eksempel",
           "example": "git reset --hard",
           "note": "ADVARSEL: Endringer som ikke er commitet forsvinner!"
+        },
+        {
+          "syntax": "git rm <fil>",
+          "description": "Fjerner fil fra repo og arbeidsområde",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Sletter filen og markerer den for sletting i neste commit."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "git rm gammel_fil.txt"
+        },
+        {
+          "syntax": "git mv <gammel> <ny>",
+          "description": "Gir nytt navn til eller flytter en fil",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Brukes for å flytte eller gi nytt navn til filer i repoet."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "git mv gammel.txt ny.txt"
+        },
+        {
+          "syntax": "git show",
+          "description": "Viser detaljer om en commit eller fil",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Viser endringer og metadata for siste eller spesifisert commit."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "git show"
+        },
+        {
+          "syntax": "git revert <commit>",
+          "description": "Angrer en commit ved å lage en ny som reverserer endringene",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Brukes for å angre en commit uten å endre historikken."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "git revert 1a2b3c4d"
+        },
+        {
+          "syntax": "git cherry-pick <commit>",
+          "description": "Henter én spesifikk commit fra en annen gren",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Brukes for å hente enkelt-commits fra andre grener."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "git cherry-pick 1a2b3c4d"
+        },
+        {
+          "syntax": "git clean -fd",
+          "description": "Fjerner alle ikke-sporede filer og mapper",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Brukes for å rydde opp i arbeidsområdet."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "git clean -fd"
+        },
+        {
+          "syntax": "git tag <navn>",
+          "description": "Oppretter et tag (for versjonering)",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Brukes for å merke bestemte commits, f.eks. for utgivelser."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "git tag v1.0"
+        },
+        {
+          "syntax": "git shortlog",
+          "description": "Viser en oppsummering av commit-historikken per forfatter",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Gir deg en rask oversikt over hvem som har bidratt."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "git shortlog"
         }
       ]
     }
