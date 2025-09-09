@@ -405,54 +405,191 @@
   "name": "Custom tkinter",
   "commands": [
     {
+      "syntax": "pip install customtkinter",
+      "description": "Installer Customtkinter",
+      "detailsTitle": "Detaljert Forklaring",
+      "details": [
+        "Bruk pip for å installere den nyeste versjonen av Customtkinter fra PyPI."
+      ],
+      "exampleTitle": "Eksempel",
+      "example": "pip install customtkinter",
+      "note": "Kommandoen henter og installerer Customtkinter slik at du kan bruke den i dine prosjekter."
+    },
+    {
       "syntax": "import customtkinter as ctk",
-      "description": "Importerer customtkinter-biblioteket",
+      "description": "Importere Customtkinter-modulen",
       "detailsTitle": "Detaljert Forklaring",
       "details": [
-        "<strong>import customtkinter as ctk</strong>: Gjør alle funksjoner i customtkinter tilgjengelig med aliaset ctk."
+        "Aliaser modulen som ctk for enklere og kortere referanser i koden."
       ],
       "exampleTitle": "Eksempel",
-      "example": "import customtkinter as ctk\nctk.set_appearance_mode('dark')\nroot = ctk.CTk()\nroot.mainloop()"
+      "example": "import customtkinter as ctk",
+      "note": "Dette er det første steget for å bruke Customtkinter i ditt GUI-prosjekt."
     },
     {
-      "syntax": "ctk.CTk()",
-      "description": "Oppretter hovedvinduet (customtkinter)",
+      "syntax": "root = ctk.CTk()",
+      "description": "Opprette hovedvinduet",
       "detailsTitle": "Detaljert Forklaring",
       "details": [
-        "<strong>CTk()</strong>: Lager et nytt hovedvindu med customtkinter."
+        "Oppretter et hovedvindu ved hjelp av CTk()-klassen."
       ],
       "exampleTitle": "Eksempel",
-      "example": "root = ctk.CTk()"
-    },
-    {
-      "syntax": "ctk.CTkLabel(root, text='Hei')",
-      "description": "Lager en tekstetikett (customtkinter)",
-      "detailsTitle": "Detaljert Forklaring",
-      "details": [
-        "<strong>CTkLabel</strong>: Viser tekst i vinduet med customtkinter-stil."
-      ],
-      "exampleTitle": "Eksempel",
-      "example": "label = ctk.CTkLabel(root, text='Hei')\nlabel.pack()"
+      "example": "root = ctk.CTk()\nroot.mainloop()",
+      "note": "Hovedvinduet er basen hvor du legger til alle andre widgets og komponenter."
     },
     {
       "syntax": "ctk.CTkButton(root, text='Klikk', command=funksjon)",
-      "description": "Lager en knapp (customtkinter)",
+      "description": "Opprette en knapp",
       "detailsTitle": "Detaljert Forklaring",
       "details": [
-        "<strong>CTkButton</strong>: Lager en knapp med customtkinter-stil."
+        "Customtkinter tilbyr en rekke widget-klasser; CTkButton gir deg en moderne knapp med flere stilvalg."
       ],
       "exampleTitle": "Eksempel",
-      "example": "def hei():\n    print('Hei!')\nknapp = ctk.CTkButton(root, text='Klikk', command=hei)\nknapp.pack()"
+      "example": "knapp = ctk.CTkButton(root, text=\"Klikk meg\", command=lambda: print(\"Knapp trykket\"))\nknapp.pack(pady=10)",
+      "note": "Knappen utløser funksjonen i command når den trykkes."
     },
     {
-      "syntax": "widget.pack()",
-      "description": "Plasserer widgeten i vinduet",
+      "syntax": "ctk.CTkLabel(root, text='Hei')",
+      "description": "Opprette en etikett",
       "detailsTitle": "Detaljert Forklaring",
       "details": [
-        "<strong>pack()</strong>: Automatisk plassering av widgeten i vinduet."
+        "Bruk CTkLabel for å vise tekst (eller bilder) med et moderne utseende."
       ],
       "exampleTitle": "Eksempel",
-      "example": "label.pack()"
+      "example": "label = ctk.CTkLabel(root, text=\"Velkommen til Customtkinter\")\nlabel.pack(pady=10)",
+      "note": "Etiketter er nyttige for å vise informasjon og instruksjoner."
+    },
+    {
+      "syntax": "ctk.CTkEntry(root, placeholder_text='Skriv noe...')",
+      "description": "Opprette et inntastingsfelt",
+      "detailsTitle": "Detaljert Forklaring",
+      "details": [
+        "CTkEntry gir et stilrent tekstfelt for brukerinput med mulighet for placeholder-tekst."
+      ],
+      "exampleTitle": "Eksempel",
+      "example": "entry = ctk.CTkEntry(root, placeholder_text=\"Skriv noe...\")\nentry.pack(pady=10)",
+      "note": "Inputfeltet lar brukeren skrive inn data som senere kan behandles i koden."
+    },
+    {
+      "syntax": "ctk.CTkCheckBox(root, text='Jeg godtar vilkårene')",
+      "description": "Opprette en avmerkingsboks",
+      "detailsTitle": "Detaljert Forklaring",
+      "details": [
+        "Brukes for å la brukeren velge ett eller flere alternativer."
+      ],
+      "exampleTitle": "Eksempel",
+      "example": "checkbox = ctk.CTkCheckBox(root, text=\"Jeg godtar vilkårene\")\ncheckbox.pack(pady=10)",
+      "note": "Avmerkingsboksen hjelper med valg som Ja/Nei-spørsmål."
+    },
+    {
+      "syntax": "ctk.CTkComboBox(root, values=['Valg 1', 'Valg 2', 'Valg 3'])",
+      "description": "Opprette en nedtrekksmeny (combo box)",
+      "detailsTitle": "Detaljert Forklaring",
+      "details": [
+        "Brukes for å la brukeren velge fra en liste med alternativer."
+      ],
+      "exampleTitle": "Eksempel",
+      "example": "combo = ctk.CTkComboBox(root, values=[\"Valg 1\", \"Valg 2\", \"Valg 3\"])\ncombo.pack(pady=10)",
+      "note": "Nedtrekksmenyen sparer plass og gir et ryddig brukergrensesnitt."
+    },
+    {
+      "syntax": "ctk.CTkSlider(root, from_=0, to=100)",
+      "description": "Opprette en skyveknapp (slider)",
+      "detailsTitle": "Detaljert Forklaring",
+      "details": [
+        "Brukes for å la brukeren velge en verdi fra et kontinuerlig spekter."
+      ],
+      "exampleTitle": "Eksempel",
+      "example": "slider = ctk.CTkSlider(root, from_=0, to=100)\nslider.pack(pady=10)",
+      "note": "Skalaen gir en visuell representasjon av verdier."
+    },
+    {
+      "syntax": "ctk.CTkScrollableFrame(root, width=300, height=200)",
+      "description": "Opprette et rullebart rammeverk",
+      "detailsTitle": "Detaljert Forklaring",
+      "details": [
+        "Brukes for å vise innhold som overskrider tilgjengelig plass."
+      ],
+      "exampleTitle": "Eksempel",
+      "example": "scroll_frame = ctk.CTkScrollableFrame(root, width=300, height=200)\nscroll_frame.pack(pady=10)",
+      "note": "Gir et rullebart område for flere elementer."
+    },
+    {
+      "syntax": "ctk.CTkRadioButton(root, text='Alternativ', variable=var, value='Alternativ')",
+      "description": "Opprette en radioknapp",
+      "detailsTitle": "Detaljert Forklaring",
+      "details": [
+        "Radioknapper lar brukeren velge ett alternativ fra en gruppe ved å dele en felles variabel."
+      ],
+      "exampleTitle": "Eksempel",
+      "example": "radio_var = ctk.StringVar(value=\"Alternativ 1\")\nradio1 = ctk.CTkRadioButton(root, text=\"Alternativ 1\", variable=radio_var, value=\"Alternativ 1\")\nradio2 = ctk.CTkRadioButton(root, text=\"Alternativ 2\", variable=radio_var, value=\"Alternativ 2\")\nradio1.pack(pady=10)\nradio2.pack(pady=10)",
+      "note": "Kun ett valg er aktivt om gangen."
+    },
+    {
+      "syntax": "ctk.CTkTextbox(root, width=300, height=200)",
+      "description": "Opprette en tekstboks",
+      "detailsTitle": "Detaljert Forklaring",
+      "details": [
+        "Tekstboksen brukes for å vise og redigere lengre tekster med støtte for multiline."
+      ],
+      "exampleTitle": "Eksempel",
+      "example": "textbox = ctk.CTkTextbox(root, width=300, height=200)\ntextbox.pack(pady=10)\ntextbox.insert(\"0.0\", \"Skriv tekst her...\")",
+      "note": "Gir et stort tekstfelt for brukerens inndata, ideelt for notater."
+    },
+    {
+      "syntax": "ctk.CTkOptionMenu(root, values=['Alternativ 1', 'Alternativ 2', 'Alternativ 3'])",
+      "description": "Opprette en valgmeny",
+      "detailsTitle": "Detaljert Forklaring",
+      "details": [
+        "En nedtrekksmeny som lar brukeren velge ett alternativ fra en liste."
+      ],
+      "exampleTitle": "Eksempel",
+      "example": "option_menu = ctk.CTkOptionMenu(root, values=[\"Alternativ 1\", \"Alternativ 2\", \"Alternativ 3\"])\noption_menu.pack(pady=10)",
+      "note": "En kompakt og elegant måte for å gi brukeren valg fra flere alternativer."
+    },
+    {
+      "syntax": "widget.pack(padx=20, pady=20)",
+      "description": "Bruke pack for enkel layout",
+      "detailsTitle": "Detaljert Forklaring",
+      "details": [
+        "pack() plasserer widgets på en enkel måte med justering etter behov."
+      ],
+      "exampleTitle": "Eksempel",
+      "example": "widget.pack(padx=20, pady=20)",
+      "note": "Pack er lett å bruke for enkle applikasjoner og for rask prototyping."
+    },
+    {
+      "syntax": "widget.grid(row=0, column=0, padx=5, pady=5)",
+      "description": "Bruke grid for avansert layout",
+      "detailsTitle": "Detaljert Forklaring",
+      "details": [
+        "grid() lar deg plassere widgets i et rutenett med rader og kolonner."
+      ],
+      "exampleTitle": "Eksempel",
+      "example": "widget.grid(row=0, column=0, padx=5, pady=5)",
+      "note": "Grid gir deg muligheten til å skreddersy GUI-oppsettet nøyaktig."
+    },
+    {
+      "syntax": "ctk.set_appearance_mode('Dark')",
+      "description": "Endre utseende med temaer",
+      "detailsTitle": "Detaljert Forklaring",
+      "details": [
+        "Customtkinter støtter temaer som \"Dark\", \"Light\" og \"System\"."
+      ],
+      "exampleTitle": "Eksempel",
+      "example": "ctk.set_appearance_mode(\"Dark\")\nroot = ctk.CTk()\nroot.mainloop()",
+      "note": "Denne kommandoen setter utseendet for applikasjonen til et mørkt tema."
+    },
+    {
+      "syntax": "root.mainloop()",
+      "description": "Starte hovedløkken",
+      "detailsTitle": "Detaljert Forklaring",
+      "details": [
+        "mainloop() holder vinduet åpent og lytter etter hendelser."
+      ],
+      "exampleTitle": "Eksempel",
+      "example": "root.mainloop()",
+      "note": "Uten mainloop vil applikasjonen avslutte umiddelbart."
     }
   ]
 }

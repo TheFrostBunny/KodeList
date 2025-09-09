@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/style.css">
+    <title>Go Kommando Huskeliste</title>
+    <link rel="icon" href="./Assets/Logo.png" type="image/png">
+</head>
+<body class="app-bg">
+    <a href="index.html" class="back-link" id="back-link">&larr; Tilbake</a>
+    <h1 id="page-title">Go Kommando Huskeliste</h1>
+    <label for="lib-select" style="font-weight:bold; color:rgb(41, 219, 219);">Velg bibliotek:</label>
+    <select id="lib-select">
+        <option value="alle">Alle</option>
+        <option value="fmt">fmt</option>
+        <option value="os">os</option>
+        <option value="io">io</option>
+        <option value="strings">strings</option>
+        <option value="math">math</option>
+        <option value="net/http">net/http</option>
+        <option value="custom">custom</option>
+    </select>
+    <div id="categories-container"></div>
+    <footer>
+        &copy; 2025 David 1IM1
+    </footer>
+    <script src="/Javascript/script.js"></script>
+    <script>
+fetch('./Lister/Go.json')
+    .then(response => response.json())
+    .then(data => {
+        const container = document.getElementById('categories-container');
+        const libSelect = document.getElementById('lib-select');
+
+        function getCategoryLibrary(cat) {
+            const libs = ['fmt','os','io','strings','math','net/http','custom'];
+            for (const lib of libs) {
+                if (cat.name && cat.name.toLowerCase() === lib) return lib;
+            }
+            return 'custom';
+        }
+
+        function renderCategories(selectedLib) {
+            container.innerHTML = '';
+            data.categories.forEach((cat, catIdx) => {
+                const catLib = getCategoryLibrary(cat);
+                if (selectedLib !== 'alle' && catLib !== selectedLib) return;
+                const catDiv = document.createElement('div');
+                catDiv.className = 'category';
+                const catTitle = document.createElement('h2');
+                catTitle.id = `cat-${catIdx}-title`;
+                catTitle.textContent = cat.name;
+                catDiv.appendChild(catTitle);
+
+                cat.commands.forEach((cmd, cmdIdx) => {
+                    const cmdDiv = document.createElement('div');
+                    cmdDiv.className = 'command';
+
+                    const code = document.createElement('code');
+                    code.id = `cmd-${catIdx}-${cmdIdx}-syntax`;
+                    code.textContent = cmd.syntax;
+                    cmdDiv.appendChild(code);
+
+                    const desc = document.createElement('div');
+                    desc.className = 'description';
+                    desc.id = `cmd-${catIdx}-${cmdIdx}-desc`;
+                    desc.textContent = cmd.description;
+                    cmdDiv.appendChild(desc);
+
+                    const detailsDiv = document.createElement('div');
+                    detailsDiv.className = 'details';
+
+                    const detailsTitle = document.createElement('h3');
+                    detailsTitle.id = `cmd-${catIdx}-${cmdIdx}-details-title`;
+                    detailsTitle.textContent = cmd.detailsTitle || 'Detaljert Forklaring';
+                    detailsDiv.appendChild(detailsTitle);
+
+                    const ul = document.createElement('ul');
+                    ul.id = `cmd-${catIdx}-${cmdIdx}-details-list`;
+                    (cmd.details || []).forEach(d => {
+                        const li = document.createElement('li');
+                        li.innerHTML = d;
+                        ul.appendChild(li);
+                    });
+                    detailsDiv.appendChild(ul);
+
+                    const exampleTitle = document.createElement('h3');
+                    exampleTitle.id = `cmd-${catIdx}-${cmdIdx}-example-title`;
+                    exampleTitle.textContent = cmd.exampleTitle || 'Eksempel';
+                    detailsDiv.appendChild(exampleTitle);
+
+                    const pre = document.createElement('pre');
+                    pre.id = `cmd-${catIdx}-${cmdIdx}-example`;
+                    pre.textContent = cmd.example;
+                    const copyButton = document.createElement('button');
+                    copyButton.className = 'copy-btn';
+                    copyButton.textContent = 'Kopier';
+                    copyButton.addEventListener('click', function(event) {
+                        event.stopPropagation();
+                        navigator.clipboard.writeText(cmd.example).then(function() {
+                            copyButton.textContent = 'Kopiert!';
+                            setTimeout(function() {
+                                copyButton.textContent = 'Kopier';
+                            }, 2000);
+                        }).catch(function() {
+                            copyButton.textContent = 'Feil!';
+                        });
+                    });
+                    pre.insertBefore(copyButton, pre.firstChild);
+                    detailsDiv.appendChild(pre);
+
+                    if (cmd.note) {
+                        const note = document.createElement('p');
+                        note.id = `cmd-${catIdx}-${cmdIdx}-note`;
+                        note.textContent = cmd.note;
+                        detailsDiv.appendChild(note);
+                    }
+
+                    cmdDiv.appendChild(detailsDiv);
+                    cmdDiv.addEventListener('click', function(e) {
+                        if (e.target.classList.contains('copy-btn')) return;
+                        const details = cmdDiv.querySelector('.details');
+                        if (details) {
+                            details.classList.toggle('active');
+                            document.querySelectorAll('.details.active').forEach(otherDetails => {
+                                if (otherDetails !== details) {
+                                    otherDetails.classList.remove('active');
+                                }
+                            });
+                        }
+                    });
+                    catDiv.appendChild(cmdDiv);
+                });
+                container.appendChild(catDiv);
+            });
+        }
+
+        renderCategories('alle');
+        libSelect.addEventListener('change', function() {
+            renderCategories(libSelect.value);
+        });
+    });
+    </script>
+</body>
+</html>

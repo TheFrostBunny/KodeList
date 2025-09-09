@@ -1,0 +1,279 @@
+{
+  "categories": [
+    {
+      "name": "fmt",
+      "commands": [
+        {
+          "syntax": "fmt.Println(\"Hei, verden\")",
+          "description": "Skriver ut tekst med linjeskift",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>fmt.Println</strong> skriver ut argumentene etter hverandre og avslutter med linjeskift."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "package main\nimport \"fmt\"\nfunc main() {\n    fmt.Println(\"Hei, verden\")\n}"
+        },
+        {
+          "syntax": "fmt.Printf(\"Tall: %d\", 42)",
+          "description": "Formattert utskrift",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>fmt.Printf</strong> lar deg formatere tekst med plassholdere, f.eks. %d for heltall."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "package main\nimport \"fmt\"\nfunc main() {\n    fmt.Printf(\"Tall: %d\", 42)\n}"
+        }
+      ]
+    },
+    {
+      "name": "os",
+      "commands": [
+        {
+          "syntax": "os.Exit(1)",
+          "description": "Avslutter programmet med statuskode",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>os.Exit</strong> avslutter programmet umiddelbart med gitt statuskode."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "package main\nimport \"os\"\nfunc main() {\n    os.Exit(1)\n}"
+        },
+        {
+          "syntax": "os.Getenv(\"PATH\")",
+          "description": "Henter miljøvariabel",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>os.Getenv</strong> returnerer verdien til en miljøvariabel."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "package main\nimport (\n    \"fmt\"\n    \"os\"\n)\nfunc main() {\n    fmt.Println(os.Getenv(\"PATH\"))\n}"
+        }
+      ]
+    },
+    {
+      "name": "io",
+      "commands": [
+        {
+          "syntax": "io.Copy(dst, src)",
+          "description": "Kopierer data fra src til dst",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>io.Copy</strong> kopierer innhold fra en reader til en writer."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "io.Copy(os.Stdout, os.Stdin) // Kopierer fra tastatur til skjerm"
+        }
+      ]
+    },
+    {
+      "name": "strings",
+      "commands": [
+        {
+          "syntax": "strings.ToUpper(\"abc\")",
+          "description": "Gjør om til store bokstaver",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>strings.ToUpper</strong> returnerer en kopi av strengen med store bokstaver."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "package main\nimport (\n    \"fmt\"\n    \"strings\"\n)\nfunc main() {\n    fmt.Println(strings.ToUpper(\"abc\")) // ABC\n}"
+        },
+        {
+          "syntax": "strings.Split(\"a,b,c\", \",\")",
+          "description": "Deler opp streng",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>strings.Split</strong> deler en streng på et skilletegn og returnerer en slice."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "package main\nimport (\n    \"fmt\"\n    \"strings\"\n)\nfunc main() {\n    fmt.Println(strings.Split(\"a,b,c\", \",\")) // [a b c]\n}"
+        }
+      ]
+    },
+    {
+      "name": "math",
+      "commands": [
+        {
+          "syntax": "math.Sqrt(16)",
+          "description": "Kvadratroten av et tall",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>math.Sqrt</strong> returnerer kvadratroten av et tall (float64)."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "package main\nimport (\n    \"fmt\"\n    \"math\"\n)\nfunc main() {\n    fmt.Println(math.Sqrt(16)) // 4\n}"
+        }
+      ]
+    },
+    {
+      "name": "net/http",
+      "commands": [
+        {
+          "syntax": "http.Get(url)",
+          "description": "Henter innhold fra en URL",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>http.Get</strong> sender en GET-forespørsel og returnerer responsen."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "package main\nimport (\n    \"fmt\"\n    \"io/ioutil\"\n    \"net/http\"\n)\nfunc main() {\n    resp, _ := http.Get(\"https://example.com\")\n    body, _ := ioutil.ReadAll(resp.Body)\n    fmt.Println(string(body))\n    resp.Body.Close()\n}"
+        }
+      ]
+    },
+    {
+      "name": "custom",
+      "commands": [
+        {
+          "syntax": "go run fil.go",
+          "description": "Kjører et Go-program",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Kompilerer og kjører Go-filen direkte."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "go run main.go"
+        },
+        {
+          "syntax": "go build fil.go",
+          "description": "Kompilerer Go-program til kjørbar fil",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Bygger en kjørbar fil fra Go-kildekode."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "go build main.go"
+        },
+        {
+          "syntax": "go fmt fil.go",
+          "description": "Formaterer Go-kode",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Formaterer koden i henhold til Go-standard."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "go fmt main.go"
+        }
+      ]
+    },
+    {
+      "name": "time",
+      "commands": [
+        {
+          "syntax": "time.Now()",
+          "description": "Henter nåværende tid",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>time.Now()</strong> returnerer nåværende lokale tid."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "package main\nimport (\n    \"fmt\"\n    \"time\"\n)\nfunc main() {\n    fmt.Println(time.Now())\n}"
+        },
+        {
+          "syntax": "time.Sleep(time.Second)",
+          "description": "Venter i angitt tid",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>time.Sleep</strong> stopper programmet i angitt varighet."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "package main\nimport (\n    \"fmt\"\n    \"time\"\n)\nfunc main() {\n    fmt.Println(\"Venter...\")\n    time.Sleep(2 * time.Second)\n    fmt.Println(\"Ferdig!\")\n}"
+        }
+      ]
+    },
+    {
+      "name": "errors",
+      "commands": [
+        {
+          "syntax": "errors.New(\"feilmelding\")",
+          "description": "Lager en ny feil",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>errors.New</strong> lager en ny feilverdi med en tekst."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "package main\nimport (\n    \"errors\"\n    \"fmt\"\n)\nfunc main() {\n    err := errors.New(\"noe gikk galt\")\n    fmt.Println(err)\n}"
+        }
+      ]
+    },
+    {
+      "name": "slices",
+      "commands": [
+        {
+          "syntax": "make([]int, 5)",
+          "description": "Lager en slice med lengde 5",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>make</strong> brukes for å lage slices, maps og kanaler."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "s := make([]int, 5) // [0 0 0 0 0]"
+        },
+        {
+          "syntax": "append(slice, elem)",
+          "description": "Legger til element i slice",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>append</strong> returnerer en ny slice med elementet lagt til."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "s := []int{1,2}\ns = append(s, 3) // [1 2 3]"
+        }
+      ]
+    },
+    {
+      "name": "maps",
+      "commands": [
+        {
+          "syntax": "make(map[string]int)",
+          "description": "Lager et map",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>make</strong> lager et map med angitt nøkkel- og verditype."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "m := make(map[string]int)\nm[\"a\"] = 1"
+        },
+        {
+          "syntax": "delete(map, key)",
+          "description": "Sletter nøkkel fra map",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>delete</strong> fjerner en nøkkel fra map."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "delete(m, \"a\")"
+        }
+      ]
+    },
+    {
+      "name": "goroutines",
+      "commands": [
+        {
+          "syntax": "go funksjon()",
+          "description": "Starter en goroutine",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>go</strong> starter en funksjon parallelt som en goroutine."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "go fmt.Println(\"Hei fra goroutine!\")"
+        }
+      ]
+    },
+    {
+      "name": "channels",
+      "commands": [
+        {
+          "syntax": "make(chan int)",
+          "description": "Lager en kanal",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>make(chan int)</strong> lager en kanal for int-verdier."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "c := make(chan int)\ngo func() { c <- 42 }()\nfmt.Println(<-c) // 42"
+        }
+      ]
+    }
+  ]
+}
