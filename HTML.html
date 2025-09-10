@@ -8,707 +8,146 @@
     <link rel="icon" href="./Assets/Logo.png" type="image/png">
 </head>
 <body class="app-bg">
-        <a href="index.html" class="back-link" id="back-link">&larr; Tilbake</a>
-            <h1 id="page-title">HTML Kommando Huskeliste</h1>¨
-        
-        <!-- Kategori: Grunnleggende HTML Struktur -->
-        <div class="category">
-            <h2 id="cat-0-title">Grunnleggende HTML Struktur</h2>
-            <div class="command">
-                <code id="cmd-0-0-syntax">&lt;!DOCTYPE html&gt;</code>
-                <div class="description" id="cmd-0-0-desc">Definerer dokumenttypen som HTML5</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul id="cmd-0-0-details-list">
-                        <li><strong>&lt;!DOCTYPE html&gt;:</strong> Informerer nettleseren om at dokumentet bruker HTML5.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre id="cmd-0-0-example">
-&lt;!DOCTYPE html&gt;
-&lt;html lang="no"&gt;
-  &lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;title&gt;Min HTML-side&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;h1&gt;Hei, Verden!&lt;/h1&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
-                    </pre>
-                    <p>Denne malen er standard for alle HTML5-dokumenter.</p>
-                </div>
-            </div>
-            
-            <div class="command">
-                <code>&lt;html&gt; ... &lt;/html&gt;</code>
-                <div class="description">Roter-elementet for hele dokumentet</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>&lt;html&gt;:</strong> Omfatter hele HTML-innholdet.</li>
-                        <li><strong>lang-attributt:</strong> Angir språk (f.eks. "no" for norsk).</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>
-&lt;html lang="no"&gt;
-  ...
-&lt;/html&gt;
-                    </pre>
-                    <p>All HTML-kode skal ligge mellom åpnings- og lukketaggen.</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Kategori: Tekst og Formatering -->
-        <div class="category">
-            <h2>Tekst og Formatering</h2>
-            
-            <div class="command">
-                <code>&lt;h1&gt; ... &lt;/h1&gt;</code>
-                <div class="description">Overskrifter i ulike nivåer</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>&lt;h1&gt; til &lt;h6&gt;:</strong> Brukes for å angi overskrifter, der <code>h1</code> er den viktigste.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>
-&lt;h1&gt;Hovedoverskrift&lt;/h1&gt;
-&lt;h2&gt;Underoverskrift&lt;/h2&gt;
-&lt;h3&gt;Mindre overskrift&lt;/h3&gt;
-                    </pre>
-                    <p>Bruk overskrifter for å strukturere innholdet logisk.</p>
-                </div>
-            </div>
-            
-            <div class="command">
-                <code>&lt;p&gt; ... &lt;/p&gt;</code>
-                <div class="description">Paragrafer</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>&lt;p&gt;:</strong> Brukes til å definere et avsnitt med tekst.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>
-&lt;p&gt;Dette er et eksempel på en paragraf med tekst.&lt;/p&gt;
-                    </pre>
-                    <p>Paragrafer hjelper til med å dele opp og lese teksten bedre.</p>
-                </div>
-            </div>
-            
-            <div class="command">
-                <code>&lt;strong&gt; ... &lt;/strong&gt;</code>
-                <div class="description">Vektlagt (fet) tekst</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>&lt;strong&gt;:</strong> Marker tekst med sterk vekt (ofte vises den som fet skrift).</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>
-&lt;p&gt;Dette er &lt;strong&gt;viktig&lt;/strong&gt; informasjon.&lt;/p&gt;
-                    </pre>
-                    <p>Bruk <code>&lt;strong&gt;</code> for å fremheve essensielle ord eller setninger.</p>
-                </div>
-            </div>
-            
-            <div class="command">
-                <code>&lt;em&gt; ... &lt;/em&gt;</code>
-                <div class="description">Kursiv tekst</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>&lt;em&gt;:</strong> Viser tekst med en kursiv stil, ofte for betoning.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>
-&lt;p&gt;Dette er &lt;em&gt;spesiell&lt;/em&gt; informasjon.&lt;/p&gt;
-                    </pre>
-                    <p>Kursivering indikerer at teksten bør få ekstra oppmerksomhet.</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Kategori: Lenker og Bilder -->
-        <div class="category">
-            <h2>Lenker og Bilder</h2>
-            
-            <div class="command">
-                <code>&lt;a href="URL"&gt;Link tekst&lt;/a&gt;</code>
-                <div class="description">Hyperlenker</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>&lt;a&gt;:</strong> Lager en lenke som peker til en annen side eller ressurs.</li>
-                        <li>Attributtet <strong>href</strong> spesifiserer måladressen.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>
-&lt;a href="https://www.example.com"&gt;Besøk Example&lt;/a&gt;
-                    </pre>
-                    <p>Lenker gjør det enkelt å navigere mellom ulike sider.</p>
-                </div>
-            </div>
-            
-            <div class="command">
-                <code>&lt;img src="sti/til/bilde.jpg" alt="Beskrivelse"&gt;</code>
-                <div class="description">Bilder</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>&lt;img&gt;:</strong> Integrerer et bilde i dokumentet.</li>
-                        <li><strong>src</strong> angir filstien til bildet, mens <strong>alt</strong> gir en beskrivende tekst for tilgjengelighet.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>
-&lt;img src="logo.png" alt="Firmaets Logo"&gt;
-                    </pre>
-                    <p>Husk alltid å inkludere en beskrivende alt-tekst.</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Kategori: Lister -->
-        <div class="category">
-            <h2>Lister</h2>
-            
-            <div class="command">
-                <code>&lt;ul&gt; ... &lt;/ul&gt;</code>
-                <div class="description">Uordnede lister</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>&lt;ul&gt;:</strong> Lager en liste med punkter uten spesifikk rekkefølge.</li>
-                        <li><strong>&lt;li&gt;:</strong> Definerer hvert listeelement.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>
-&lt;ul&gt;
-  &lt;li&gt;Element 1&lt;/li&gt;
-  &lt;li&gt;Element 2&lt;/li&gt;
-  &lt;li&gt;Element 3&lt;/li&gt;
-&lt;/ul&gt;
-                    </pre>
-                    <p>Bruk uordnede lister når elementrekkefølgen ikke er kritisk.</p>
-                </div>
-            </div>
-            
-            <div class="command">
-                <code>&lt;ol&gt; ... &lt;/ol&gt;</code>
-                <div class="description">Ordnete lister</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>&lt;ol&gt;:</strong> Lager en nummerert eller alfabetisk sortert liste.</li>
-                        <li><strong>&lt;li&gt;:</strong> Hvert element i den ordnede listen.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>
-&lt;ol&gt;
-  &lt;li&gt;Første element&lt;/li&gt;
-  &lt;li&gt;Andre element&lt;/li&gt;
-  &lt;li&gt;Tredje element&lt;/li&gt;
-&lt;/ol&gt;
-                    </pre>
-                    <p>Ordnete lister er nyttige når rekkefølgen har betydning.</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Kategori: Tabeller -->
-        <div class="category">
-            <h2>Tabeller</h2>
-            
-            <div class="command">
-                <code>&lt;table&gt; ... &lt;/table&gt;</code>
-                <div class="description">Opprettelse av tabeller</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>&lt;table&gt;:</strong> Starter en tabell hvor data kan vises i rader og kolonner.</li>
-                        <li><strong>&lt;tr&gt;:</strong> Definerer en rad i tabellen.</li>
-                        <li><strong>&lt;th&gt;:</strong> Oppretter en celle for en overskrift.</li>
-                        <li><strong>&lt;td&gt;:</strong> Oppretter en standardcelle for data.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>
-&lt;table border="1"&gt;
-  &lt;tr&gt;
-    &lt;th&gt;Navn&lt;/th&gt;
-    &lt;th&gt;Alder&lt;/th&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-    &lt;td&gt;Kari&lt;/td&gt;
-    &lt;td&gt;28&lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/table&gt;
-                    </pre>
-                    <p>Tabeller brukes til å vise strukturert data.</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Kategori: Skjemaer (Forms) -->
-        <div class="category">
-            <h2>Skjemaer (Forms)</h2>
-            
-            <div class="command">
-                <code>&lt;form&gt; ... &lt;/form&gt;</code>
-                <div class="description">Skjema for brukerinput</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>&lt;form&gt;:</strong> Container for inputfelter og kontrollknapper.</li>
-                        <li><strong>action:</strong> Angir URL hvor data skal sendes.</li>
-                        <li><strong>method:</strong> HTTP-metoden (GET eller POST) for innsending.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>
-&lt;form action="/send" method="post"&gt;
-  &lt;label for="brukernavn"&gt;Brukernavn:&lt;/label&gt;
-  &lt;input type="text" id="brukernavn" name="brukernavn"&gt;
-  &lt;button type="submit"&gt;Send&lt;/button&gt;
-&lt;/form&gt;
-                    </pre>
-                    <p>Skjemaer tillater samhandling med brukeren og innsending av data til serveren.</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Kategori: Semantiske elementer -->
-        <div class="category">
-            <h2>Semantiske elementer</h2>
-            
-            <div class="command">
-                <code>&lt;header&gt; ... &lt;/header&gt;</code>
-                <div class="description">Introduksjons- eller toppinndeling på siden</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>&lt;header&gt;:</strong> Brukes til å definere toppseksjonen, ofte med logo og navigasjon.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>
-&lt;header&gt;
-   &lt;h1&gt;Min Side&lt;/h1&gt;
-   &lt;nav&gt;
-     &lt;a href="#home"&gt;Hjem&lt;/a&gt;
-     &lt;a href="#about"&gt;Om&lt;/a&gt;
-   &lt;/nav&gt;
-&lt;/header&gt;
-                    </pre>
-                    <p>Bruk <code>&lt;header&gt;</code> for å markere introduksjonsdelen på siden.</p>
-                </div>
-            </div>
-            
-            <div class="command">
-                <code>&lt;nav&gt; ... &lt;/nav&gt;</code>
-                <div class="description">Navigasjonsseksjon</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>&lt;nav&gt;:</strong> Brukes til å gruppere navigasjonslenker.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>
-&lt;nav&gt;
-   &lt;a href="index.html"&gt;Hjem&lt;/a&gt;
-   &lt;a href="about.html"&gt;Om Oss&lt;/a&gt;
-&lt;/nav&gt;
-                    </pre>
-                    <p>Navigasjonslenker bør plasseres i et <code>&lt;nav&gt;</code>-element for semantisk korrekthet.</p>
-                </div>
-            </div>
-            
-            <div class="command">
-                <code>&lt;main&gt; ... &lt;/main&gt;</code>
-                <div class="description">Hovedinnholdet på siden</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>&lt;main&gt;:</strong> Inneholder det primære innholdet på siden og skal være unikt.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>
-&lt;main&gt;
-  &lt;article&gt;
-    &lt;h2&gt;Artikkeloverskrift&lt;/h2&gt;
-    &lt;p&gt;Innholdet til artikkelen.&lt;/p&gt;
-  &lt;/article&gt;
-&lt;/main&gt;
-                    </pre>
-                    <p>Bruk <code>&lt;main&gt;</code> for å markere hoveddelen av siden.</p>
-                </div>
-            </div>
-            
-            <div class="command">
-                <code>&lt;article&gt; ... &lt;/article&gt;</code>
-                <div class="description">Uavhengig artikkel</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>&lt;article&gt;:</strong> Egnet for innhold som kan distribueres separat.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>
-&lt;article&gt;
-  &lt;h2&gt;Nyhetstittel&lt;/h2&gt;
-  &lt;p&gt;Detaljer om nyheten.&lt;/p&gt;
-&lt;/article&gt;
-                    </pre>
-                    <p><code>&lt;article&gt;</code> organiserer innhold som står på egenhånd.</p>
-                </div>
-            </div>
-            
-            <div class="command">
-                <code>&lt;section&gt; ... &lt;/section&gt;</code>
-                <div class="description">Definerer en seksjon av et dokument</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>&lt;section&gt;:</strong> Brukes for tematiske grupperinger av innhold.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>
-&lt;section&gt;
-  &lt;h2&gt;Seksjonstittel&lt;/h2&gt;
-  &lt;p&gt;Innhold for denne seksjonen.&lt;/p&gt;
-&lt;/section&gt;
-                    </pre>
-                    <p>Plasser relaterte elementer sammen med <code>&lt;section&gt;</code>.</p>
-                </div>
-            </div>
-            
-            <div class="command">
-                <code>&lt;aside&gt; ... &lt;/aside&gt;</code>
-                <div class="description">Sideinnhold eller tiltaksinformasjon</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>&lt;aside&gt;:</strong> Egnet for innhold som er sekundært til hovedinnholdet, slik som annonser eller tillegg.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>
-&lt;aside&gt;
-  &lt;p&gt;Relatert informasjon eller annonser.&lt;/p&gt;
-&lt;/aside&gt;
-                    </pre>
-                    <p>Bruk <code>&lt;aside&gt;</code> for sekundært innhold.</p>
-                </div>
-            </div>
-            
-            <div class="command">
-                <code>&lt;footer&gt; ... &lt;/footer&gt;</code>
-                <div class="description">Sidefot med kontaktinfo og lenker</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>&lt;footer&gt;:</strong> Inneholder informasjon som opphavsrett, kontaktinfo og andre fotrelaterte data.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>
-&lt;footer&gt;
-   &lt;p&gt;&copy; 2023 Min Bedrift&lt;/p&gt;
-&lt;/footer&gt;
-                    </pre>
-                    <p>Bruk <code>&lt;footer&gt;</code> for å vise bunninformasjon på siden.</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Kategori: Medieelementer -->
-        <div class="category">
-            <h2>Medieelementer</h2>
-            
-            <div class="command">
-                <code>&lt;img&gt;</code>
-                <div class="description">Bildeelement for å vise bilder</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>&lt;img&gt;:</strong> Brukes for å integrere bilder. Attributtene <code>src</code> og <code>alt</code> er essensielle.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>
-&lt;img src="bilde.jpg" alt="Et beskrivende bilde"&gt;
-                    </pre>
-                    <p>Sørg for at alle bilder har en passende <code>alt</code>-beskrivelse for tilgjengelighet.</p>
-                </div>
-            </div>
-            
-            <div class="command">
-                <code>&lt;video&gt; ... &lt;/video&gt;</code>
-                <div class="description">Integrerer et videoelement</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>&lt;video&gt;:</strong> Brukes til å vise videoer med innebygde spillkontroller ved å inkludere attributtet <code>controls</code>.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>
-&lt;video width="320" height="240" controls&gt;
-  &lt;source src="video.mp4" type="video/mp4"&gt;
-  Din nettleser støtter ikke videoelementet.
-&lt;/video&gt;
-                    </pre>
-                    <p>Videoelementet lar deg vise multimedia innhold direkte på siden.</p>
-                </div>
-            </div>
-            
-            <div class="command">
-                <code>&lt;audio&gt; ... &lt;/audio&gt;</code>
-                <div class="description">Integrerer et lyd-/audioelement</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>&lt;audio&gt;:</strong> Spill av lydfiler med <code>controls</code> for brukerinteraksjon.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>
-&lt;audio controls&gt;
-  &lt;source src="lyd.mp3" type="audio/mp3"&gt;
-  Din nettleser støtter ikke audioelementet.
-&lt;/audio&gt;
-                    </pre>
-                    <p>Audioelementet brukes for å integrere lydfiler.</p>
-                </div>
-            </div>
-            
-            <div class="command">
-                <code>&lt;iframe&gt; ... &lt;/iframe&gt;</code>
-                <div class="description">Embedder eksternt innhold, for eksempel en video fra YouTube</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>&lt;iframe&gt;:</strong> Brukes for å vise innhold fra en annen kilde i en rute på siden.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>
-&lt;iframe src="https://www.youtube.com/embed/videoID" 
-        width="560" height="315" frameborder="0" 
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen&gt;&lt;/iframe&gt;
-                    </pre>
-                    <p>Bruk <code>&lt;iframe&gt;</code> for å embedde eksterne applikasjoner og videoer.</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Kategori: Skjematilfeller - Input Typer -->
-        <div class="category">
-            <h2>Skjematilfeller - Input Typer</h2>
-            
-            <div class="command">
-                <code>&lt;input type="text"&gt;</code>
-                <div class="description">Tekstinput for enkelt linjer</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>type="text":</strong> Standard tekstfelt for inndata.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>
-&lt;input type="text" name="brukernavn" placeholder="Skriv inn brukernavn"&gt;
-                    </pre>
-                    <p>Bruk tekstinput for å la brukeren taste inn tekst.</p>
-                </div>
-            </div>
-            
-            <div class="command">
-                <code>&lt;input type="password"&gt;</code>
-                <div class="description">Skjuler inndata med stjerner</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>type="password":</strong> Brukes for sensitive data, som passord.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>
-&lt;input type="password" name="passord" placeholder="Skriv inn passord"&gt;
-                    </pre>
-                    <p>Sikrer at oppførte tegn ikke vises åpent.</p>
-                </div>
-            </div>
-            
-            <div class="command">
-                <code>&lt;input type="radio"&gt;</code>
-                <div class="description">Radioknapper for enekortsvalg</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>type="radio":</strong> Tillater brukeren å velge ett alternativ fra en gruppe.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>
-&lt;input type="radio" name="kjønn" value="mann"&gt; Mann
-&lt;input type="radio" name="kjønn" value="kvinne"&gt; Kvinne
-                    </pre>
-                    <p>Radioknapper gir mulighet for eksklusivt valg.</p>
-                </div>
-            </div>
-            
-            <div class="command">
-                <code>&lt;input type="checkbox"&gt;</code>
-                <div class="description">Avmerkingsbokser for flere valg</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>type="checkbox":</strong> Tillater brukeren å velge flere alternativer.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>
-&lt;input type="checkbox" name="interesser" value="sport"&gt; Sport
-&lt;input type="checkbox" name="interesser" value="musikk"&gt; Musikk
-                    </pre>
-                    <p>Checkboxes er ideelle for valg med flere alternativer.</p>
-                </div>
-            </div>
-            
-            <div class="command">
-                <code>&lt;textarea&gt; ... &lt;/textarea&gt;</code>
-                <div class="description">Flere linjers tekstinput</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>&lt;textarea&gt;:</strong> Gir et område der brukeren kan skrive flere linjer med tekst.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>
-&lt;textarea name="melding" rows="4" cols="50"&gt;
-Skriv meldingen her...
-&lt;/textarea&gt;
-                    </pre>
-                    <p>Egnet for lengre inndata enn et enkelt tekstfelt kan håndtere.</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Kategori: Metadata og Ressurser -->
-        <div class="category">
-            <h2>Metadata og Ressurser</h2>
-            
-            <div class="command">
-                <code>&lt;meta charset="UTF-8"&gt;</code>
-                <div class="description">Angir tegnsett for dokumentet</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>&lt;meta charset="UTF-8"&gt;:</strong> Sørger for korrekt visning av spesialtegn.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>
-&lt;meta charset="UTF-8"&gt;
-                    </pre>
-                    <p>Uten dette kan enkelte tegn vises feil.</p>
-                </div>
-            </div>
-            
-            <div class="command">
-                <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code>
-                <div class="description">Responsiv tilpasning for mobile enheter</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>&lt;meta name="viewport"&gt;:</strong> Hjelper siden å justere seg etter skjermstørrelse.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>
-&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-                    </pre>
-                    <p>Essensiell for moderne responsive nettsider.</p>
-                </div>
-            </div>
-            
-            <div class="command">
-                <code>&lt;link rel="stylesheet" href="style.css"&gt;</code>
-                <div class="description">Kobler dokumentet til et eksternt stilark</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>&lt;link&gt;:</strong> Legger til et eksternt CSS-dokument for styling.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>
-&lt;link rel="stylesheet" href="style.css"&gt;
-                    </pre>
-                    <p>Hjelper med å holde stil og layout separat fra HTML.</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Kategori: Scripting og Interaktivitet -->
-        <div class="category">
-            <h2>Scripting og Interaktivitet</h2>
-            
-            <div class="command">
-                <code>&lt;script src="script.js"&gt;&lt;/script&gt;</code>
-                <div class="description">Integrerer eksterne JavaScript-filer</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>&lt;script&gt;:</strong> Brukes for å koble eksterne JavaScript-filer til HTML-dokumentet.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>
-&lt;script src="script.js"&gt;&lt;/script&gt;
-                    </pre>
-                    <p>Laster inn eksterne skript som gir funksjonalitet til siden.</p>
-                </div>
-            </div>
-            
-            <div class="command">
-                <code>&lt;script&gt; ... &lt;/script&gt;</code>
-                <div class="description">Inline JavaScript-kode</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li>Brukes for å legge til inline skripting direkte i dokumentet.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>
-&lt;script&gt;
-  alert("Hallo, verden!");
-&lt;/script&gt;
-                    </pre>
-                    <p>Bruk inline skripting med måte for enklere eksperimentering.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    
+    <a href="index.html" class="back-link" id="back-link">&larr; Tilbake</a>
+    <h1 id="page-title">HTML Kommando Huskeliste</h1>
+    <label for="lib-select" style="font-weight:bold; color:rgb(41, 219, 219);">Velg kategori:</label>
+    <select id="lib-select">
+        <option value="alle">Alle</option>
+        <option value="grunnleggende">Grunnleggende</option>
+        <option value="tekst">Tekst</option>
+        <option value="lenker">Lenker</option>
+        <option value="lister">Lister</option>
+        <option value="tabeller">Tabeller</option>
+        <option value="skjemaer">Skjemaer</option>
+        <option value="semantikk">Semantikk</option>
+        <option value="media">Media</option>
+        <option value="input">Input</option>
+        <option value="metadata">Metadata</option>
+        <option value="scripting">Scripting</option>
+    </select>
+    <div id="categories-container"></div>
     <footer>
-      &copy; 2025 David 1IM1
+        &copy; 2025 David 1IM1
     </footer>
-    
     <script src="/Javascript/script.js"></script>
     <script>
-fetch('html-commands.json')
-  .then(response => response.json())
-  .then(data => {
-    // Tittel og tilbake-lenke
-    document.getElementById('page-title').textContent = data.title;
-    document.getElementById('back-link').innerHTML = '&larr; ' + data.back;
+fetch('./Lister/HTML.json')
+    .then(response => response.json())
+    .then(data => {
+        const container = document.getElementById('categories-container');
+        const libSelect = document.getElementById('lib-select');
 
-    // Første kategori, første kommando
-    const cat = data.categories[0];
-    document.getElementById('cat-0-title').textContent = cat.name;
-    const cmd = cat.commands[0];
-    document.getElementById('cmd-0-0-syntax').textContent = cmd.syntax;
-    document.getElementById('cmd-0-0-desc').textContent = cmd.description;
-    document.getElementById('cmd-0-0-details-title').textContent = cmd.detailsTitle;
-    document.getElementById('cmd-0-0-example-title').textContent = cmd.exampleTitle;
-    document.getElementById('cmd-0-0-example').textContent = cmd.example;
-    document.getElementById('cmd-0-0-note').textContent = cmd.note || '';
-    // Fyll ut detaljer-liste
-    const ul = document.getElementById('cmd-0-0-details-list');
-    ul.innerHTML = '';
-    cmd.details.forEach(d => {
-      const li = document.createElement('li');
-      li.innerHTML = d;
-      ul.appendChild(li);
+        function getCategoryLibrary(cat) {
+            const libs = [
+                'grunnleggende','tekst','lenker','lister','tabeller','skjemaer',
+                'semantikk','media','input','metadata','scripting'
+            ];
+            for (const lib of libs) {
+                if (cat.name && cat.name.toLowerCase().replace(/[^a-z]/g,'').includes(lib)) return lib;
+            }
+            return 'grunnleggende';
+        }
+
+        function renderCategories(selectedLib) {
+            container.innerHTML = '';
+            data.categories.forEach((cat, catIdx) => {
+                const catLib = getCategoryLibrary(cat);
+                if (selectedLib !== 'alle' && catLib !== selectedLib) return;
+                const catDiv = document.createElement('div');
+                catDiv.className = 'category';
+                const catTitle = document.createElement('h2');
+                catTitle.id = `cat-${catIdx}-title`;
+                catTitle.textContent = cat.name;
+                catDiv.appendChild(catTitle);
+
+                cat.commands.forEach((cmd, cmdIdx) => {
+                    const cmdDiv = document.createElement('div');
+                    cmdDiv.className = 'command';
+
+                    const code = document.createElement('code');
+                    code.id = `cmd-${catIdx}-${cmdIdx}-syntax`;
+                    code.textContent = cmd.syntax;
+                    cmdDiv.appendChild(code);
+
+                    const desc = document.createElement('div');
+                    desc.className = 'description';
+                    desc.id = `cmd-${catIdx}-${cmdIdx}-desc`;
+                    desc.textContent = cmd.description;
+                    cmdDiv.appendChild(desc);
+
+                    const detailsDiv = document.createElement('div');
+                    detailsDiv.className = 'details';
+
+                    const detailsTitle = document.createElement('h3');
+                    detailsTitle.id = `cmd-${catIdx}-${cmdIdx}-details-title`;
+                    detailsTitle.textContent = cmd.detailsTitle || 'Detaljert Forklaring';
+                    detailsDiv.appendChild(detailsTitle);
+
+                    const ul = document.createElement('ul');
+                    ul.id = `cmd-${catIdx}-${cmdIdx}-details-list`;
+                    (cmd.details || []).forEach(d => {
+                        const li = document.createElement('li');
+                        li.innerHTML = d;
+                        ul.appendChild(li);
+                    });
+                    detailsDiv.appendChild(ul);
+
+                    const exampleTitle = document.createElement('h3');
+                    exampleTitle.id = `cmd-${catIdx}-${cmdIdx}-example-title`;
+                    exampleTitle.textContent = cmd.exampleTitle || 'Eksempel';
+                    detailsDiv.appendChild(exampleTitle);
+
+                    const pre = document.createElement('pre');
+                    pre.id = `cmd-${catIdx}-${cmdIdx}-example`;
+                    pre.textContent = cmd.example;
+                    const copyButton = document.createElement('button');
+                    copyButton.className = 'copy-btn';
+                    copyButton.textContent = 'Kopier';
+                    copyButton.addEventListener('click', function(event) {
+                        event.stopPropagation();
+                        navigator.clipboard.writeText(cmd.example).then(function() {
+                            copyButton.textContent = 'Kopiert!';
+                            setTimeout(function() {
+                                copyButton.textContent = 'Kopier';
+                            }, 2000);
+                        }).catch(function() {
+                            copyButton.textContent = 'Feil!';
+                        });
+                    });
+                    pre.insertBefore(copyButton, pre.firstChild);
+                    detailsDiv.appendChild(pre);
+
+                    if (cmd.note) {
+                        const note = document.createElement('p');
+                        note.id = `cmd-${catIdx}-${cmdIdx}-note`;
+                        note.textContent = cmd.note;
+                        detailsDiv.appendChild(note);
+                    }
+
+                    cmdDiv.appendChild(detailsDiv);
+                    cmdDiv.addEventListener('click', function(e) {
+                        if (e.target.classList.contains('copy-btn')) return;
+                        const details = cmdDiv.querySelector('.details');
+                        if (details) {
+                            details.classList.toggle('active');
+                            document.querySelectorAll('.details.active').forEach(otherDetails => {
+                                if (otherDetails !== details) {
+                                    otherDetails.classList.remove('active');
+                                }
+                            });
+                        }
+                    });
+                    catDiv.appendChild(cmdDiv);
+                });
+                container.appendChild(catDiv);
+            });
+        }
+
+        renderCategories('alle');
+        libSelect.addEventListener('change', function() {
+            renderCategories(libSelect.value);
+        });
     });
-  });
-</script>
+    </script>
 </body>
 </html>

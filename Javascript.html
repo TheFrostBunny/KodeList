@@ -10,6 +10,26 @@
 <body class="app-bg">
     <a href="index.html" class="back-link" id="back-link">&larr; Tilbake</a>
     <h1 id="page-title">Javascript Kommando Huskeliste</h1>
+    <label for="lib-select" style="font-weight:bold; color:rgb(41, 219, 219);">Velg kategori:</label>
+    <select id="lib-select">
+        <option value="alle">Alle</option>
+        <option value="grunnleggende">Grunnleggende</option>
+        <option value="variabler">Variabler</option>
+        <option value="løkker">løkker</option>
+        <option value="betingelser">betingelser</option>
+        <option value="funksjoner">funksjoner</option>
+        <option value="arrayer">arrayer</option>
+        <option value="semantikk">Semantikk</option>
+        <option value="objekter">objekter</option>
+        <option value="event">event</option>
+        <option value="json">json</option>
+        <option value="fetch">fetch</option>
+        <option value="async">async</option>
+        <option value="promise">promise</option>
+        <option value="feilhåndtering">feilhåndtering</option>
+        <option value="avansert">avansert</option>
+        <option value="flere">flere</option>
+    </select>
     <div id="categories-container"></div>
         <footer>
             &copy; 2025 David 1IM1
@@ -19,101 +39,124 @@
 fetch('./Lister/Javascript.json')
     .then(response => response.json())
     .then(data => {
-        // Dynamisk bygg kategorier og kommandoer
         const container = document.getElementById('categories-container');
-        container.innerHTML = '';
-        data.categories.forEach((cat, catIdx) => {
-            const catDiv = document.createElement('div');
-            catDiv.className = 'category';
-            const catTitle = document.createElement('h2');
-            catTitle.id = `cat-${catIdx}-title`;
-            catTitle.textContent = cat.name;
-            catDiv.appendChild(catTitle);
+        const libSelect = document.getElementById('lib-select');
 
-            cat.commands.forEach((cmd, cmdIdx) => {
-                const cmdDiv = document.createElement('div');
-                cmdDiv.className = 'command';
+        // Hjelpefunksjon for å finne bibliotek/kategori for en kategori eller kommando
+        function getCategoryLibrary(cat) {
+            const libs = [
+                'grunnleggende','variabler','betingelser','løkker','funksjoner','arrayer','objekter',
+                'dom','event','json','fetch','async','promise','feilhåndtering','avansert','flere'
+            ];
+            for (const lib of libs) {
+                if (cat.name && cat.name.toLowerCase().replace(/[^a-zæøå]/g,'').includes(lib)) return lib;
+            }
+            return 'grunnleggende';
+        }
 
-                const code = document.createElement('code');
-                code.id = `cmd-${catIdx}-${cmdIdx}-syntax`;
-                code.textContent = cmd.syntax;
-                cmdDiv.appendChild(code);
+        function renderCategories(selectedLib) {
+            container.innerHTML = '';
+            data.categories.forEach((cat, catIdx) => {
+                const catLib = getCategoryLibrary(cat);
+                if (selectedLib !== 'alle' && catLib !== selectedLib) return;
+                const catDiv = document.createElement('div');
+                catDiv.className = 'category';
+                const catTitle = document.createElement('h2');
+                catTitle.id = `cat-${catIdx}-title`;
+                catTitle.textContent = cat.name;
+                catDiv.appendChild(catTitle);
 
-                const desc = document.createElement('div');
-                desc.className = 'description';
-                desc.id = `cmd-${catIdx}-${cmdIdx}-desc`;
-                desc.textContent = cmd.description;
-                cmdDiv.appendChild(desc);
+                cat.commands.forEach((cmd, cmdIdx) => {
+                    const cmdDiv = document.createElement('div');
+                    cmdDiv.className = 'command';
 
-                const detailsDiv = document.createElement('div');
-                detailsDiv.className = 'details';
+                    const code = document.createElement('code');
+                    code.id = `cmd-${catIdx}-${cmdIdx}-syntax`;
+                    code.textContent = cmd.syntax;
+                    cmdDiv.appendChild(code);
 
-                const detailsTitle = document.createElement('h3');
-                detailsTitle.id = `cmd-${catIdx}-${cmdIdx}-details-title`;
-                detailsTitle.textContent = cmd.detailsTitle || 'Detaljert Forklaring';
-                detailsDiv.appendChild(detailsTitle);
+                    const desc = document.createElement('div');
+                    desc.className = 'description';
+                    desc.id = `cmd-${catIdx}-${cmdIdx}-desc`;
+                    desc.textContent = cmd.description;
+                    cmdDiv.appendChild(desc);
 
-                const ul = document.createElement('ul');
-                ul.id = `cmd-${catIdx}-${cmdIdx}-details-list`;
-                (cmd.details || []).forEach(d => {
-                    const li = document.createElement('li');
-                    li.innerHTML = d;
-                    ul.appendChild(li);
-                });
-                detailsDiv.appendChild(ul);
+                    const detailsDiv = document.createElement('div');
+                    detailsDiv.className = 'details';
 
-                const exampleTitle = document.createElement('h3');
-                exampleTitle.id = `cmd-${catIdx}-${cmdIdx}-example-title`;
-                exampleTitle.textContent = cmd.exampleTitle || 'Eksempel';
-                detailsDiv.appendChild(exampleTitle);
+                    const detailsTitle = document.createElement('h3');
+                    detailsTitle.id = `cmd-${catIdx}-${cmdIdx}-details-title`;
+                    detailsTitle.textContent = cmd.detailsTitle || 'Detaljert Forklaring';
+                    detailsDiv.appendChild(detailsTitle);
 
-                const pre = document.createElement('pre');
-                pre.id = `cmd-${catIdx}-${cmdIdx}-example`;
-                pre.textContent = cmd.example;
-                // Legg til kopi-knapp
-                const copyButton = document.createElement('button');
-                copyButton.className = 'copy-btn';
-                copyButton.textContent = 'Kopier';
-                copyButton.addEventListener('click', function(event) {
-                    event.stopPropagation();
-                    navigator.clipboard.writeText(cmd.example).then(function() {
-                        copyButton.textContent = 'Kopiert!';
-                        setTimeout(function() {
-                            copyButton.textContent = 'Kopier';
-                        }, 2000);
-                    }).catch(function() {
-                        copyButton.textContent = 'Feil!';
+                    const ul = document.createElement('ul');
+                    ul.id = `cmd-${catIdx}-${cmdIdx}-details-list`;
+                    (cmd.details || []).forEach(d => {
+                        const li = document.createElement('li');
+                        li.innerHTML = d;
+                        ul.appendChild(li);
                     });
-                });
-                pre.insertBefore(copyButton, pre.firstChild);
-                detailsDiv.appendChild(pre);
+                    detailsDiv.appendChild(ul);
 
-                if (cmd.note) {
-                    const note = document.createElement('p');
-                    note.id = `cmd-${catIdx}-${cmdIdx}-note`;
-                    note.textContent = cmd.note;
-                    detailsDiv.appendChild(note);
-                }
+                    const exampleTitle = document.createElement('h3');
+                    exampleTitle.id = `cmd-${catIdx}-${cmdIdx}-example-title`;
+                    exampleTitle.textContent = cmd.exampleTitle || 'Eksempel';
+                    detailsDiv.appendChild(exampleTitle);
 
-                cmdDiv.appendChild(detailsDiv);
-                // Legg til klikk for å vise/skjule detaljer
-                cmdDiv.addEventListener('click', function(e) {
-                    // Ikke lukk hvis man klikker på kopier-knapp
-                    if (e.target.classList.contains('copy-btn')) return;
-                    const details = cmdDiv.querySelector('.details');
-                    if (details) {
-                        details.classList.toggle('active');
-                        // Lukk andre åpne detaljer
-                        document.querySelectorAll('.details.active').forEach(otherDetails => {
-                            if (otherDetails !== details) {
-                                otherDetails.classList.remove('active');
-                            }
+                    const pre = document.createElement('pre');
+                    pre.id = `cmd-${catIdx}-${cmdIdx}-example`;
+                    pre.textContent = cmd.example;
+                    // Legg til kopi-knapp
+                    const copyButton = document.createElement('button');
+                    copyButton.className = 'copy-btn';
+                    copyButton.textContent = 'Kopier';
+                    copyButton.addEventListener('click', function(event) {
+                        event.stopPropagation();
+                        navigator.clipboard.writeText(cmd.example).then(function() {
+                            copyButton.textContent = 'Kopiert!';
+                            setTimeout(function() {
+                                copyButton.textContent = 'Kopier';
+                            }, 2000);
+                        }).catch(function() {
+                            copyButton.textContent = 'Feil!';
                         });
+                    });
+                    pre.insertBefore(copyButton, pre.firstChild);
+                    detailsDiv.appendChild(pre);
+
+                    if (cmd.note) {
+                        const note = document.createElement('p');
+                        note.id = `cmd-${catIdx}-${cmdIdx}-note`;
+                        note.textContent = cmd.note;
+                        detailsDiv.appendChild(note);
                     }
+
+                    cmdDiv.appendChild(detailsDiv);
+                    // Legg til klikk for å vise/skjule detaljer
+                    cmdDiv.addEventListener('click', function(e) {
+                        // Ikke lukk hvis man klikker på kopier-knapp
+                        if (e.target.classList.contains('copy-btn')) return;
+                        const details = cmdDiv.querySelector('.details');
+                        if (details) {
+                            details.classList.toggle('active');
+                            // Lukk andre åpne detaljer
+                            document.querySelectorAll('.details.active').forEach(otherDetails => {
+                                if (otherDetails !== details) {
+                                    otherDetails.classList.remove('active');
+                                }
+                            });
+                        }
+                    });
+                    catDiv.appendChild(cmdDiv);
                 });
-                catDiv.appendChild(cmdDiv);
+                container.appendChild(catDiv);
             });
-            container.appendChild(catDiv);
+        }
+
+        // Initielt vis alle
+        renderCategories('alle');
+        libSelect.addEventListener('change', function() {
+            renderCategories(libSelect.value);
         });
     });
         </script>

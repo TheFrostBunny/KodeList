@@ -1,0 +1,392 @@
+{
+  "categories": [
+    {
+      "name": "Enkle og Grunnleggende SQL-kommandoer",
+      "commands": [
+        {
+          "syntax": "CREATE DATABASE database_navn;",
+          "description": "Oppretter en ny database",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>CREATE DATABASE:</strong> Brukes for å opprette en ny database."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "CREATE DATABASE minDatabase;",
+          "note": "Oppretter databasen \"minDatabase\" for lagring av tabeller og data."
+        },
+        {
+          "syntax": "SHOW DATABASES;",
+          "description": "Viser alle tilgjengelige databaser",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>SHOW DATABASES:</strong> Lister alle databaser som finnes på serveren."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "SHOW DATABASES;",
+          "note": "Brukes for å se hvilke databaser som er tilgjengelige, spesielt i MySQL."
+        },
+        {
+          "syntax": "USE database_navn;",
+          "description": "Velger hvilken database som skal brukes",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>USE:</strong> Angir hvilken database som skal være aktiv for påfølgende spørringer."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "USE minDatabase;",
+          "note": "Setter \"minDatabase\" som aktiv database for videre operasjoner."
+        },
+        {
+          "syntax": "DESCRIBE tabell;",
+          "description": "Viser strukturen til en tabell",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>DESCRIBE:</strong> Gir en oversikt over kolonner, datatyper, null-verdier og nøkler for en tabell."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "DESCRIBE ansatte;",
+          "note": "Brukes for å se strukturen til tabellen \"ansatte\"."
+        },
+        {
+          "syntax": "TRUNCATE TABLE tabell;",
+          "description": "Fjerner alle rader i en tabell hurtig",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>TRUNCATE TABLE:</strong> Raskt fjerner alle rader i en tabell, ofte raskere enn DELETE siden den ikke logger hver rad."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "TRUNCATE TABLE ansatte;",
+          "note": "Fjerner alle data fra tabellen \"ansatte\" og tilbakestiller eventuelle auto-inkrementverdier."
+        },
+        {
+          "syntax": "RENAME TABLE gammelt_navn TO nytt_navn;",
+          "description": "Endrer navnet på en eksisterende tabell",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>RENAME TABLE:</strong> Endrer navnet på tabellen."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "RENAME TABLE gammelAnsatte TO ansatte;",
+          "note": "Endrer tabellnavnet fra \"gammelAnsatte\" til \"ansatte\"."
+        },
+        {
+          "syntax": "EXPLAIN SELECT ...;",
+          "description": "Gir innsikt i hvordan en spørring kjøres",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>EXPLAIN:</strong> Viser spørringens utførelsesplan, nyttig for optimalisering og debugging."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "EXPLAIN SELECT * FROM ansatte;",
+          "note": "Analyserer hvordan MySQL henter data for spørringen \"SELECT * FROM ansatte\"."
+        },
+        {
+          "syntax": "SELECT * FROM tabell;",
+          "description": "Henter alle kolonner fra en tabell",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>SELECT:</strong> Nøkkelord som angir at vi vil hente data",
+            "<strong>*:</strong> Betyr \"alle kolonner\"",
+            "<strong>FROM:</strong> Spesifiserer hvilken tabell vi henter fra"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "SELECT * FROM ansatte;\n-- Henter alle kolonner og rader fra ansatte-tabellen",
+          "note": "Bruk denne når du vil se all informasjon i en tabell. Vær forsiktig med store tabeller!"
+        },
+        {
+          "syntax": "SELECT kolonne FROM tabell WHERE betingelse;",
+          "description": "Henter spesifikke data med filter",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>SELECT kolonne:</strong> Velg spesifikke kolonner i stedet for alle (*)",
+            "<strong>WHERE:</strong> Setter betingelser for hvilke rader som skal hentes",
+            "<strong>betingelse:</strong> For eksempel alder > 25, navn = 'Ole', etc."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "SELECT fornavn, etternavn \nFROM ansatte \nWHERE alder > 30;",
+          "note": "Brukes når du vil filtrere data og bare se spesifikke kolonner."
+        }
+      ]
+    },
+    {
+      "name": "Data Manipulering",
+      "commands": [
+        {
+          "syntax": "INSERT INTO tabell (kolonne1, kolonne2) VALUES (verdi1, verdi2);",
+          "description": "Legger til ny rad i tabellen",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>INSERT INTO:</strong> Angir at vi vil legge til data",
+            "<strong>(kolonne1, kolonne2):</strong> Liste over kolonner vi vil fylle",
+            "<strong>VALUES:</strong> Verdiene som skal settes inn"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "INSERT INTO ansatte (fornavn, etternavn, stilling) \nVALUES ('Ole', 'Hansen', 'Utvikler');",
+          "note": "Husk å inkludere alle påkrevde felter når du legger til nye rader."
+        },
+        {
+          "syntax": "UPDATE tabell SET kolonne = verdi WHERE betingelse;",
+          "description": "Oppdaterer eksisterende data",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>UPDATE:</strong> Angir at vi vil endre eksisterende data",
+            "<strong>SET:</strong> Spesifiserer hvilke verdier som skal endres",
+            "<strong>WHERE:</strong> Viktig! Definerer hvilke rader som skal oppdateres"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "UPDATE ansatte \nSET stilling = 'Senior Utvikler' \nWHERE id = 1;",
+          "note": "VIKTIG: Alltid bruk WHERE-betingelse med UPDATE for å unngå å endre alle rader!"
+        },
+        {
+          "syntax": "DELETE FROM tabell WHERE betingelse;",
+          "description": "Sletter rader fra tabellen",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>DELETE FROM:</strong> Angir at vi vil slette data",
+            "<strong>WHERE:</strong> Kritisk! Definerer hvilke rader som skal slettes"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "DELETE FROM ansatte \nWHERE slutt_dato < '2023-01-01';",
+          "note": "ADVARSEL: Alltid bruk WHERE-betingelse med DELETE for å unngå å slette alle rader!"
+        }
+      ]
+    },
+    {
+      "name": "Tabelloperasjoner",
+      "commands": [
+        {
+          "syntax": "CREATE TABLE tabell (kolonne1 type, kolonne2 type);",
+          "description": "Oppretter ny tabell",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>CREATE TABLE:</strong> Lager en ny tabell",
+            "<strong>type:</strong> F.eks. INTEGER, VARCHAR(255), DATE, etc."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "CREATE TABLE ansatte (\n    id INTEGER PRIMARY KEY,\n    fornavn VARCHAR(50),\n    etternavn VARCHAR(50),\n    ansatt_dato DATE\n);",
+          "note": "Planlegg tabellstrukturen nøye før du oppretter den."
+        },
+        {
+          "syntax": "ALTER TABLE tabell ADD kolonne type;",
+          "description": "Legger til ny kolonne i eksisterende tabell",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>ALTER TABLE:</strong> Modifiserer en eksisterende tabell",
+            "<strong>ADD:</strong> Legger til en ny kolonne"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "ALTER TABLE ansatte \nADD epost VARCHAR(100);",
+          "note": "Nye kolonner legges til på slutten av tabellen. Vær obs på at eksisterende rader får NULL-verdi i den nye kolonnen."
+        },
+        {
+          "syntax": "DROP TABLE tabell;",
+          "description": "Sletter en tabell",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>DROP TABLE:</strong> Sletter tabellen og all data i den"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "DROP TABLE gamle_ansatte;",
+          "note": "ADVARSEL: Dette kan ikke angres! Sørg for å ha backup før du sletter tabeller."
+        }
+      ]
+    },
+    {
+      "name": "Joins",
+      "commands": [
+        {
+          "syntax": "SELECT * FROM tabell1 INNER JOIN tabell2 ON tabell1.id = tabell2.id;",
+          "description": "Kobler sammen to tabeller basert på felles verdier",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>INNER JOIN:</strong> Matcher rader fra begge tabeller",
+            "<strong>ON:</strong> Definerer koblingsbetingelsen"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "SELECT ansatte.navn, avdelinger.avdeling_navn\nFROM ansatte\nINNER JOIN avdelinger ON ansatte.avdeling_id = avdelinger.id;",
+          "note": "Viser kun rader som har match i begge tabeller."
+        },
+        {
+          "syntax": "SELECT * FROM tabell1 LEFT JOIN tabell2 ON tabell1.id = tabell2.id;",
+          "description": "Beholder alle rader fra venstre tabell",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>LEFT JOIN:</strong> Beholder alle rader fra første tabell",
+            "<strong>ON:</strong> Definerer koblingsbetingelsen"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "SELECT ansatte.navn, prosjekter.prosjekt_navn\nFROM ansatte\nLEFT JOIN prosjekter ON ansatte.prosjekt_id = prosjekter.id;",
+          "note": "Viser alle ansatte, selv om de ikke er tilknyttet et prosjekt."
+        }
+      ]
+    },
+    {
+      "name": "Avanserte Spørringer og Funksjoner",
+      "commands": [
+        {
+          "syntax": "SELECT DISTINCT kolonne FROM tabell;",
+          "description": "Henter unike verdier fra en kolonne",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>DISTINCT:</strong> Fjerner dupliserte verdier i resultatet"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "SELECT DISTINCT land FROM kunder;",
+          "note": "Brukes for å hente en liste over unike land fra kunder-tabellen."
+        },
+        {
+          "syntax": "SELECT * FROM tabell ORDER BY kolonne ASC|DESC;",
+          "description": "Sorter resultatet basert på en kolonne",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>ORDER BY:</strong> Sorterer data basert på spesifisert kolonne",
+            "<strong>ASC:</strong> Stigende rekkefølge (default)",
+            "<strong>DESC:</strong> Synkende rekkefølge"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "SELECT * FROM produkter ORDER BY pris DESC;",
+          "note": "Brukes for å vise de dyreste produktene først."
+        },
+        {
+          "syntax": "SELECT kolonne, COUNT(*) FROM tabell GROUP BY kolonne;",
+          "description": "Grupperer data etter en kolonne og teller antallet",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>GROUP BY:</strong> Samler rader med samme verdi i en kolonne",
+            "<strong>COUNT(*):</strong> Teller antall rader i hver gruppe"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "SELECT kategori, COUNT(*)\nFROM produkter\nGROUP BY kategori;",
+          "note": "Brukes for å vise antall produkter per kategori."
+        },
+        {
+          "syntax": "SELECT kolonne, COUNT(*) FROM tabell GROUP BY kolonne HAVING COUNT(*) > verdi;",
+          "description": "Filtrerer grupper med en betingelse",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>HAVING:</strong> Filtrerer grupper etter at de er gruppert med GROUP BY"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "SELECT kategori, COUNT(*)\nFROM produkter\nGROUP BY kategori\nHAVING COUNT(*) > 10;",
+          "note": "Brukes for å vise kun de kategoriene som har mer enn 10 produkter."
+        },
+        {
+          "syntax": "SELECT * FROM tabell LIMIT antall;",
+          "description": "Begrenser antall rader i resultatet",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>LIMIT:</strong> Bestemmer hvor mange rader som returneres"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "SELECT * FROM bestillinger LIMIT 5;",
+          "note": "Brukes ofte for paginering eller når du bare trenger et utvalg av data."
+        },
+        {
+          "syntax": "SELECT kolonne FROM tabell1 UNION SELECT kolonne FROM tabell2;",
+          "description": "Kombinerer resultater fra to spørringer",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>UNION:</strong> Kombinerer resultater og fjerner duplikater",
+            "<strong>UNION ALL:</strong> Kombinerer resultater uten å fjerne duplikater"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "SELECT fornavn FROM ansatte\nUNION\nSELECT fornavn FROM kunder;",
+          "note": "Brukes for å lage en liste med unike fornavn fra både ansatte og kunder."
+        },
+        {
+          "syntax": "CREATE INDEX index_navn ON tabell(kolonne);",
+          "description": "Oppretter en indeks for å øke søkehastigheten i en tabell",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>CREATE INDEX:</strong> Lager en indeks på en eller flere kolonner"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "CREATE INDEX idx_pris ON produkter(pris);",
+          "note": "Brukes for å forbedre ytelsen ved søk i den spesifiserte kolonnen."
+        },
+        {
+          "syntax": "DROP INDEX index_navn ON tabell;",
+          "description": "Fjerner en indeks fra en tabell",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>DROP INDEX:</strong> Fjerner en indeks"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "DROP INDEX idx_pris ON produkter;",
+          "note": "Fjerner indeksen for å frigjøre ressurser eller endre tabellstrukturen."
+        }
+      ]
+    },
+    {
+      "name": "Flere SQL-kommandoer",
+      "commands": [
+        {
+          "syntax": "SELECT * FROM ansatte WHERE lønn = (SELECT MAX(lønn) FROM ansatte);",
+          "description": "Henter den ansatte med høyeste lønn ved hjelp av en subquery",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>Subquery:</strong> En spørring som returnerer et resultat som benyttes av hovedspørringen"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "SELECT * FROM ansatte \nWHERE lønn = (SELECT MAX(lønn) FROM ansatte);\n-- Henter den ansatte med høyeste lønn",
+          "note": "Subqueryen finner den høyeste lønnen, og hovedspørringen returnerer den ansatte som har denne lønnen."
+        },
+        {
+          "syntax": "WITH avdelingslønn AS (\n    SELECT avdeling, AVG(lønn) AS gjennomsnittslønn\n    FROM ansatte\n    GROUP BY avdeling\n)\nSELECT * FROM avdelingslønn;",
+          "description": "Bruker en Common Table Expression (CTE) for å beregne gjennomsnittslønn per avdeling",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>WITH:</strong> Definerer en midlertidig resultattabell (CTE) som kan benyttes i den påfølgende spørringen"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "WITH avdelingslønn AS (\n    SELECT avdeling, AVG(lønn) AS gjennomsnittslønn\n    FROM ansatte\n    GROUP BY avdeling\n)\nSELECT * FROM avdelingslønn;\n-- Viser gjennomsnittslønn for hver avdeling",
+          "note": "CTE gjør komplekse spørringer lettere å lese og vedlikeholde."
+        },
+        {
+          "syntax": "CREATE VIEW aktive_kunder AS \nSELECT * FROM kunder \nWHERE aktiv = 1;",
+          "description": "Oppretter en view for aktive kunder",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>CREATE VIEW:</strong> Lager en virtuell tabell basert på resultatet fra en SELECT-spørring"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "CREATE VIEW aktive_kunder AS \nSELECT * FROM kunder \nWHERE aktiv = 1;\n-- Lager en view som kun inneholder aktive kunder",
+          "note": "Views forenkler komplekse spørringer og kan også begrense tilgang til sensitive data."
+        },
+        {
+          "syntax": "DROP VIEW aktive_kunder;",
+          "description": "Fjerner viewen for aktive kunder",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>DROP VIEW:</strong> Sletter en eksisterende view"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "DROP VIEW aktive_kunder;\n-- Fjerner viewen for aktive kunder",
+          "note": "Brukes for å fjerne views som ikke lenger er nødvendige."
+        },
+        {
+          "syntax": "SELECT navn, lønn,\nCASE \n    WHEN lønn < 50000 THEN 'Lav'\n    WHEN lønn BETWEEN 50000 AND 100000 THEN 'Middels'\n    ELSE 'Høy'\nEND AS lønnsklasse\nFROM ansatte;",
+          "description": "Bruker CASE for å kategorisere ansatte basert på lønn",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>CASE:</strong> Evaluerer en rekke betingelser og returnerer den første sanne verdien"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "SELECT navn, lønn,\nCASE \n    WHEN lønn < 50000 THEN 'Lav'\n    WHEN lønn BETWEEN 50000 AND 100000 THEN 'Middels'\n    ELSE 'Høy'\nEND AS lønnsklasse\nFROM ansatte;\n-- Kategoriserer ansatte basert på deres lønn",
+          "note": "CASE-setningen gir mulighet for dynamisk evaluering og visning av data basert på spesifikke betingelser."
+        },
+        {
+          "syntax": "SELECT navn, lønn,\nROW_NUMBER() OVER (ORDER BY lønn DESC) AS rangering\nFROM ansatte;",
+          "description": "Bruker window-funksjonen ROW_NUMBER for å rangere ansatte etter lønn",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>ROW_NUMBER() OVER (ORDER BY):</strong> Genererer et unikt radnummer for hver rad basert på den oppgitte rekkefølgen"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "SELECT navn, lønn,\nROW_NUMBER() OVER (ORDER BY lønn DESC) AS rangering\nFROM ansatte;\n-- Rangering av ansatte med den høyeste lønnen først",
+          "note": "Window-funksjoner gjør det mulig å utføre avanserte beregninger over et sett med rader uten å aggregere dem."
+        }
+      ]
+    }
+  ]
+}

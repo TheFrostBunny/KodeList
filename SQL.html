@@ -8,580 +8,140 @@
     <link rel="icon" href="./Assets/Logo.png" type="image/png">
 </head>
 <body class="app-bg">
-        <a href="index.html" class="back-link" id="back-link">&larr; Tilbake</a>
-            <h1 id="page-title">SQL Kommando Huskeliste</h1>¨
-        
-        <!-- Kategori: Grunnleggende HTML Struktur -->
-        <div class="category">
-            <h2>Enkle og Grunnleggende SQL-kommandoer</h2>
-            
-            <!-- Enkle SQL-kommandoer -->
-            <div class="command">
-                <code>CREATE DATABASE database_navn;</code>
-                <div class="description">Oppretter en ny database</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>CREATE DATABASE:</strong> Brukes for å opprette en ny database.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>CREATE DATABASE minDatabase;</pre>
-                    <p>Oppretter databasen "minDatabase" for lagring av tabeller og data.</p>
-                </div>
-            </div>
-            <div class="command">
-                <code>SHOW DATABASES;</code>
-                <div class="description">Viser alle tilgjengelige databaser</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>SHOW DATABASES:</strong> Lister alle databaser som finnes på serveren.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>SHOW DATABASES;</pre>
-                    <p>Brukes for å se hvilke databaser som er tilgjengelige, spesielt i MySQL.</p>
-                </div>
-            </div>
-            <div class="command">
-                <code>USE database_navn;</code>
-                <div class="description">Velger hvilken database som skal brukes</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>USE:</strong> Angir hvilken database som skal være aktiv for påfølgende spørringer.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>USE minDatabase;</pre>
-                    <p>Setter "minDatabase" som aktiv database for videre operasjoner.</p>
-                </div>
-            </div>
-            <div class="command">
-                <code>DESCRIBE tabell;</code>
-                <div class="description">Viser strukturen til en tabell</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>DESCRIBE:</strong> Gir en oversikt over kolonner, datatyper, null-verdier og nøkler for en tabell.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>DESCRIBE ansatte;</pre>
-                    <p>Brukes for å se strukturen til tabellen "ansatte".</p>
-                </div>
-            </div>
-            <div class="command">
-                <code>TRUNCATE TABLE tabell;</code>
-                <div class="description">Fjerner alle rader i en tabell hurtig</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>TRUNCATE TABLE:</strong> Raskt fjerner alle rader i en tabell, ofte raskere enn DELETE siden den ikke logger hver rad.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>TRUNCATE TABLE ansatte;</pre>
-                    <p>Fjerner alle data fra tabellen "ansatte" og tilbakestiller eventuelle auto-inkrementverdier.</p>
-                </div>
-            </div>
-            <div class="command">
-                <code>RENAME TABLE gammelt_navn TO nytt_navn;</code>
-                <div class="description">Endrer navnet på en eksisterende tabell</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>RENAME TABLE:</strong> Endrer navnet på tabellen.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>RENAME TABLE gammelAnsatte TO ansatte;</pre>
-                    <p>Endrer tabellnavnet fra "gammelAnsatte" til "ansatte".</p>
-                </div>
-            </div>
-            <div class="command">
-                <code>EXPLAIN SELECT ...;</code>
-                <div class="description">Gir innsikt i hvordan en spørring kjøres</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>EXPLAIN:</strong> Viser spørringens utførelsesplan, nyttig for optimalisering og debugging.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>EXPLAIN SELECT * FROM ansatte;</pre>
-                    <p>Analyserer hvordan MySQL henter data for spørringen "SELECT * FROM ansatte".</p>
-                </div>
-            </div>
-            
-            <!-- Grunnleggende Spørringer (lagt til her) -->
-            <div class="command">
-                <code>SELECT * FROM tabell;</code>
-                <div class="description">Henter alle kolonner fra en tabell</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>SELECT:</strong> Nøkkelord som angir at vi vil hente data</li>
-                        <li><strong>*:</strong> Betyr "alle kolonner"</li>
-                        <li><strong>FROM:</strong> Spesifiserer hvilken tabell vi henter fra</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>SELECT * FROM ansatte;
--- Henter alle kolonner og rader fra ansatte-tabellen</pre>
-                    <p>Bruk denne når du vil se all informasjon i en tabell. Vær forsiktig med store tabeller!</p>
-                </div>
-            </div>
-            <div class="command">
-                <code>SELECT kolonne FROM tabell WHERE betingelse;</code>
-                <div class="description">Henter spesifikke data med filter</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>SELECT kolonne:</strong> Velg spesifikke kolonner i stedet for alle (*)</li>
-                        <li><strong>WHERE:</strong> Setter betingelser for hvilke rader som skal hentes</li>
-                        <li><strong>betingelse:</strong> For eksempel alder > 25, navn = 'Ole', etc.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>SELECT fornavn, etternavn 
-FROM ansatte 
-WHERE alder > 30;</pre>
-                    <p>Brukes når du vil filtrere data og bare se spesifikke kolonner.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="category">
-            <h2>Data Manipulering</h2>
-            <div class="command">
-                <code>INSERT INTO tabell (kolonne1, kolonne2) VALUES (verdi1, verdi2);</code>
-                <div class="description">Legger til ny rad i tabellen</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>INSERT INTO:</strong> Angir at vi vil legge til data</li>
-                        <li><strong>(kolonne1, kolonne2):</strong> Liste over kolonner vi vil fylle</li>
-                        <li><strong>VALUES:</strong> Verdiene som skal settes inn</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>INSERT INTO ansatte (fornavn, etternavn, stilling) 
-VALUES ('Ole', 'Hansen', 'Utvikler');</pre>
-                    <p>Husk å inkludere alle påkrevde felter når du legger til nye rader.</p>
-                </div>
-            </div>
-            <div class="command">
-                <code>UPDATE tabell SET kolonne = verdi WHERE betingelse;</code>
-                <div class="description">Oppdaterer eksisterende data</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>UPDATE:</strong> Angir at vi vil endre eksisterende data</li>
-                        <li><strong>SET:</strong> Spesifiserer hvilke verdier som skal endres</li>
-                        <li><strong>WHERE:</strong> Viktig! Definerer hvilke rader som skal oppdateres</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>UPDATE ansatte 
-SET stilling = 'Senior Utvikler' 
-WHERE id = 1;</pre>
-                    <p>VIKTIG: Alltid bruk WHERE-betingelse med UPDATE for å unngå å endre alle rader!</p>
-                </div>
-            </div>
-            <div class="command">
-                <code>DELETE FROM tabell WHERE betingelse;</code>
-                <div class="description">Sletter rader fra tabellen</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>DELETE FROM:</strong> Angir at vi vil slette data</li>
-                        <li><strong>WHERE:</strong> Kritisk! Definerer hvilke rader som skal slettes</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>DELETE FROM ansatte 
-WHERE slutt_dato < '2023-01-01';</pre>
-                    <p>ADVARSEL: Alltid bruk WHERE-betingelse med DELETE for å unngå å slette alle rader!</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="category">
-            <h2>Tabelloperasjoner</h2>
-            <div class="command">
-                <code>CREATE TABLE tabell (kolonne1 type, kolonne2 type);</code>
-                <div class="description">Oppretter ny tabell</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>CREATE TABLE:</strong> Lager en ny tabell</li>
-                        <li><strong>type:</strong> F.eks. INTEGER, VARCHAR(255), DATE, etc.</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>CREATE TABLE ansatte (
-    id INTEGER PRIMARY KEY,
-    fornavn VARCHAR(50),
-    etternavn VARCHAR(50),
-    ansatt_dato DATE
-);</pre>
-                    <p>Planlegg tabellstrukturen nøye før du oppretter den.</p>
-                </div>
-            </div>
-            <div class="command">
-                <code>ALTER TABLE tabell ADD kolonne type;</code>
-                <div class="description">Legger til ny kolonne i eksisterende tabell</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>ALTER TABLE:</strong> Modifiserer en eksisterende tabell</li>
-                        <li><strong>ADD:</strong> Legger til en ny kolonne</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>ALTER TABLE ansatte 
-ADD epost VARCHAR(100);</pre>
-                    <p>Nye kolonner legges til på slutten av tabellen. Vær obs på at eksisterende rader får NULL-verdi i den nye kolonnen.</p>
-                </div>
-            </div>
-            <div class="command">
-                <code>DROP TABLE tabell;</code>
-                <div class="description">Sletter en tabell</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>DROP TABLE:</strong> Sletter tabellen og all data i den</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>DROP TABLE gamle_ansatte;</pre>
-                    <p>ADVARSEL: Dette kan ikke angres! Sørg for å ha backup før du sletter tabeller.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="category">
-            <h2>Joins</h2>
-            <div class="command">
-                <code>SELECT * FROM tabell1 INNER JOIN tabell2 ON tabell1.id = tabell2.id;</code>
-                <div class="description">Kobler sammen to tabeller basert på felles verdier</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>INNER JOIN:</strong> Matcher rader fra begge tabeller</li>
-                        <li><strong>ON:</strong> Definerer koblingsbetingelsen</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>SELECT ansatte.navn, avdelinger.avdeling_navn
-FROM ansatte
-INNER JOIN avdelinger ON ansatte.avdeling_id = avdelinger.id;</pre>
-                    <p>Viser kun rader som har match i begge tabeller.</p>
-                </div>
-            </div>
-            <div class="command">
-                <code>SELECT * FROM tabell1 LEFT JOIN tabell2 ON tabell1.id = tabell2.id;</code>
-                <div class="description">Beholder alle rader fra venstre tabell</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>LEFT JOIN:</strong> Beholder alle rader fra første tabell</li>
-                        <li><strong>ON:</strong> Definerer koblingsbetingelsen</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>SELECT ansatte.navn, prosjekter.prosjekt_navn
-FROM ansatte
-LEFT JOIN prosjekter ON ansatte.prosjekt_id = prosjekter.id;</pre>
-                    <p>Viser alle ansatte, selv om de ikke er tilknyttet et prosjekt.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="category">
-            <h2>Avanserte Spørringer og Funksjoner</h2>
-            <div class="command">
-                <code>SELECT DISTINCT kolonne FROM tabell;</code>
-                <div class="description">Henter unike verdier fra en kolonne</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>DISTINCT:</strong> Fjerner dupliserte verdier i resultatet</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>SELECT DISTINCT land FROM kunder;</pre>
-                    <p>Brukes for å hente en liste over unike land fra kunder-tabellen.</p>
-                </div>
-            </div>
-            <div class="command">
-                <code>SELECT * FROM tabell ORDER BY kolonne ASC|DESC;</code>
-                <div class="description">Sorter resultatet basert på en kolonne</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>ORDER BY:</strong> Sorterer data basert på spesifisert kolonne</li>
-                        <li><strong>ASC:</strong> Stigende rekkefølge (default)</li>
-                        <li><strong>DESC:</strong> Synkende rekkefølge</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>SELECT * FROM produkter ORDER BY pris DESC;</pre>
-                    <p>Brukes for å vise de dyreste produktene først.</p>
-                </div>
-            </div>
-            <div class="command">
-                <code>SELECT kolonne, COUNT(*) FROM tabell GROUP BY kolonne;</code>
-                <div class="description">Grupperer data etter en kolonne og teller antallet</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>GROUP BY:</strong> Samler rader med samme verdi i en kolonne</li>
-                        <li><strong>COUNT(*):</strong> Teller antall rader i hver gruppe</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>SELECT kategori, COUNT(*)
-FROM produkter
-GROUP BY kategori;</pre>
-                    <p>Brukes for å vise antall produkter per kategori.</p>
-                </div>
-            </div>
-            <div class="command">
-                <code>SELECT kolonne, COUNT(*) FROM tabell GROUP BY kolonne HAVING COUNT(*) > verdi;</code>
-                <div class="description">Filtrerer grupper med en betingelse</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>HAVING:</strong> Filtrerer grupper etter at de er gruppert med GROUP BY</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>SELECT kategori, COUNT(*)
-FROM produkter
-GROUP BY kategori
-HAVING COUNT(*) > 10;</pre>
-                    <p>Brukes for å vise kun de kategoriene som har mer enn 10 produkter.</p>
-                </div>
-            </div>
-            <div class="command">
-                <code>SELECT * FROM tabell LIMIT antall;</code>
-                <div class="description">Begrenser antall rader i resultatet</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>LIMIT:</strong> Bestemmer hvor mange rader som returneres</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>SELECT * FROM bestillinger LIMIT 5;</pre>
-                    <p>Brukes ofte for paginering eller når du bare trenger et utvalg av data.</p>
-                </div>
-            </div>
-            <div class="command">
-                <code>SELECT kolonne FROM tabell1 UNION SELECT kolonne FROM tabell2;</code>
-                <div class="description">Kombinerer resultater fra to spørringer</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>UNION:</strong> Kombinerer resultater og fjerner duplikater</li>
-                        <li><strong>UNION ALL:</strong> Kombinerer resultater uten å fjerne duplikater</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>SELECT fornavn FROM ansatte
-UNION
-SELECT fornavn FROM kunder;</pre>
-                    <p>Brukes for å lage en liste med unike fornavn fra både ansatte og kunder.</p>
-                </div>
-            </div>
-            <div class="command">
-                <code>CREATE INDEX index_navn ON tabell(kolonne);</code>
-                <div class="description">Oppretter en indeks for å øke søkehastigheten i en tabell</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>CREATE INDEX:</strong> Lager en indeks på en eller flere kolonner</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>CREATE INDEX idx_pris ON produkter(pris);</pre>
-                    <p>Brukes for å forbedre ytelsen ved søk i den spesifiserte kolonnen.</p>
-                </div>
-            </div>
-            <div class="command">
-                <code>DROP INDEX index_navn ON tabell;</code>
-                <div class="description">Fjerner en indeks fra en tabell</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>DROP INDEX:</strong> Fjerner en indeks</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>DROP INDEX idx_pris ON produkter;</pre>
-                    <p>Fjerner indeksen for å frigjøre ressurser eller endre tabellstrukturen.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="category">
-            <h2>Flere SQL-kommandoer</h2>
-            <div class="command">
-                <code>SELECT * FROM ansatte WHERE lønn = (SELECT MAX(lønn) FROM ansatte);</code>
-                <div class="description">Henter den ansatte med høyeste lønn ved hjelp av en subquery</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>Subquery:</strong> En spørring som returnerer et resultat som benyttes av hovedspørringen</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>
-SELECT * FROM ansatte 
-WHERE lønn = (SELECT MAX(lønn) FROM ansatte);
--- Henter den ansatte med høyeste lønn
-                    </pre>
-                    <p>Subqueryen finner den høyeste lønnen, og hovedspørringen returnerer den ansatte som har denne lønnen.</p>
-                </div>
-            </div>
-        
-            <div class="command">
-                <code>WITH avdelingslønn AS (
-    SELECT avdeling, AVG(lønn) AS gjennomsnittslønn
-    FROM ansatte
-    GROUP BY avdeling
-)
-SELECT * FROM avdelingslønn;</code>
-                <div class="description">Bruker en Common Table Expression (CTE) for å beregne gjennomsnittslønn per avdeling</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>WITH:</strong> Definerer en midlertidig resultattabell (CTE) som kan benyttes i den påfølgende spørringen</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>
-WITH avdelingslønn AS (
-    SELECT avdeling, AVG(lønn) AS gjennomsnittslønn
-    FROM ansatte
-    GROUP BY avdeling
-)
-SELECT * FROM avdelingslønn;
--- Viser gjennomsnittslønn for hver avdeling
-                    </pre>
-                    <p>CTE gjør komplekse spørringer lettere å lese og vedlikeholde.</p>
-                </div>
-            </div>
-        
-            <div class="command">
-                <code>CREATE VIEW aktive_kunder AS 
-SELECT * FROM kunder 
-WHERE aktiv = 1;</code>
-                <div class="description">Oppretter en view for aktive kunder</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>CREATE VIEW:</strong> Lager en virtuell tabell basert på resultatet fra en SELECT-spørring</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>
-CREATE VIEW aktive_kunder AS 
-SELECT * FROM kunder 
-WHERE aktiv = 1;
--- Lager en view som kun inneholder aktive kunder
-                    </pre>
-                    <p>Views forenkler komplekse spørringer og kan også begrense tilgang til sensitive data.</p>
-                </div>
-            </div>
-        
-            <div class="command">
-                <code>DROP VIEW aktive_kunder;</code>
-                <div class="description">Fjerner viewen for aktive kunder</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>DROP VIEW:</strong> Sletter en eksisterende view</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>
-DROP VIEW aktive_kunder;
--- Fjerner viewen for aktive kunder
-                    </pre>
-                    <p>Brukes for å fjerne views som ikke lenger er nødvendige.</p>
-                </div>
-            </div>
-        
-            <div class="command">
-                <code>SELECT navn, lønn,
-CASE 
-    WHEN lønn < 50000 THEN 'Lav'
-    WHEN lønn BETWEEN 50000 AND 100000 THEN 'Middels'
-    ELSE 'Høy'
-END AS lønnsklasse
-FROM ansatte;</code>
-                <div class="description">Bruker CASE for å kategorisere ansatte basert på lønn</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>CASE:</strong> Evaluerer en rekke betingelser og returnerer den første sanne verdien</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>
-SELECT navn, lønn,
-CASE 
-    WHEN lønn < 50000 THEN 'Lav'
-    WHEN lønn BETWEEN 50000 AND 100000 THEN 'Middels'
-    ELSE 'Høy'
-END AS lønnsklasse
-FROM ansatte;
--- Kategoriserer ansatte basert på deres lønn
-                    </pre>
-                    <p>CASE-setningen gir mulighet for dynamisk evaluering og visning av data basert på spesifikke betingelser.</p>
-                </div>
-            </div>
-        
-            <div class="command">
-                <code>SELECT navn, lønn,
-ROW_NUMBER() OVER (ORDER BY lønn DESC) AS rangering
-FROM ansatte;</code>
-                <div class="description">Bruker window-funksjonen ROW_NUMBER for å rangere ansatte etter lønn</div>
-                <div class="details">
-                    <h3>Detaljert Forklaring</h3>
-                    <ul>
-                        <li><strong>ROW_NUMBER() OVER (ORDER BY):</strong> Genererer et unikt radnummer for hver rad basert på den oppgitte rekkefølgen</li>
-                    </ul>
-                    <h3>Eksempel</h3>
-                    <pre>
-SELECT navn, lønn,
-ROW_NUMBER() OVER (ORDER BY lønn DESC) AS rangering
-FROM ansatte;
--- Rangering av ansatte med den høyeste lønnen først
-                    </pre>
-                    <p>Window-funksjoner gjør det mulig å utføre avanserte beregninger over et sett med rader uten å aggregere dem.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="youtube-container">
-        <h2>Se en nyttig SQL-video:</h2>
-        <iframe width="560" height="315" 
-            src="https://www.youtube.com/embed/xiUTqnI6xk8?si=eZ-7XmyjERjpJ6Yl" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
-        </iframe>
-    </div>
-    
+    <a href="index.html" class="back-link" id="back-link">&larr; Tilbake</a>
+    <h1 id="page-title">SQL Kommando Huskeliste</h1>
+    <label for="lib-select" style="font-weight:bold; color:rgb(41, 219, 219);">Velg kategori:</label>
+    <select id="lib-select">
+        <option value="alle">Alle</option>
+        <option value="grunnleggende">Grunnleggende</option>
+        <option value="manipulering">Data Manipulering</option>
+        <option value="tabelloperasjoner">Tabelloperasjoner</option>
+        <option value="joins">Joins</option>
+        <option value="avansert">Avanserte</option>
+        <option value="flere">Flere</option>
+    </select>
+    <div id="categories-container"></div>
     <footer>
-      &copy; 2025 David 1IM1
+        &copy; 2025 David 1IM1
     </footer>
-    
     <script src="/Javascript/script.js"></script>
     <script>
-fetch('html-commands.json')
-  .then(response => response.json())
-  .then(data => {
-    // Tittel og tilbake-lenke
-    document.getElementById('page-title').textContent = data.title;
-    document.getElementById('back-link').innerHTML = '&larr; ' + data.back;
+fetch('./Lister/SQL.json')
+    .then(response => response.json())
+    .then(data => {
+        const container = document.getElementById('categories-container');
+        const libSelect = document.getElementById('lib-select');
 
-    // Første kategori, første kommando
-    const cat = data.categories[0];
-    document.getElementById('cat-0-title').textContent = cat.name;
-    const cmd = cat.commands[0];
-    document.getElementById('cmd-0-0-syntax').textContent = cmd.syntax;
-    document.getElementById('cmd-0-0-desc').textContent = cmd.description;
-    document.getElementById('cmd-0-0-details-title').textContent = cmd.detailsTitle;
-    document.getElementById('cmd-0-0-example-title').textContent = cmd.exampleTitle;
-    document.getElementById('cmd-0-0-example').textContent = cmd.example;
-    document.getElementById('cmd-0-0-note').textContent = cmd.note || '';
-    // Fyll ut detaljer-liste
-    const ul = document.getElementById('cmd-0-0-details-list');
-    ul.innerHTML = '';
-    cmd.details.forEach(d => {
-      const li = document.createElement('li');
-      li.innerHTML = d;
-      ul.appendChild(li);
+        function getCategoryLibrary(cat) {
+            const libs = [
+                'grunnleggende','manipulering','tabelloperasjoner','joins','avansert','flere'
+            ];
+            for (const lib of libs) {
+                if (cat.name && cat.name.toLowerCase().replace(/[^a-zæøå]/g,'').includes(lib)) return lib;
+            }
+            return 'grunnleggende';
+        }
+
+        function renderCategories(selectedLib) {
+            container.innerHTML = '';
+            data.categories.forEach((cat, catIdx) => {
+                const catLib = getCategoryLibrary(cat);
+                if (selectedLib !== 'alle' && catLib !== selectedLib) return;
+                const catDiv = document.createElement('div');
+                catDiv.className = 'category';
+                const catTitle = document.createElement('h2');
+                catTitle.id = `cat-${catIdx}-title`;
+                catTitle.textContent = cat.name;
+                catDiv.appendChild(catTitle);
+
+                cat.commands.forEach((cmd, cmdIdx) => {
+                    const cmdDiv = document.createElement('div');
+                    cmdDiv.className = 'command';
+
+                    const code = document.createElement('code');
+                    code.id = `cmd-${catIdx}-${cmdIdx}-syntax`;
+                    code.textContent = cmd.syntax;
+                    cmdDiv.appendChild(code);
+
+                    const desc = document.createElement('div');
+                    desc.className = 'description';
+                    desc.id = `cmd-${catIdx}-${cmdIdx}-desc`;
+                    desc.textContent = cmd.description;
+                    cmdDiv.appendChild(desc);
+
+                    const detailsDiv = document.createElement('div');
+                    detailsDiv.className = 'details';
+
+                    const detailsTitle = document.createElement('h3');
+                    detailsTitle.id = `cmd-${catIdx}-${cmdIdx}-details-title`;
+                    detailsTitle.textContent = cmd.detailsTitle || 'Detaljert Forklaring';
+                    detailsDiv.appendChild(detailsTitle);
+
+                    const ul = document.createElement('ul');
+                    ul.id = `cmd-${catIdx}-${cmdIdx}-details-list`;
+                    (cmd.details || []).forEach(d => {
+                        const li = document.createElement('li');
+                        li.innerHTML = d;
+                        ul.appendChild(li);
+                    });
+                    detailsDiv.appendChild(ul);
+
+                    const exampleTitle = document.createElement('h3');
+                    exampleTitle.id = `cmd-${catIdx}-${cmdIdx}-example-title`;
+                    exampleTitle.textContent = cmd.exampleTitle || 'Eksempel';
+                    detailsDiv.appendChild(exampleTitle);
+
+                    const pre = document.createElement('pre');
+                    pre.id = `cmd-${catIdx}-${cmdIdx}-example`;
+                    pre.textContent = cmd.example;
+                    const copyButton = document.createElement('button');
+                    copyButton.className = 'copy-btn';
+                    copyButton.textContent = 'Kopier';
+                    copyButton.addEventListener('click', function(event) {
+                        event.stopPropagation();
+                        navigator.clipboard.writeText(cmd.example).then(function() {
+                            copyButton.textContent = 'Kopiert!';
+                            setTimeout(function() {
+                                copyButton.textContent = 'Kopier';
+                            }, 2000);
+                        }).catch(function() {
+                            copyButton.textContent = 'Feil!';
+                        });
+                    });
+                    pre.insertBefore(copyButton, pre.firstChild);
+                    detailsDiv.appendChild(pre);
+
+                    if (cmd.note) {
+                        const note = document.createElement('p');
+                        note.id = `cmd-${catIdx}-${cmdIdx}-note`;
+                        note.textContent = cmd.note;
+                        detailsDiv.appendChild(note);
+                    }
+
+                    cmdDiv.appendChild(detailsDiv);
+                    cmdDiv.addEventListener('click', function(e) {
+                        if (e.target.classList.contains('copy-btn')) return;
+                        const details = cmdDiv.querySelector('.details');
+                        if (details) {
+                            details.classList.toggle('active');
+                            document.querySelectorAll('.details.active').forEach(otherDetails => {
+                                if (otherDetails !== details) {
+                                    otherDetails.classList.remove('active');
+                                }
+                            });
+                        }
+                    });
+                    catDiv.appendChild(cmdDiv);
+                });
+                container.appendChild(catDiv);
+            });
+        }
+
+        renderCategories('alle');
+        libSelect.addEventListener('change', function() {
+            renderCategories(libSelect.value);
+        });
     });
-  });
-</script>
+    </script>
 </body>
 </html>
