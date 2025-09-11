@@ -68,6 +68,50 @@
           "exampleTitle": "Eksempel",
           "example": "git log",
           "note": "Gir deg oversikt over hvem som har gjort hva og når."
+        },
+        {
+          "syntax": "git checkout -b <gren>",
+          "description": "Oppretter og bytter til en ny gren",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>git checkout -b:</strong> Lager en ny gren og bytter til den med én kommando."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "git checkout -b feature-login",
+          "note": "Brukes for å starte arbeid på en ny funksjon uten å påvirke main."
+        },
+        {
+          "syntax": "git log --oneline --graph --all",
+          "description": "Viser en kompakt, grafisk oversikt over commit-historikken",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>git log --oneline --graph --all:</strong> Viser en enkel, visuell representasjon av grenstrukturen og commit-historikken."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "git log --oneline --graph --all",
+          "note": "Gir deg en rask oversikt over hvordan grenene henger sammen."
+        },
+        {
+          "syntax": "git show <commit>",
+          "description": "Viser detaljer om en spesifikk commit",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>git show:</strong> Viser endringer og metadata for en gitt commit."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "git show 1a2b3c4d",
+          "note": "Bruk commit-hashen fra git log for å se detaljer."
+        },
+        {
+          "syntax": "git diff <commit1> <commit2>",
+          "description": "Viser forskjeller mellom to commits",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "<strong>git diff:</strong> Viser linje-for-linje endringer mellom to commits."
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "git diff 1a2b3c4d 5e6f7g8h",
+          "note": "Brukes for å se hva som er endret mellom to punkter i historikken."
         }
       ]
     },
@@ -245,17 +289,6 @@
     {
       "name": "Andre",
       "commands": [
-        {
-          "syntax": "git diff",
-          "description": "Viser forskjeller mellom filer og commits",
-          "detailsTitle": "Detaljert Forklaring",
-          "details": [
-            "<strong>git diff:</strong> Viser endringer som ikke er staged eller committed."
-          ],
-          "exampleTitle": "Eksempel",
-          "example": "git diff",
-          "note": "Se hva som er endret før du committer."
-        },
         {
           "syntax": "git stash",
           "description": "Lagrer midlertidig endringer for senere bruk",
