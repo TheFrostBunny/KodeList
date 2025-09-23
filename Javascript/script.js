@@ -21,8 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
         copyButton.textContent = "Kopier";
 
         copyButton.addEventListener("click", function(event) {
-            event.stopPropagation(); // Hindrer at andre event lytter til klikket
-            // Hent kun koden fra <pre> - hopp over knappens tekst
+            event.stopPropagation();
             let code = "";
             for (let i = 1; i < pre.childNodes.length; i++) {
                 code += pre.childNodes[i].textContent;
