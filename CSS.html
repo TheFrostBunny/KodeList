@@ -10,29 +10,44 @@
 <body class="app-bg">
     <a href="index.html" class="back-link" id="back-link">&larr; Tilbake</a>
     <h1 id="page-title">CSS Kommando Huskeliste</h1>
-    <label for="lib-select" style="font-weight:bold; color:rgb(41, 219, 219);">Velg kategori:</label>
-    <select id="lib-select">
-        <option value="alle">Alle</option>
-        <option value="velgelementer">Velgelementer</option>
-        <option value="grunnleggende">Grunnleggende</option>
-        <option value="layout">Layout</option>
-        <option value="media">Media</option>
-        <option value="animasjon">Animasjon</option>
-        <option value="pseudo">Pseudo</option>
-        <option value="gridflex">Grid & Flexbox</option>
-        <option value="variabler">Variabler</option>
-        <option value="transisjon">Transisjon</option>
-        <option value="avanserte">Avanserte</option>
-        <option value="bordershadow">Border & Shadow</option>
-        <option value="filter">Filter</option>
-        <option value="typografi">Typografi</option>
-        <option value="bakgrunn">Bakgrunn</option>
-        <option value="boxmodel">Box Model</option>
-        <option value="effekter">Effekter</option>
-    </select>
+    <div class="topbar">
+      <div class="topbar-left">
+        <label for="lib-select" style="font-weight:bold; color:rgb(41, 219, 219);">Velg kategori:</label>
+        <select id="lib-select">
+            <option value="alle">Alle</option>
+            <option value="velgelementer">Velgelementer</option>
+            <option value="grunnleggende">Grunnleggende</option>
+            <option value="layout">Layout</option>
+            <option value="media">Media</option>
+            <option value="animasjon">Animasjon</option>
+            <option value="pseudo">Pseudo</option>
+            <option value="gridflex">Grid & Flexbox</option>
+            <option value="variabler">Variabler</option>
+            <option value="transisjon">Transisjon</option>
+            <option value="avanserte">Avanserte</option>
+            <option value="bordershadow">Border & Shadow</option>
+            <option value="filter">Filter</option>
+            <option value="typografi">Typografi</option>
+            <option value="bakgrunn">Bakgrunn</option>
+            <option value="boxmodel">Box Model</option>
+            <option value="effekter">Effekter</option>
+        </select>
+      </div>
+      <div class="topbar-right">
+        <input type="text" id="search-input" placeholder="Søk etter CSS..." class="search-input" style="display:none;">
+        <button id="search-icon" aria-label="Søk" class="search-icon-btn">
+            <span id="search-svg" class="search-svg">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </span>
+        </button>
+      </div>
+    </div>
     <div id="categories-container"></div>
     <footer>
-    &copy; TheFrostBunny | <a href="https://github.com/TheFrostBunny" target="_blank" style="color: rgb(182, 183, 235);">GitHub</a>
+    &copy; TheFrostBunny | <a href="https://github.com/TheFrostBunny" target="_blank" rel="noopener" class="github-link">GitHub</a>
 </footer>
     <script src="/Javascript/script.js"></script>
     <script>
@@ -54,11 +69,23 @@ fetch('./Lister/CSS.json')
             return 'grunnleggende';
         }
 
-        function renderCategories(selectedLib) {
+        function renderCategories(selectedLib, searchText) {
             container.innerHTML = '';
+            const search = (searchText || '').toLowerCase();
             data.categories.forEach((cat, catIdx) => {
                 const catLib = getCategoryLibrary(cat);
                 if (selectedLib !== 'alle' && catLib !== selectedLib) return;
+                // Søk: filtrer bort kategorier uten treff
+                let commands = cat.commands;
+                if (search) {
+                    commands = commands.filter(cmd =>
+                        (cmd.syntax && cmd.syntax.toLowerCase().includes(search)) ||
+                        (cmd.description && cmd.description.toLowerCase().includes(search)) ||
+                        (cmd.details && cmd.details.join(' ').toLowerCase().includes(search)) ||
+                        (cmd.example && cmd.example.toLowerCase().includes(search))
+                    );
+                    if (commands.length === 0 && !(cat.name && cat.name.toLowerCase().includes(search))) return;
+                }
                 const catDiv = document.createElement('div');
                 catDiv.className = 'category';
                 const catTitle = document.createElement('h2');
@@ -66,7 +93,7 @@ fetch('./Lister/CSS.json')
                 catTitle.textContent = cat.name;
                 catDiv.appendChild(catTitle);
 
-                cat.commands.forEach((cmd, cmdIdx) => {
+                commands.forEach((cmd, cmdIdx) => {
                     const cmdDiv = document.createElement('div');
                     cmdDiv.className = 'command';
 
@@ -149,9 +176,26 @@ fetch('./Lister/CSS.json')
             });
         }
 
-        renderCategories('alle');
+        // Initielt vis alle
+        renderCategories('alle', '');
         libSelect.addEventListener('change', function() {
-            renderCategories(libSelect.value);
+            renderCategories(libSelect.value, document.getElementById('search-input').value);
+        });
+        document.getElementById('search-input').addEventListener('input', function() {
+            renderCategories(libSelect.value, this.value);
+        });
+        // Søk-ikon toggle
+        const searchIcon = document.getElementById('search-icon');
+        const searchInput = document.getElementById('search-input');
+        searchIcon.addEventListener('click', function() {
+            if (searchInput.style.display === 'none') {
+                searchInput.style.display = 'block';
+                searchInput.focus();
+            } else {
+                searchInput.value = '';
+                searchInput.style.display = 'none';
+                renderCategories(libSelect.value, '');
+            }
         });
     });
     </script>
