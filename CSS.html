@@ -10,35 +10,41 @@
 <body class="app-bg">
     <a href="index.html" class="back-link" id="back-link">&larr; Tilbake</a>
     <h1 id="page-title">CSS Kommando Huskeliste</h1>
-    <label for="lib-select" style="font-weight:bold; color:rgb(41, 219, 219);">Velg kategori:</label>
-    <select id="lib-select">
-        <option value="alle">Alle</option>
-        <option value="velgelementer">Velgelementer</option>
-        <option value="grunnleggende">Grunnleggende</option>
-        <option value="layout">Layout</option>
-        <option value="media">Media</option>
-        <option value="animasjon">Animasjon</option>
-        <option value="pseudo">Pseudo</option>
-        <option value="gridflex">Grid & Flexbox</option>
-        <option value="variabler">Variabler</option>
-        <option value="transisjon">Transisjon</option>
-        <option value="avanserte">Avanserte</option>
-        <option value="bordershadow">Border & Shadow</option>
-        <option value="filter">Filter</option>
-        <option value="typografi">Typografi</option>
-        <option value="bakgrunn">Bakgrunn</option>
-        <option value="boxmodel">Box Model</option>
-        <option value="effekter">Effekter</option>
-    </select>
-    <button id="search-icon" aria-label="Søk" class="search-icon-btn">
-        <span id="search-svg" class="search-svg">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="11" cy="11" r="8"></circle>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-        </span>
-    </button>
-    <input type="text" id="search-input" placeholder="Søk etter CSS..." class="search-input" style="display:none;">
+    <div class="topbar">
+      <div class="topbar-left">
+        <label for="lib-select" style="font-weight:bold; color:rgb(41, 219, 219);">Velg kategori:</label>
+        <select id="lib-select">
+            <option value="alle">Alle</option>
+            <option value="velgelementer">Velgelementer</option>
+            <option value="grunnleggende">Grunnleggende</option>
+            <option value="layout">Layout</option>
+            <option value="media">Media</option>
+            <option value="animasjon">Animasjon</option>
+            <option value="pseudo">Pseudo</option>
+            <option value="gridflex">Grid & Flexbox</option>
+            <option value="variabler">Variabler</option>
+            <option value="transisjon">Transisjon</option>
+            <option value="avanserte">Avanserte</option>
+            <option value="bordershadow">Border & Shadow</option>
+            <option value="filter">Filter</option>
+            <option value="typografi">Typografi</option>
+            <option value="bakgrunn">Bakgrunn</option>
+            <option value="boxmodel">Box Model</option>
+            <option value="effekter">Effekter</option>
+        </select>
+      </div>
+      <div class="topbar-right">
+        <input type="text" id="search-input" placeholder="Søk etter CSS..." class="search-input" style="display:none;">
+        <button id="search-icon" aria-label="Søk" class="search-icon-btn">
+            <span id="search-svg" class="search-svg">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </span>
+        </button>
+      </div>
+    </div>
     <div id="categories-container"></div>
     <footer>
     &copy; TheFrostBunny | <a href="https://github.com/TheFrostBunny" target="_blank" rel="noopener" class="github-link">GitHub</a>
