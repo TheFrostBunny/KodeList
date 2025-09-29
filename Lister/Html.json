@@ -77,6 +77,164 @@
         }
       ]
     },
+      {
+        "name": "Skjemaelementer",
+        "commands": [
+          {
+            "syntax": "<input type=\"text\" name=\"navn\">",
+            "description": "Tekstfelt for brukerinput",
+            "detailsTitle": "Detaljert Forklaring",
+            "details": [
+              "<strong>&lt;input&gt;:</strong> Brukes for å lage ulike typer input-felt.",
+              "type=\"text\" gir et vanlig tekstfelt."
+            ],
+            "exampleTitle": "Eksempel",
+            "example": "<form>\n  <input type=\"text\" name=\"navn\">\n</form>",
+            "note": "Bruk name-attributt for å identifisere feltet."
+          },
+          {
+            "syntax": "<input type=\"checkbox\">",
+            "description": "Avkrysningsboks",
+            "detailsTitle": "Detaljert Forklaring",
+            "details": [
+              "type=\"checkbox\" gir en avkrysningsboks."
+            ],
+            "exampleTitle": "Eksempel",
+            "example": "<input type=\"checkbox\"> Jeg godtar vilkårene",
+            "note": "Kan brukes for valg med flere alternativer."
+          },
+          {
+            "syntax": "<button> ... </button>",
+            "description": "Knapp for interaksjon",
+            "detailsTitle": "Detaljert Forklaring",
+            "details": [
+              "<strong>&lt;button&gt;:</strong> Lager en klikkbar knapp."
+            ],
+            "exampleTitle": "Eksempel",
+            "example": "<button>Send inn</button>",
+            "note": "Knappen kan brukes til å sende skjema eller utføre handlinger."
+          }
+        ]
+      },
+      {
+        "name": "Medieelementer",
+        "commands": [
+          {
+            "syntax": "<video src=\"film.mp4\" controls></video>",
+            "description": "Inkluderer video i siden",
+            "detailsTitle": "Detaljert Forklaring",
+            "details": [
+              "<strong>&lt;video&gt;:</strong> Viser en videofil med kontroller."
+            ],
+            "exampleTitle": "Eksempel",
+            "example": "<video src=\"intro.mp4\" controls></video>",
+            "note": "Bruk controls for å vise avspillingsknapper."
+          },
+          {
+            "syntax": "<audio src=\"lyd.mp3\" controls></audio>",
+            "description": "Inkluderer lydklipp",
+            "detailsTitle": "Detaljert Forklaring",
+            "details": [
+              "<strong>&lt;audio&gt;:</strong> Spiller av lydfiler."
+            ],
+            "exampleTitle": "Eksempel",
+            "example": "<audio src=\"intro.mp3\" controls></audio>",
+            "note": "Bruk controls for å vise avspillingsknapper."
+          }
+        ]
+      },
+      {
+        "name": "Semantiske elementer",
+        "commands": [
+          {
+            "syntax": "<header> ... </header>",
+            "description": "Toppseksjon for side eller seksjon",
+            "detailsTitle": "Detaljert Forklaring",
+            "details": [
+              "<strong>&lt;header&gt;:</strong> Brukes for topptekst eller introduksjon."
+            ],
+            "exampleTitle": "Eksempel",
+            "example": "<header>\n  <h1>Min Side</h1>\n</header>",
+            "note": "Gir bedre struktur og tilgjengelighet."
+          },
+          {
+            "syntax": "<footer> ... </footer>",
+            "description": "Bunntekst for side eller seksjon",
+            "detailsTitle": "Detaljert Forklaring",
+            "details": [
+              "<strong>&lt;footer&gt;:</strong> Brukes for kontaktinfo, copyright, etc."
+            ],
+            "exampleTitle": "Eksempel",
+            "example": "<footer>\n  &copy; 2025 Mitt Firma\n</footer>",
+            "note": "Footer vises nederst på siden."
+          },
+          {
+            "syntax": "<main> ... </main>",
+            "description": "Hovedinnhold på siden",
+            "detailsTitle": "Detaljert Forklaring",
+            "details": [
+              "<strong>&lt;main&gt;:</strong> Marker hovedinnholdet på siden."
+            ],
+            "exampleTitle": "Eksempel",
+            "example": "<main>\n  <h2>Innhold</h2>\n  <p>Her er hovedinnholdet.</p>\n</main>",
+            "note": "Kun én <main> per side."
+          }
+        ]
+      },
+      {
+        "name": "Meta-data og SEO",
+        "commands": [
+          {
+            "syntax": "<meta name=\"description\" content=\"Beskrivelse\">",
+            "description": "Gir informasjon om siden til søkemotorer",
+            "detailsTitle": "Detaljert Forklaring",
+            "details": [
+              "<strong>&lt;meta&gt;:</strong> Brukes i <head> for å gi metadata om siden."
+            ],
+            "exampleTitle": "Eksempel",
+            "example": "<head>\n  <meta name=\"description\" content=\"Dette er en testside\">\n</head>",
+            "note": "Meta-data hjelper søkemotorer og sosiale medier."
+          },
+          {
+            "syntax": "<title> ... </title>",
+            "description": "Sidetittel i nettleserfanen",
+            "detailsTitle": "Detaljert Forklaring",
+            "details": [
+              "<strong>&lt;title&gt;:</strong> Vises i nettleserfanen og i søkeresultat."
+            ],
+            "exampleTitle": "Eksempel",
+            "example": "<head>\n  <title>Min Side</title>\n</head>",
+            "note": "Sidetittel bør være beskrivende og unik."
+          }
+        ]
+      },
+      {
+        "name": "Interaktivitet og attributter",
+        "commands": [
+          {
+            "syntax": "<div onclick=\"alert('Hei!')\">Klikk meg</div>",
+            "description": "Legg til enkel interaktivitet med attributter",
+            "detailsTitle": "Detaljert Forklaring",
+            "details": [
+              "<strong>onclick:</strong> Attributt som kjører JavaScript når elementet klikkes."
+            ],
+            "exampleTitle": "Eksempel",
+            "example": "<div onclick=\"alert('Du klikket!')\">Klikk her</div>",
+            "note": "Bruk interaktive attributter med forsiktighet for tilgjengelighet."
+          },
+          {
+            "syntax": "<span> ... </span>",
+            "description": "Inline container for tekst eller elementer",
+            "detailsTitle": "Detaljert Forklaring",
+            "details": [
+              "<strong>&lt;span&gt;:</strong> Brukes for å style eller gruppere inline-innhold."
+            ],
+            "exampleTitle": "Eksempel",
+            "example": "<span style=\"color:red;\">Rød tekst</span>",
+            "note": "Span har ingen visuell effekt uten CSS eller JS."
+          }
+        ]
+      }
     {
       "name": "Lenker og Bilder",
       "commands": [
