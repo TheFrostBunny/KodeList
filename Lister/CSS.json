@@ -398,6 +398,127 @@
           "exampleTitle": "Eksempel",
           "example": ".usynlig {\n    opacity: 0.5;\n}"
         }
+        ,
+          {
+            "syntax": "backdrop-filter: blur(10px)",
+            "description": "Effekt på bakgrunn bak et element (f.eks. glassmorfisme)",
+            "detailsTitle": "Detaljert Forklaring",
+            "details": [
+              "Gir uskarphet eller andre effekter på bakgrunnen bak et element."
+            ],
+            "exampleTitle": "Eksempel",
+            "example": ".kort {\n    backdrop-filter: blur(10px);\n    background: rgba(255,255,255,0.2);\n}"
+          },
+          {
+            "syntax": "filter: grayscale(100%)",
+            "description": "Gjør et bilde eller element svart-hvitt",
+            "detailsTitle": "Detaljert Forklaring",
+            "details": [
+              "Kan kombineres med andre filtere for kule effekter."
+            ],
+            "exampleTitle": "Eksempel",
+            "example": "img {\n    filter: grayscale(100%);\n}"
+          },
+          {
+            "syntax": "scroll-behavior: smooth",
+            "description": "Gir myk rulling ved ankerlenker",
+            "detailsTitle": "Detaljert Forklaring",
+            "details": [
+              "Brukes på html/body for å få smooth scrolling til anker."
+            ],
+            "exampleTitle": "Eksempel",
+            "example": "html {\n    scroll-behavior: smooth;\n}"
+          },
+          {
+            "syntax": "clamp(min, val, max)",
+            "description": "Setter en verdi med minimum, ønsket og maksimum (f.eks. font-size)",
+            "detailsTitle": "Detaljert Forklaring",
+            "details": [
+              "clamp() gir responsiv kontroll på f.eks. font-size."
+            ],
+            "exampleTitle": "Eksempel",
+            "example": "h1 {\n    font-size: clamp(1.5rem, 4vw, 3rem);\n}"
+          },
+          {
+            "syntax": "aspect-ratio: 16 / 9",
+            "description": "Tvinger et element til å holde et bestemt sideforhold",
+            "detailsTitle": "Detaljert Forklaring",
+            "details": [
+              "Nyttig for bilder, videoer og responsive bokser."
+            ],
+            "exampleTitle": "Eksempel",
+            "example": ".video {\n    aspect-ratio: 16 / 9;\n}"
+          },
+          {
+            "syntax": "container-type: inline-size",
+            "description": "Aktiverer container queries for et element",
+            "detailsTitle": "Detaljert Forklaring",
+            "details": [
+              "Brukes for å lage responsive komponenter basert på container, ikke viewport."
+            ],
+            "exampleTitle": "Eksempel",
+            "example": ".kort {\n    container-type: inline-size;\n}"
+          },
+          {
+            "syntax": "@container (min-width: 400px)",
+            "description": "Container query for responsiv styling basert på container-størrelse",
+            "detailsTitle": "Detaljert Forklaring",
+            "details": [
+              "Gir deg mer kontroll enn media queries alene."
+            ],
+            "exampleTitle": "Eksempel",
+            "example": "@container (min-width: 400px) {\n  .kort {\n    font-size: 2rem;\n  }\n}"
+          },
+          {
+            "syntax": "@media (prefers-color-scheme: dark)",
+            "description": "Stil for mørk modus hvis bruker har valgt det",
+            "detailsTitle": "Detaljert Forklaring",
+            "details": [
+              "Brukes for å støtte dark mode automatisk."
+            ],
+            "exampleTitle": "Eksempel",
+            "example": "@media (prefers-color-scheme: dark) {\n  body {\n    background: #181818;\n    color: #eee;\n  }\n}"
+          },
+          {
+            "syntax": "accent-color",
+            "description": "Endrer farge på native input-elementer (checkbox, radio, range)",
+            "detailsTitle": "Detaljert Forklaring",
+            "details": [
+              "Gir deg kontroll på farge for standard input-kontroller."
+            ],
+            "exampleTitle": "Eksempel",
+            "example": "input[type=checkbox] {\n    accent-color: #51A2FF;\n}"
+          },
+          {
+            "syntax": "caret-color",
+            "description": "Endrer fargen på tekstmarkøren i input/textarea",
+            "detailsTitle": "Detaljert Forklaring",
+            "details": [
+              "Gir bedre tilpasning for skjemaer og tekstfelt."
+            ],
+            "exampleTitle": "Eksempel",
+            "example": "input, textarea {\n    caret-color: #51A2FF;\n}"
+          },
+          {
+            "syntax": "scroll-snap-type: y mandatory",
+            "description": "Gir snappende scrolling på containere",
+            "detailsTitle": "Detaljert Forklaring",
+            "details": [
+              "Brukes for å lage slides, karuseller og lignende."
+            ],
+            "exampleTitle": "Eksempel",
+            "example": ".liste {\n    scroll-snap-type: y mandatory;\n}"
+          },
+          {
+            "syntax": "gap",
+            "description": "Angir avstand mellom elementer i grid eller flex",
+            "detailsTitle": "Detaljert Forklaring",
+            "details": [
+              "Brukes for å lage luft mellom elementer uten margin-hacks."
+            ],
+            "exampleTitle": "Eksempel",
+            "example": ".container {\n    display: flex;\n    gap: 2rem;\n}"
+          }
       ]
     }
   ]

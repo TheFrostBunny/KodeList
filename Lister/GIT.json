@@ -178,6 +178,147 @@
           "example": "git remote -v",
           "note": "Gir deg oversikt over hvor du kan pushe og hente fra."
         },
+          {
+            "syntax": "git submodule add <repo-url> <sti>",
+            "description": "Legger til et submodule (repo i repo)",
+            "detailsTitle": "Detaljert Forklaring",
+            "details": [
+              "Brukes for å inkludere et annet git-repo som en undermappe i prosjektet."
+            ],
+            "exampleTitle": "Eksempel",
+            "example": "git submodule add https://github.com/eksempel/lib.git libs/lib",
+            "note": "Krever ekstra oppfølging ved kloning og oppdatering."
+          },
+          {
+            "syntax": "git submodule update --init --recursive",
+            "description": "Initialiserer og oppdaterer alle submodules",
+            "detailsTitle": "Detaljert Forklaring",
+            "details": [
+              "Brukes etter kloning for å hente alle submodules."
+            ],
+            "exampleTitle": "Eksempel",
+            "example": "git submodule update --init --recursive"
+          },
+          {
+            "syntax": "git rebase <gren>",
+            "description": "Flytter commits fra én gren til en annen (rebase)",
+            "detailsTitle": "Detaljert Forklaring",
+            "details": [
+              "Brukes for å \"rette ut\" historikken og gjøre den mer lineær."
+            ],
+            "exampleTitle": "Eksempel",
+            "example": "git rebase main"
+          },
+          {
+            "syntax": "git bisect start",
+            "description": "Starter en binærsøk-feilsøking for å finne feilende commit",
+            "detailsTitle": "Detaljert Forklaring",
+            "details": [
+              "Brukes for å finne hvilken commit som introduserte en feil."
+            ],
+            "exampleTitle": "Eksempel",
+            "example": "git bisect start"
+          },
+          {
+            "syntax": "git reflog",
+            "description": "Viser logg over alle referanse-endringer (også slettede commits)",
+            "detailsTitle": "Detaljert Forklaring",
+            "details": [
+              "Gir deg mulighet til å finne igjen commits som er \"mistet\"."
+            ],
+            "exampleTitle": "Eksempel",
+            "example": "git reflog"
+          },
+          {
+            "syntax": "git blame <fil>",
+            "description": "Viser hvem som sist endret hver linje i en fil",
+            "detailsTitle": "Detaljert Forklaring",
+            "details": [
+              "Gir deg oversikt over hvem som har gjort hva i en fil."
+            ],
+            "exampleTitle": "Eksempel",
+            "example": "git blame index.html"
+          },
+          {
+            "syntax": "git archive -o <fil.zip> HEAD",
+            "description": "Eksporterer repoet som zip/tar-arkiv",
+            "detailsTitle": "Detaljert Forklaring",
+            "details": [
+              "Lager en zip/tar av repoet slik det er nå."
+            ],
+            "exampleTitle": "Eksempel",
+            "example": "git archive -o kildekode.zip HEAD"
+          },
+          {
+            "syntax": "git describe --tags",
+            "description": "Viser nærmeste tag for nåværende commit",
+            "detailsTitle": "Detaljert Forklaring",
+            "details": [
+              "Nyttig for å se hvilken versjon en commit tilhører."
+            ],
+            "exampleTitle": "Eksempel",
+            "example": "git describe --tags"
+          },
+          {
+            "syntax": "git config --list",
+            "description": "Viser alle git-innstillinger som gjelder nå",
+            "detailsTitle": "Detaljert Forklaring",
+            "details": [
+              "Gir deg oversikt over alle config-verdier som er satt."
+            ],
+            "exampleTitle": "Eksempel",
+            "example": "git config --list"
+          },
+          {
+            "syntax": "git clean -n",
+            "description": "Tørrkjøring av clean – viser hva som ville blitt slettet",
+            "detailsTitle": "Detaljert Forklaring",
+            "details": [
+              "Gir deg en oversikt før du faktisk sletter filer."
+            ],
+            "exampleTitle": "Eksempel",
+            "example": "git clean -n"
+          },
+          {
+            "syntax": "git tag -d <navn>",
+            "description": "Sletter et tag lokalt",
+            "detailsTitle": "Detaljert Forklaring",
+            "details": [
+              "Brukes for å fjerne et tag fra repoet ditt."
+            ],
+            "exampleTitle": "Eksempel",
+            "example": "git tag -d v1.0"
+          },
+          {
+            "syntax": "git tag -a <navn> -m 'melding'",
+            "description": "Oppretter et annotert tag med melding",
+            "detailsTitle": "Detaljert Forklaring",
+            "details": [
+              "Annoterte tags inneholder ekstra metadata og beskrivelse."
+            ],
+            "exampleTitle": "Eksempel",
+            "example": "git tag -a v1.1 -m 'Ny versjon'"
+          },
+          {
+            "syntax": "git commit --amend",
+            "description": "Endrer siste commit-melding eller legger til flere filer",
+            "detailsTitle": "Detaljert Forklaring",
+            "details": [
+              "Brukes for å rette opp siste commit uten å lage en ny."
+            ],
+            "exampleTitle": "Eksempel",
+            "example": "git commit --amend -m 'Rettet skrivefeil'"
+          },
+          {
+            "syntax": "git hook",
+            "description": "Automatiser handlinger med hooks (pre-commit, post-merge osv.)",
+            "detailsTitle": "Detaljert Forklaring",
+            "details": [
+              "Hooks er skript som kjøres automatisk ved visse git-hendelser."
+            ],
+            "exampleTitle": "Eksempel",
+            "example": "# .git/hooks/pre-commit\n# Bash-skript for å kjøre tester før commit"
+          },
         {
           "syntax": "git push",
           "description": "Laster opp endringer til eksternt repo",
