@@ -4,6 +4,15 @@ KodeList er en ressurs som viser hvordan lister kan defineres og brukes i forskj
 
 ## Innhold
 
+ Liste over: 
+ HTML
+ CSS
+ Javascript
+ Python
+ SQL
+ GIT
+ GO
+
 ### Eksempler på Git-kommandoer i JSON-format
 
 Git-kommandoer blir presentert i et JSON-format som gjør det enkelt å strukturere og organisere informasjon. Nedenfor er en enkel oversikt over hvordan en JSON-fil kan se ut, med en kategori for grunnleggende Git-kommandoer og kommandoer som er relatert til fork.
