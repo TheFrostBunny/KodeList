@@ -1,0 +1,428 @@
+{
+  "title": "Rust Huskeliste",
+  "categories": [
+    {
+      "name": "Grunnleggende Syntaks",
+      "commands": [
+        {
+          "syntax": "fn main() { println!(\"Hello, world!\"); }",
+          "description": "Main-funksjonen - inngangspunkt for Rust-programmer",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Alle Rust-programmer starter med main-funksjonen",
+            "println! er en makro som skriver ut tekst til konsollen",
+            "Utropstegnet (!) indikerer at det er en makro, ikke en funksjon",
+            "Semikolon (;) avslutter statements i Rust"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "fn main() {\n    println!(\"Hei fra Rust!\");\n    println!(\"Dette er linje nummer 2\");\n}",
+          "note": "println! makroen støtter formatering som println!(\"Tall: {}\", 42);"
+        },
+        {
+          "syntax": "let variabel = verdi;",
+          "description": "Deklarerer en immutable (uforanderlig) variabel",
+          "detailsTitle": "Detaljert Forklaring", 
+          "details": [
+            "Variabler er immutable som standard i Rust",
+            "Type-inferens lar Rust gjette typen automatisk",
+            "Eksplisitt typing: let x: i32 = 5;",
+            "Variabelnavn må følge snake_case konvensjon"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "let navn = \"Alice\";\nlet alder = 30;\nlet pi: f64 = 3.14159;",
+          "note": "Immutability er standard og hjelper til med minnesikkerhet"
+        },
+        {
+          "syntax": "let mut variabel = verdi;",
+          "description": "Deklarerer en mutable (foranderlig) variabel",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "mut nøkkelordet gjør variabelen foranderlig",
+            "Du kan endre verdien senere i koden",
+            "Rust compiler vil advare hvis mut ikke brukes",
+            "Immutability er foretrukket når mulig"
+          ],
+          "exampleTitle": "Eksempel", 
+          "example": "let mut teller = 0;\nteller += 1;\nteller = teller * 2;\nprintln!(\"Teller: {}\", teller);",
+          "note": "Bruk mut bare når du faktisk trenger å endre variabelen"
+        },
+        {
+          "syntax": "const KONSTANT: Type = verdi;",
+          "description": "Deklarerer en global konstant",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Konstanter må ha eksplisitt type-annotasjon", 
+            "Verdien må være kjent ved kompileringstidspunkt",
+            "Navnekonvensjon er SCREAMING_SNAKE_CASE",
+            "Konstanter kan deklareres i global scope"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "const MAX_POINTS: u32 = 100_000;\nconst PI: f64 = 3.14159265359;\nconst APP_NAME: &str = \"MinApp\";",
+          "note": "Understrek (_) kan brukes som tusenskiller for lesbarhet"
+        }
+      ]
+    },
+    {
+      "name": "Ownership og Borrowing",
+      "commands": [
+        {
+          "syntax": "let s1 = String::from(\"hello\"); let s2 = s1;",
+          "description": "Move semantikk - eierskap overføres",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "s1 mister eierskap til strengen når den moves til s2",
+            "s1 kan ikke brukes etter move operasjonen",
+            "Dette forhindrer dobbel-frigjøring av minne",
+            "Gjelder for typer som ikke implementerer Copy trait"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "let s1 = String::from(\"hello\");\nlet s2 = s1; // s1 er ikke lenger gyldig\n// println!(\"{}\", s1); // Dette vil gi kompileringsfeil\nprintln!(\"{}\", s2); // Dette fungerer",
+          "note": "Enkle typer som integers kopieres i stedet for å moves"
+        },
+        {
+          "syntax": "let s2 = &s1;",
+          "description": "Immutable borrow - låner referanse uten å ta eierskap",
+          "detailsTitle": "Detaljert Forklaring", 
+          "details": [
+            "& operatoren lager en referanse til verdien",
+            "Originalen beholder eierskap",
+            "Flere immutable borrows er tillatt samtidig",
+            "Kan ikke endre verdien gjennom immutable referanse"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "let s1 = String::from(\"hello\");\nlet len = calculate_length(&s1);\nprintln!(\"Lengden til '{}' er {}.\", s1, len);\n\nfn calculate_length(s: &String) -> usize {\n    s.len()\n}",
+          "note": "Borrowing lar deg bruke verdier uten å ta eierskap"
+        },
+        {
+          "syntax": "let s2 = &mut s1;",
+          "description": "Mutable borrow - låner foranderlig referanse",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Krever at originalen er deklarert som mut",
+            "Kun én mutable borrow er tillatt om gangen",
+            "Kan ikke ha andre borrows samtidig",
+            "Forhindrer data races ved kompileringstidspunkt"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "let mut s = String::from(\"hello\");\nchange(&mut s);\nprintln!(\"{}\", s);\n\nfn change(some_string: &mut String) {\n    some_string.push_str(\", world\");\n}",
+          "note": "Mutable borrows sikrer eksklusiv tilgang til data"
+        }
+      ]
+    },
+    {
+      "name": "Structs og Enums", 
+      "commands": [
+        {
+          "syntax": "struct Person { name: String, age: u32 }",
+          "description": "Definerer en struct med navngitte felt",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Structs grupperer relaterte data sammen",
+            "Hvert felt har navn og type", 
+            "Kan implementere metoder med impl blokker",
+            "Støtter pattern matching og destructuring"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "struct Person {\n    name: String,\n    age: u32,\n    email: String,\n}\n\nlet person = Person {\n    name: String::from(\"Alice\"),\n    age: 30,\n    email: String::from(\"alice@example.com\"),\n};",
+          "note": "Bruk #[derive(Debug)] for å få automatisk Debug implementasjon"
+        },
+        {
+          "syntax": "impl Person { fn new(name: String) -> Self { ... } }",
+          "description": "Implementerer metoder for en struct",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "impl blokker definerer metoder for structs",
+            "Associated functions bruker Self i stedet for &self",
+            "Instance methods tar &self, &mut self eller self",
+            "Kan ha flere impl blokker for samme type"
+          ],
+          "exampleTitle": "Eksempel", 
+          "example": "impl Person {\n    fn new(name: String, age: u32) -> Self {\n        Person { name, age }\n    }\n    \n    fn greet(&self) {\n        println!(\"Hei, jeg heter {}!\", self.name);\n    }\n}",
+          "note": "Associated functions kalles med :: syntaks (Person::new)"
+        },
+        {
+          "syntax": "enum Status { Active, Inactive, Pending(u32) }",
+          "description": "Definerer en enum med mulige varianter",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Enums representerer en verdi som kan være en av flere typer",
+            "Varianter kan holde data (tuple-stil eller struct-stil)",
+            "Perfect match med pattern matching",
+            "Rust enums er algebraiske datatyper"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "enum Message {\n    Quit,\n    Move { x: i32, y: i32 },\n    Write(String),\n    ChangeColor(i32, i32, i32),\n}\n\nlet msg = Message::Write(String::from(\"hello\"));",
+          "note": "Option<T> og Result<T, E> er innebygde enums som brukes mye"
+        }
+      ]
+    },
+    {
+      "name": "Pattern Matching",
+      "commands": [
+        {
+          "syntax": "match verdi { pattern => uttrykk, _ => default }",
+          "description": "Pattern matching med match uttrykk",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "match må dekke alle mulige cases (exhaustive)",
+            "_ er catch-all pattern som matcher alt",
+            "Patterns kan destrukturere data",
+            "Guards kan legges til med if betingelser"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "let x = 5;\n\nmatch x {\n    1 => println!(\"en\"),\n    2 | 3 => println!(\"to eller tre\"),\n    4..=10 => println!(\"fire til ti\"),\n    _ => println!(\"noe annet\"),\n}",
+          "note": "Match uttrykk returnerer verdier og må være exhaustive"
+        },
+        {
+          "syntax": "if let Some(verdi) = option { ... }",
+          "description": "Forenklet pattern matching for én case",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "if let lar deg matche ett pattern uten full match",
+            "Nyttig når du bare bryr deg om én variant",
+            "Kan kombineres med else for fallback",
+            "Mindre verbose enn full match for enkle cases"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "let some_option = Some(5);\n\nif let Some(x) = some_option {\n    println!(\"Verdien er: {}\", x);\n} else {\n    println!(\"Ingen verdi\");\n}",
+          "note": "while let finnes også for iterasjon med pattern matching"
+        }
+      ]
+    },
+    {
+      "name": "Error Handling",
+      "commands": [
+        {
+          "syntax": "Result<T, E>",
+          "description": "Standard type for feilhåndtering i Rust",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Result er en enum med Ok(T) og Err(E) varianter",
+            "Tvinger eksplisitt feilhåndtering",
+            "Kan brukes med match, if let, eller ? operator",
+            "Alternativ til exceptions i andre språk"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "use std::fs::File;\n\nfn open_file() -> Result<File, std::io::Error> {\n    File::open(\"hello.txt\")\n}\n\nmatch open_file() {\n    Ok(file) => println!(\"Fil åpnet successfully\"),\n    Err(error) => println!(\"Feil ved åpning: {}\", error),\n}",
+          "note": "unwrap() og expect() kan brukes for prototyping, men unngå i produksjon"
+        },
+        {
+          "syntax": "function_call()?",
+          "description": "? operator for feilpropagering",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "? operatoren returnerer tidlig hvis Result er Err",
+            "Automatisk konverterer feiltyper hvis mulig",
+            "Kan bare brukes i funksjoner som returnerer Result eller Option",
+            "Forenkler feilhåndtering betydelig"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "use std::fs::File;\nuse std::io::Read;\n\nfn read_file() -> Result<String, std::io::Error> {\n    let mut file = File::open(\"hello.txt\")?;\n    let mut contents = String::new();\n    file.read_to_string(&mut contents)?;\n    Ok(contents)\n}",
+          "note": "? operatoren gjør feilhåndtering mer lesbar og mindre verbose"
+        },
+        {
+          "syntax": "panic!(\"Feilmelding\")",
+          "description": "Avslutter programmet med en feilmelding",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "panic! avslutter gjeldende tråd umiddelbart",
+            "Brukes for uopprettelige feil",
+            "Unngå i biblioteker - bruk Result i stedet",
+            "Kan fanges opp i tester med should_panic attributt"
+          ],
+          "exampleTitle": "Eksempel", 
+          "example": "fn divide(a: f64, b: f64) -> f64 {\n    if b == 0.0 {\n        panic!(\"Kan ikke dele på null!\");\n    }\n    a / b\n}\n\n// I praksis, bruk Result:\nfn safe_divide(a: f64, b: f64) -> Result<f64, &'static str> {\n    if b == 0.0 {\n        Err(\"Kan ikke dele på null\")\n    } else {\n        Ok(a / b)\n    }\n}",
+          "note": "Foretrekk Result<T, E> fremfor panic! for håndterbare feil"
+        }
+      ]
+    },
+    {
+      "name": "Collections",
+      "commands": [
+        {
+          "syntax": "Vec<T>",
+          "description": "Dynamisk array (vektor) som kan vokse og krympe",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Vec er en resizable array implementasjon",
+            "Elementer lagres på heap og må ha samme type",
+            "Gir O(1) tilgang til elementer via indeks",
+            "Automatisk minnehåndtering med RAII"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "let mut numbers = Vec::new();\nnumbers.push(1);\nnumbers.push(2);\nnumbers.push(3);\n\n// Eller med makro:\nlet numbers = vec![1, 2, 3, 4, 5];\n\nfor num in &numbers {\n    println!(\"{}\", num);\n}",
+          "note": "vec! makroen er praktisk for å lage vektorer med initial data"
+        },
+        {
+          "syntax": "HashMap<K, V>",
+          "description": "Hash map (dictionary/object) for nøkkel-verdi par",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Lagrer key-value par med hash-basert lookup",
+            "Krever at nøkkeltypen implementerer Hash og Eq traits",
+            "Gjennomsnittlig O(1) for insert, remove og lookup",
+            "Må importeres med use std::collections::HashMap"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "use std::collections::HashMap;\n\nlet mut scores = HashMap::new();\nscores.insert(String::from(\"Blå\"), 10);\nscores.insert(String::from(\"Rød\"), 50);\n\nmatch scores.get(\"Blå\") {\n    Some(score) => println!(\"Blå lag: {}\", score),\n    None => println!(\"Ingen score funnet\"),\n}",
+          "note": "entry() API gir elegant måte å håndtere insert-or-update operasjoner"
+        },
+        {
+          "syntax": "HashSet<T>",
+          "description": "Set samling for unike verdier",
+          "detailsTitle": "Detaljert Forklaring", 
+          "details": [
+            "Lagrer unike verdier uten duplikater",
+            "Basert på HashMap internt",
+            "Nyttig for medlemskap-testing og set-operasjoner",
+            "Krever Hash og Eq traits for elementtypen"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "use std::collections::HashSet;\n\nlet mut books = HashSet::new();\nbooks.insert(\"1984\");\nbooks.insert(\"Brave New World\");\nbooks.insert(\"1984\"); // Duplikat ignoreres\n\nif books.contains(\"1984\") {\n    println!(\"Vi har 1984!\");\n}",
+          "note": "Støtter set-operasjoner som union, intersection og difference"
+        }
+      ]
+    },
+    {
+      "name": "Iterators og Closures",
+      "commands": [
+        {
+          "syntax": "collection.iter().map(|x| x * 2).collect()",
+          "description": "Iterator chain med map transformasjon",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Iterators er lazy og evalueres kun når konsumert",
+            "map() transformerer hvert element",
+            "collect() konsumerer iterator og samler til collection",
+            "Mer idiomatisk enn for loops i mange tilfeller"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "let numbers = vec![1, 2, 3, 4, 5];\nlet doubled: Vec<i32> = numbers\n    .iter()\n    .map(|x| x * 2)\n    .collect();\n\nprintln!(\"{:?}\", doubled); // [2, 4, 6, 8, 10]",
+          "note": "Iterator adapters er zero-cost abstractions i Rust"
+        },
+        {
+          "syntax": "collection.iter().filter(|&x| x > 5)",
+          "description": "Filtrerer elementer basert på predicate",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "filter() beholder kun elementer som matcher betingelsen",
+            "Closure kan fange variabler fra omgivende scope", 
+            "Kan kombineres med andre iterator methods",
+            "Returnerer en iterator, ikke en collection"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "let numbers = vec![1, 6, 3, 8, 2, 9, 4];\nlet large_numbers: Vec<&i32> = numbers\n    .iter()\n    .filter(|&&x| x > 5)\n    .collect();\n\nprintln!(\"{:?}\", large_numbers); // [6, 8, 9]",
+          "note": "Kombiner filter og map for kraftige data-transformasjoner"
+        },
+        {
+          "syntax": "|param| expression",
+          "description": "Closure (anonym funksjon) syntaks",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Closures kan fange variabler fra omgivende scope",
+            "Type-inferens gjør dem ofte mer konsise enn funksjoner",
+            "Kan ta eierskap, låne immutably eller låne mutably",
+            "Implementerer Fn, FnMut eller FnOnce traits automatisk"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "let multiplier = 3;\nlet multiply = |x| x * multiplier;\n\nlet numbers = vec![1, 2, 3, 4, 5];\nlet result: Vec<i32> = numbers\n    .into_iter()\n    .map(multiply)\n    .collect();\n\nprintln!(\"{:?}\", result); // [3, 6, 9, 12, 15]",
+          "note": "move keyword tvinger closure til å ta eierskap av captured variabler"
+        }
+      ]
+    },
+    {
+      "name": "Traits",
+      "commands": [
+        {
+          "syntax": "trait TraitName { fn method(&self) -> ReturnType; }",
+          "description": "Definerer et trait (interface)",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Traits definerer felles oppførsel på tvers av typer",
+            "Ligner på interfaces i andre språk",
+            "Kan ha default implementasjoner",
+            "Grunnlag for generisk programmering i Rust"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "trait Describable {\n    fn describe(&self) -> String;\n    \n    fn print_description(&self) {\n        println!(\"{}\", self.describe());\n    }\n}\n\nstruct Person { name: String }\n\nimpl Describable for Person {\n    fn describe(&self) -> String {\n        format!(\"Person med navn: {}\", self.name)\n    }\n}",
+          "note": "Orphan rule: Du kan kun implementere et trait hvis du eier enten traitet eller typen"
+        },
+        {
+          "syntax": "impl TraitName for TypeName { ... }",
+          "description": "Implementerer et trait for en spesifikk type",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "impl blokk kobler trait til konkret type",
+            "Må implementere alle påkrevde metoder",
+            "Kan overstyre default implementasjoner",
+            "Coherence rules forhindrer konflikter"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "#[derive(Debug)]\nstruct Rectangle { width: u32, height: u32 }\n\nimpl std::fmt::Display for Rectangle {\n    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {\n        write!(f, \"Rectangle {}x{}\", self.width, self.height)\n    }\n}\n\nlet rect = Rectangle { width: 10, height: 5 };\nprintln!(\"{}\", rect);",
+          "note": "#[derive] attributt kan auto-generere vanlige trait implementasjoner"
+        },
+        {
+          "syntax": "fn generic_function<T: TraitName>(param: T)",
+          "description": "Generisk funksjon med trait bound",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Trait bounds spesifiserer hvilke traits en type må implementere",
+            "Muliggjør generisk kode som er type-safe",
+            "where clauses kan brukes for komplekse bounds",
+            "Monomorphization skjer ved kompileringstidspunkt"
+          ],
+          "exampleTitle": "Eksempel", 
+          "example": "use std::fmt::Display;\n\nfn print_and_return<T: Display + Clone>(item: T) -> T {\n    println!(\"Printing: {}\", item);\n    item.clone()\n}\n\n// Alternativ syntax med where:\nfn complex_function<T>(item: T) -> T \nwhere \n    T: Display + Clone + std::fmt::Debug,\n{\n    println!(\"{:?}\", item);\n    item\n}",
+          "note": "Trait objects (dyn Trait) gir runtime polymorphism"
+        }
+      ]
+    },
+    {
+      "name": "Modules og Crates",
+      "commands": [
+        {
+          "syntax": "mod module_name { ... }",
+          "description": "Definerer en modul for kode-organisering",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Moduler organiserer kode i navnerom",
+            "Kan være inline eller i separate filer",
+            "pub nøkkelord gjør items offentlig tilgjengelig",
+            "Modul-hierarki starter fra crate root"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "mod math {\n    pub fn add(a: i32, b: i32) -> i32 {\n        a + b\n    }\n    \n    fn private_function() {\n        // Kun tilgjengelig innenfor modulen\n    }\n}\n\nfn main() {\n    let result = math::add(2, 3);\n    println!(\"{}\", result);\n}",
+          "note": "Fil-baserte moduler lages med mod module_name; deklarasjon"
+        },
+        {
+          "syntax": "use module::item;",
+          "description": "Importerer items til gjeldende scope",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "use statements bringer items inn i scope",
+            "Kan bruke :: for nested paths",
+            "Stjerne (*) importerer alle public items",
+            "as nøkkelord kan gi alias"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "use std::collections::HashMap;\nuse std::io::{self, Write};\nuse std::fmt::Result as FmtResult;\n\n// Eller grouped imports:\nuse std::{\n    collections::HashMap,\n    io::Write,\n};\n\nfn main() {\n    let mut map = HashMap::new();\n    map.insert(\"key\", \"value\");\n}",
+          "note": "Prelude er automatisk importert og inneholder vanlige typer"
+        },
+        {
+          "syntax": "extern crate crate_name;",
+          "description": "Importerer ekstern crate (foreldet i Rust 2018+)",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "I Rust 2018+ skjer dette automatisk via Cargo.toml",
+            "Kun nødvendig for macro_use eller rename scenarios",
+            "Cargo.toml [dependencies] seksjon håndterer avhengigheter",
+            "Moderne Rust bruker use statements direkte"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "// Cargo.toml:\n// [dependencies]\n// serde = \"1.0\"\n// tokio = { version = \"1\", features = [\"full\"] }\n\n// main.rs (Rust 2018+):\nuse serde::{Deserialize, Serialize};\nuse tokio::runtime::Runtime;\n\n// Gammel stil (ikke nødvendig lenger):\n// extern crate serde;",
+          "note": "Bruk Cargo.toml for å administrere eksterne avhengigheter"
+        }
+      ]
+    }
+  ]
+}

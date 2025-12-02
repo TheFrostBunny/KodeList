@@ -1,0 +1,367 @@
+{
+  "title": "Node.js Huskeliste",
+  "categories": [
+    {
+      "name": "Grunnleggende Node.js",
+      "commands": [
+        {
+          "syntax": "node app.js",
+          "description": "Kjører en JavaScript-fil med Node.js",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Node.js lar deg kjøre JavaScript utenfor nettleseren",
+            "Kommandoen kjører filen fra terminalen/kommandolinjen",
+            "Node.js inkluderer V8 JavaScript-motoren fra Chrome",
+            "Perfekt for server-side utvikling og CLI-verktøy"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "// app.js\nconsole.log('Hello from Node.js!');\nconsole.log('Node version:', process.version);\n\n// Kjør i terminal:\n// node app.js",
+          "note": "Bruk 'node --version' for å sjekke installert Node.js versjon"
+        },
+        {
+          "syntax": "console.log(variable)",
+          "description": "Skriver ut verdier til konsollen",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "console.log er den vanligste måten å debugge på i Node.js",
+            "Støtter formatering med %s, %d, %j for string, number, JSON",
+            "console.error() skriver til stderr i stedet for stdout",
+            "console.table() viser objekter/arrays i tabellformat"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "const name = 'Alice';\nconst age = 30;\n\nconsole.log('Navn:', name);\nconsole.log('Alder: %d år', age);\nconsole.log('Data:', { name, age });\nconsole.table([{ name: 'Alice', age: 30 }, { name: 'Bob', age: 25 }]);",
+          "note": "Bruk console.time() og console.timeEnd() for å måle utførelsestid"
+        },
+        {
+          "syntax": "process.argv",
+          "description": "Tilgang til kommandolinje-argumenter",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "process.argv er en array med kommandolinje-argumenter",
+            "Index 0 er path til node executable",
+            "Index 1 er path til JavaScript-filen som kjøres",
+            "Index 2+ er faktiske argumenter fra brukeren"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "// args.js\nconsole.log('Alle argumenter:', process.argv);\nconsole.log('Script argumenter:', process.argv.slice(2));\n\nconst [name, age] = process.argv.slice(2);\nconsole.log(`Hei ${name}, du er ${age} år gammel!`);\n\n// Kjør: node args.js Alice 30",
+          "note": "Bruk libraries som 'yargs' eller 'commander' for avansert argument parsing"
+        },
+        {
+          "syntax": "process.env.VARIABLE_NAME",
+          "description": "Tilgang til miljøvariabler",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Miljøvariabler brukes for konfigurasjon og hemmeligheter",
+            "process.env inneholder alle tilgjengelige miljøvariabler",
+            "Vanlig å ha .env fil for lokal utvikling",
+            "Bruk dotenv package for å laste .env filer"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "// Sett miljøvariabel: export PORT=3000 (Linux/Mac) eller set PORT=3000 (Windows)\nconst port = process.env.PORT || 8080;\nconst dbUrl = process.env.DATABASE_URL || 'localhost';\n\nconsole.log(`Server starter på port ${port}`);\nconsole.log(`Database URL: ${dbUrl}`);",
+          "note": "Aldri hardkod API-nøkler eller passord - bruk miljøvariabler"
+        }
+      ]
+    },
+    {
+      "name": "Modules og Require",
+      "commands": [
+        {
+          "syntax": "const module = require('module-name')",
+          "description": "Importerer en modul (CommonJS)",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "require() er CommonJS standard for å importere moduler",
+            "Node.js bruker CommonJS som standard modulsystem",
+            "Kan importere både innebygde moduler og npm packages",
+            "Relative paths starter med ./ eller ../"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "// Innebygde moduler\nconst fs = require('fs');\nconst path = require('path');\nconst http = require('http');\n\n// npm packages\nconst express = require('express');\nconst lodash = require('lodash');\n\n// Lokale filer\nconst utils = require('./utils');\nconst config = require('../config/database');",
+          "note": "ES6 import/export støttes også med .mjs filer eller \"type\": \"module\" i package.json"
+        },
+        {
+          "syntax": "module.exports = { function1, function2 }",
+          "description": "Eksporterer funksjoner/objekter fra en modul",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "module.exports definerer hva som skal være tilgjengelig utenfor modulen",
+            "Kan eksportere funksjoner, objekter, klasser eller primitiver",
+            "exports er en shorthand for module.exports",
+            "Kun én eksport per fil med module.exports"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "// math.js\nfunction add(a, b) {\n  return a + b;\n}\n\nfunction multiply(a, b) {\n  return a * b;\n}\n\nmodule.exports = {\n  add,\n  multiply,\n  PI: 3.14159\n};\n\n// app.js\nconst { add, multiply, PI } = require('./math');\nconsole.log(add(2, 3)); // 5",
+          "note": "Bruk exports.functionName = ... for å eksportere individual funksjoner"
+        },
+        {
+          "syntax": "const { function1, function2 } = require('module')",
+          "description": "Destructuring import av spesifikke funksjoner",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Destructuring lar deg importere kun de delene du trenger",
+            "Mer effektivt enn å importere hele modulen",
+            "Gjør koden mer lesbar og eksplisitt",
+            "Fungerer med både objekter og arrays"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "// I stedet for:\nconst fs = require('fs');\nfs.readFile();\nfs.writeFile();\n\n// Bruk destructuring:\nconst { readFile, writeFile, existsSync } = require('fs');\nreadFile('file.txt', 'utf8', callback);\nwriteFile('output.txt', data, callback);",
+          "note": "Du kan gi alias med destructuring: { readFile: read } = require('fs')"
+        }
+      ]
+    },
+    {
+      "name": "Async/Await og Promises",
+      "commands": [
+        {
+          "syntax": "async function functionName() { await promise; }",
+          "description": "Asynkron funksjon med await for å vente på promises",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "async funksjoner returnerer alltid en Promise",
+            "await pauser funksjonens utførelse til promise resolves",
+            "Gjør asynkron kode mer lesbar enn callbacks",
+            "Error handling med try/catch blokker"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "const fs = require('fs').promises;\n\nasync function readFileAsync() {\n  try {\n    const data = await fs.readFile('file.txt', 'utf8');\n    console.log('File content:', data);\n    return data;\n  } catch (error) {\n    console.error('Error reading file:', error.message);\n  }\n}\n\nreadFileAsync();",
+          "note": "Bruk util.promisify() for å konvertere callback-baserte funksjoner til promises"
+        },
+        {
+          "syntax": "Promise.all([promise1, promise2])",
+          "description": "Kjører flere promises parallelt og venter på alle",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Promise.all() venter på at alle promises resolves",
+            "Hvis én promise feiler, feiler hele Promise.all()",
+            "Resultatet er en array med alle resolved verdier",
+            "Mer effektivt enn å awaite promises sekvensielt"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "const fs = require('fs').promises;\n\nasync function readMultipleFiles() {\n  try {\n    const [file1, file2, file3] = await Promise.all([\n      fs.readFile('file1.txt', 'utf8'),\n      fs.readFile('file2.txt', 'utf8'),\n      fs.readFile('file3.txt', 'utf8')\n    ]);\n    \n    console.log('All files read successfully');\n    return { file1, file2, file3 };\n  } catch (error) {\n    console.error('One or more files failed to read:', error);\n  }\n}",
+          "note": "Bruk Promise.allSettled() hvis du vil at alle promises skal fullføres uansett feil"
+        },
+        {
+          "syntax": "setTimeout(() => { code }, milliseconds)",
+          "description": "Utfører kode etter en forsinkelse",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "setTimeout er asynkron og blokkerer ikke hovedtråden",
+            "Returnerer en timer ID som kan brukes med clearTimeout()",
+            "Forsinkelsen er minimum tid, ikke eksakt tid",
+            "Node.js event loop håndterer timers"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "console.log('Start');\n\nsetTimeout(() => {\n  console.log('Dette kjører etter 2 sekunder');\n}, 2000);\n\nconsole.log('Dette kjører umiddelbart');\n\n// Avbryt timer:\nconst timerId = setTimeout(() => {\n  console.log('Dette vil ikke kjøre');\n}, 5000);\nclearTimeout(timerId);",
+          "note": "Bruk setInterval() for repeterende oppgaver, men husk clearInterval()"
+        }
+      ]
+    },
+    {
+      "name": "File System (fs)",
+      "commands": [
+        {
+          "syntax": "fs.readFile('file.txt', 'utf8', callback)",
+          "description": "Leser innholdet av en fil asynkront",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Asynkron fillesing som ikke blokkerer event loop",
+            "Callback følger (error, data) konvensjon",
+            "Encoding parameter (utf8) konverterer buffer til string",
+            "Uten encoding får du en Buffer tilbake"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "const fs = require('fs');\n\nfs.readFile('data.txt', 'utf8', (err, data) => {\n  if (err) {\n    console.error('Error reading file:', err.message);\n    return;\n  }\n  console.log('File content:', data);\n});\n\n// Moderne Promise-basert versjon:\nconst fsPromises = require('fs').promises;\nfsPromises.readFile('data.txt', 'utf8')\n  .then(data => console.log(data))\n  .catch(err => console.error(err));",
+          "note": "Bruk fs.readFileSync() for synkron lesing, men unngå i produksjon"
+        },
+        {
+          "syntax": "fs.writeFile('file.txt', data, callback)",
+          "description": "Skriver data til en fil",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Overskriver eksisterende fil eller lager ny fil",
+            "Data kan være string, Buffer, eller TypedArray",
+            "Callback får kun error parameter",
+            "Bruk appendFile() for å legge til i stedet for å overskrive"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "const fs = require('fs');\n\nconst data = 'Hello Node.js!';\nfs.writeFile('output.txt', data, (err) => {\n  if (err) {\n    console.error('Error writing file:', err.message);\n  } else {\n    console.log('File written successfully');\n  }\n});\n\n// Legg til eksisterende fil:\nfs.appendFile('log.txt', '\\nNew log entry', (err) => {\n  if (err) throw err;\n  console.log('Data appended');\n});",
+          "note": "Bruk streams for store filer for å unngå minneproblemer"
+        },
+        {
+          "syntax": "fs.existsSync('path')",
+          "description": "Sjekker synkront om fil eller mappe eksisterer",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Returnerer true hvis filen/mappen eksisterer, false ellers",
+            "Synkron operasjon som blokkerer event loop",
+            "Bruk fs.access() for asynkron eksistens-sjekking",
+            "Nyttig for konfigurasjon og setup-kode"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "const fs = require('fs');\nconst path = require('path');\n\nif (fs.existsSync('config.json')) {\n  const config = require('./config.json');\n  console.log('Config loaded:', config);\n} else {\n  console.log('Config file not found, using defaults');\n}\n\n// Asynkron alternativ:\nfs.access('config.json', fs.constants.F_OK, (err) => {\n  if (err) {\n    console.log('File does not exist');\n  } else {\n    console.log('File exists');\n  }\n});",
+          "note": "fs.constants.F_OK sjekker eksistens, R_OK lesbare rettigheter, W_OK skrivbare rettigheter"
+        }
+      ]
+    },
+    {
+      "name": "HTTP og Web Servere",
+      "commands": [
+        {
+          "syntax": "const server = http.createServer((req, res) => { ... })",
+          "description": "Lager en grunnleggende HTTP-server",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "http.createServer() lager en ny HTTP server instans",
+            "Callback funksjonen håndterer alle innkommende requests",
+            "req (IncomingMessage) inneholder request data",
+            "res (ServerResponse) brukes til å sende svar tilbake"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "const http = require('http');\n\nconst server = http.createServer((req, res) => {\n  res.writeHead(200, { 'Content-Type': 'text/html' });\n  res.end('<h1>Hello World!</h1>');\n});\n\nconst PORT = 3000;\nserver.listen(PORT, () => {\n  console.log(`Server running on http://localhost:${PORT}`);\n});",
+          "note": "Bruk Express.js framework for mer avansert web-utvikling"
+        },
+        {
+          "syntax": "res.writeHead(statusCode, headers)",
+          "description": "Setter HTTP status og headers for response",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "writeHead() må kalles før res.write() eller res.end()",
+            "Status koder: 200 (OK), 404 (Not Found), 500 (Server Error)",
+            "Headers objektet definerer Content-Type, Cache-Control etc.",
+            "Kan kun kalles én gang per response"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "const http = require('http');\n\nconst server = http.createServer((req, res) => {\n  if (req.url === '/api/data') {\n    res.writeHead(200, {\n      'Content-Type': 'application/json',\n      'Access-Control-Allow-Origin': '*'\n    });\n    res.end(JSON.stringify({ message: 'Hello API' }));\n  } else {\n    res.writeHead(404, { 'Content-Type': 'text/plain' });\n    res.end('Page not found');\n  }\n});",
+          "note": "Bruk res.setHeader() for å sette individuelle headers"
+        },
+        {
+          "syntax": "const express = require('express'); const app = express();",
+          "description": "Setter opp Express.js web framework",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Express er det mest populære Node.js web framework",
+            "Forenkler routing, middleware og template rendering",
+            "Må installeres først: npm install express",
+            "Bygger på toppen av Node.js http modul"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "const express = require('express');\nconst app = express();\n\n// Middleware for parsing JSON\napp.use(express.json());\n\n// GET route\napp.get('/', (req, res) => {\n  res.send('Hello Express!');\n});\n\n// POST route\napp.post('/api/users', (req, res) => {\n  const user = req.body;\n  res.json({ id: 1, ...user });\n});\n\napp.listen(3000, () => {\n  console.log('Express server on port 3000');\n});",
+          "note": "Express har innebygd støtte for templating engines som EJS og Pug"
+        }
+      ]
+    },
+    {
+      "name": "NPM og Package Management",
+      "commands": [
+        {
+          "syntax": "npm init",
+          "description": "Initialiserer et nytt Node.js prosjekt med package.json",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Lager package.json fil med prosjekt metadata",
+            "Inkluderer navn, versjon, beskrivelse og avhengigheter",
+            "npm init -y bruker default verdier uten spørsmål",
+            "package.json er nødvendig for npm package management"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "# Interaktiv initialisering\nnpm init\n\n# Med default verdier\nnpm init -y\n\n# Eksempel package.json:\n{\n  \"name\": \"my-app\",\n  \"version\": \"1.0.0\",\n  \"description\": \"Min Node.js app\",\n  \"main\": \"index.js\",\n  \"scripts\": {\n    \"start\": \"node index.js\",\n    \"dev\": \"nodemon index.js\"\n  },\n  \"dependencies\": {},\n  \"devDependencies\": {}\n}",
+          "note": "Bruk semantic versioning (major.minor.patch) for versjonsnummerering"
+        },
+        {
+          "syntax": "npm install package-name",
+          "description": "Installerer en npm pakke",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Laster ned pakke fra npm registry til node_modules/",
+            "Legger til dependency i package.json automatisk",
+            "npm install uten pakkenavn installerer alle dependencies",
+            "--save-dev legger til som development dependency"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "# Installer produksjons avhengighet\nnpm install express\nnpm install lodash axios\n\n# Installer development avhengighet\nnpm install --save-dev nodemon\nnpm install -D jest eslint\n\n# Installer globalt\nnpm install -g nodemon\n\n# Installer spesifikk versjon\nnpm install express@4.18.0",
+          "note": "Bruk npm ci for raskere, reproduserbare installasjoner i produksjon"
+        },
+        {
+          "syntax": "npm run script-name",
+          "description": "Kjører et script definert i package.json",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Scripts defineres i 'scripts' seksjonen i package.json",
+            "Vanlige scripts: start, test, build, dev",
+            "npm start og npm test kan kjøres uten 'run'",
+            "Scripts kan kalle andre npm packages eller shell kommandoer"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "// package.json scripts:\n{\n  \"scripts\": {\n    \"start\": \"node server.js\",\n    \"dev\": \"nodemon server.js\",\n    \"test\": \"jest\",\n    \"build\": \"webpack --mode production\",\n    \"lint\": \"eslint . --fix\"\n  }\n}\n\n# Kjør scripts:\nnpm start\nnpm run dev\nnpm test\nnpm run build",
+          "note": "Bruk && for å kjøre multiple kommandoer i sekvens"
+        }
+      ]
+    },
+    {
+      "name": "Streams og Events",
+      "commands": [
+        {
+          "syntax": "const stream = fs.createReadStream('file.txt')",
+          "description": "Lager en readable stream for store filer",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Streams håndterer store mengder data chunk for chunk",
+            "Mer minneeffektivt enn å lese hele filer på en gang",
+            "Event-basert arkitektur med 'data', 'end', 'error' events",
+            "Kan pipes til andre streams for data processing"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "const fs = require('fs');\n\nconst readStream = fs.createReadStream('large-file.txt', 'utf8');\nconst writeStream = fs.createWriteStream('output.txt');\n\nreadStream.on('data', (chunk) => {\n  console.log(`Received ${chunk.length} bytes`);\n  writeStream.write(chunk.toUpperCase());\n});\n\nreadStream.on('end', () => {\n  console.log('File reading completed');\n  writeStream.end();\n});",
+          "note": "Bruk pipeline() for bedre error handling med streams"
+        },
+        {
+          "syntax": "emitter.on('eventName', callback)",
+          "description": "Lytter til events på en EventEmitter",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Node.js er bygget rundt event-driven arkitektur",
+            "EventEmitter er basis-klassen for mange Node.js objekter",
+            "on() legger til en listener for spesifikke events",
+            "once() lytter kun til første forekomst av event"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "const EventEmitter = require('events');\n\nclass MyEmitter extends EventEmitter {}\nconst myEmitter = new MyEmitter();\n\n// Legg til event listener\nmyEmitter.on('message', (data) => {\n  console.log('Received message:', data);\n});\n\n// Emit event\nmyEmitter.emit('message', 'Hello Events!');\nmyEmitter.emit('message', { type: 'info', text: 'System ready' });",
+          "note": "Bruk removeListener() eller off() for å fjerne event listeners"
+        }
+      ]
+    },
+    {
+      "name": "Testing og Debugging",
+      "commands": [
+        {
+          "syntax": "node --inspect app.js",
+          "description": "Starter Node.js med debugging aktivert",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "--inspect aktiverer Chrome DevTools debugging",
+            "Åpne chrome://inspect i Chrome for å koble til",
+            "--inspect-brk pauser ved første linje",
+            "VS Code kan også koble til Node.js debugger"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "# Start med debugging\nnode --inspect app.js\n# Debugger listening on ws://127.0.0.1:9229/...\n\n# Pause ved start\nnode --inspect-brk app.js\n\n# Spesifiser port\nnode --inspect=0.0.0.0:9230 app.js\n\n# I kode:\ndebugger; // Breakpoint",
+          "note": "Bruk console.trace() for å se call stack uten debugger"
+        },
+        {
+          "syntax": "const assert = require('assert')",
+          "description": "Innebygd testing modul for enkle tester",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "assert modulen gir basic testing utilities",
+            "Kaster AssertionError hvis test feiler",
+            "assert.strictEqual() sammenligner med ===",
+            "For avansert testing, bruk Jest eller Mocha"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "const assert = require('assert');\n\nfunction add(a, b) {\n  return a + b;\n}\n\n// Basic tests\nassert.strictEqual(add(2, 3), 5);\nassert.strictEqual(add(-1, 1), 0);\nassert.notStrictEqual(add(2, 2), 5);\n\nconsole.log('All tests passed!');\n\n// Med Jest (npm install --save-dev jest):\ntest('addition', () => {\n  expect(add(2, 3)).toBe(5);\n});",
+          "note": "Jest gir mocking, coverage rapporter og bedre assertion messages"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "categories": [
+    {
+      "name": "Grunnleggende Java",
+      "commands": [
+        {
+          "syntax": "public class HelloWorld { }",
+          "description": "Definerer en offentlig klasse i Java",
+          "detailsTitle": "Klasse Definisjon",
+          "details": [
+            "Alle Java-programmer må ha minst en klasse",
+            "Klassenavn må matche filnavn (HelloWorld.java)",
+            "public gjør klassen tilgjengelig for andre klasser",
+            "Klasser er byggesteinene i Java-programmer"
+          ],
+          "exampleTitle": "Eksempel på Klasse",
+          "example": "public class HelloWorld {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, World!\");\n    }\n}",
+          "note": "Filnavnet må være HelloWorld.java for denne klassen."
+        },
+        {
+          "syntax": "int number = 42;",
+          "description": "Deklarerer en heltallsvariabel",
+          "detailsTitle": "Primitive Datatyper",
+          "details": [
+            "int: 32-bit heltall (-2,147,483,648 til 2,147,483,647)",
+            "Må deklareres med type før bruk",
+            "Kan initialiseres ved deklarering eller senere",
+            "Andre primitive typer: byte, short, long, float, double, boolean, char"
+          ],
+          "exampleTitle": "Eksempel på Variabler",
+          "example": "int age = 25;\ndouble price = 99.99;\nboolean isActive = true;\nchar grade = 'A';\nString name = \"John\"; // String er ikke primitiv, men vanlig brukt",
+          "note": "String er teknisk sett ikke en primitiv type, men en klasse."
+        }
+      ]
+    },
+    {
+      "name": "Collections Framework",
+      "commands": [
+        {
+          "syntax": "List<String> list = new ArrayList<>();",
+          "description": "Lager en dynamisk liste med strenger",
+          "detailsTitle": "ArrayList Implementation",
+          "details": [
+            "ArrayList implementerer List-interfacet",
+            "Dynamisk størrelse - vokser automatisk",
+            "Rask tilgang til elementer via indeks",
+            "Ikke thread-safe (bruk Vector for thread-safety)"
+          ],
+          "exampleTitle": "Eksempel på ArrayList",
+          "example": "List<String> fruits = new ArrayList<>();\nfruits.add(\"Apple\");\nfruits.add(\"Banana\");\nfruits.add(\"Orange\");\n\nfor (String fruit : fruits) {\n    System.out.println(fruit);\n}",
+          "note": "Bruk generics <Type> for type-sikkerhet."
+        },
+        {
+          "syntax": "Map<String, Integer> map = new HashMap<>();",
+          "description": "Lager en nøkkel-verdi datastruktur",
+          "detailsTitle": "HashMap Implementation",
+          "details": [
+            "HashMap implementerer Map-interfacet",
+            "Lagrer data som nøkkel-verdi par",
+            "Rask oppslag, innsetting og sletting (O(1) gjennomsnitt)",
+            "Tillater null-verdier og én null-nøkkel"
+          ],
+          "exampleTitle": "Eksempel på HashMap",
+          "example": "Map<String, Integer> ages = new HashMap<>();\nages.put(\"Alice\", 30);\nages.put(\"Bob\", 25);\nages.put(\"Charlie\", 35);\n\nint aliceAge = ages.get(\"Alice\");\nSystem.out.println(\"Alice is \" + aliceAge + \" years old\");",
+          "note": "Bruk LinkedHashMap for å bevare innsettingsrekkefølge."
+        }
+      ]
+    },
+    {
+      "name": "Exception Handling",
+      "commands": [
+        {
+          "syntax": "try { } catch (Exception e) { } finally { }",
+          "description": "Håndterer exceptions (feil) i Java",
+          "detailsTitle": "Exception Handling Struktur",
+          "details": [
+            "try-blokk: kode som kan kaste exception",
+            "catch-blokk: håndterer spesifikke exceptions",
+            "finally-blokk: kjører alltid (valgfri)",
+            "Kan ha flere catch-blokker for ulike exception-typer"
+          ],
+          "exampleTitle": "Eksempel på Exception Handling",
+          "example": "try {\n    int result = 10 / 0;\n    System.out.println(result);\n} catch (ArithmeticException e) {\n    System.out.println(\"Cannot divide by zero!\");\n} finally {\n    System.out.println(\"This always executes\");\n}",
+          "note": "finally-blokken kjører selv om det oppstår exception."
+        }
+      ]
+    }
+  ]
+}

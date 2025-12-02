@@ -7,10 +7,15 @@
     <title>GIT Kommando Huskeliste</title>
     <link rel="icon" href="./Assets/Logo.png" type="image/png">
 </head>
-<body class="app-bg">
-    <a href="index.html" class="back-link" id="back-link">&larr; Tilbake</a>
-    <h1 id="page-title">GIT Kommando Huskeliste</h1>
-     <div class="topbar">
+<body class="app-bg" aria-label="GIT Kommando Huskeliste">
+    <nav aria-label="Tilbake til forsiden">
+        <a href="index.html" class="back-link" id="back-link">&larr; Tilbake</a>
+    </nav>
+    <header>
+        <h1 id="page-title">GIT Kommando Huskeliste</h1>
+    </header>
+    <main>
+        <section class="topbar" aria-label="Filtrering og søk">
       <div class="topbar-left">
         <label for="lib-select" style="font-weight:bold; color:rgb(41, 219, 219);">Velg kategori:</label>
         <select id="lib-select">
@@ -33,11 +38,12 @@
             </span>
         </button>
       </div>
-    </div>
-    <div id="categories-container"></div>
+        </section>
+        <section id="categories-container" aria-label="GIT kommando kategorier"></section>
+    </main>
     <footer>
-    &copy; TheFrostBunny | <a href="https://github.com/TheFrostBunny" target="_blank" style="color: rgb(182, 183, 235);">GitHub</a>
-</footer>
+        &copy; TheFrostBunny | <a href="https://github.com/TheFrostBunny" target="_blank" rel="noopener" class="github-link">GitHub</a>
+    </footer>
 
     <script src="/Javascript/script.js"></script>
     <script>

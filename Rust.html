@@ -4,33 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/CSS/style.css">
-    <title>Go Kommando Huskeliste</title>
+    <title>Rust Kommando Huskeliste</title>
     <link rel="icon" href="./Assets/Logo.png" type="image/png">
 </head>
-<body class="app-bg" aria-label="Go Kommando Huskeliste">
+<body class="app-bg">
     <nav aria-label="Tilbake til forsiden">
         <a href="index.html" class="back-link" id="back-link">&larr; Tilbake</a>
     </nav>
     <header>
-        <h1 id="page-title">Go Kommando Huskeliste</h1>
+        <h1 id="page-title">Rust Kommando Huskeliste</h1>
     </header>
     <main>
         <section class="topbar" aria-label="Filtrering og søk">
             <div class="topbar-left">
-                <label for="lib-select" style="font-weight:bold; color:rgb(41, 219, 219);">Velg bibliotek:</label>
-    <select id="lib-select">
-        <option value="alle">Alle</option>
-        <option value="fmt">fmt</option>
-        <option value="os">os</option>
-        <option value="io">io</option>
-        <option value="strings">strings</option>
-        <option value="math">math</option>
-        <option value="net/http">net/http</option>
-        <option value="custom">custom</option>
-    </select>
+                <label for="lib-select" style="font-weight:bold; color:rgb(41, 219, 219);">Velg kategori:</label>
+                <select id="lib-select" aria-label="Velg Rust kategori">
+                    <option value="alle">Alle</option>
+                    <option value="grunnleggende">Grunnleggende</option>
+                    <option value="ownership">Ownership</option>
+                    <option value="structs">Structs & Enums</option>
+                    <option value="traits">Traits</option>
+                    <option value="collections">Collections</option>
+                    <option value="error">Error Handling</option>
+                    <option value="cargo">Cargo</option>
+                </select>
             </div>
             <div class="topbar-right">
-                <input type="text" id="search-input" placeholder="Søk etter Go..." class="search-input" style="display:none;" aria-label="Søk etter Go kommando">
+                <input type="text" id="search-input" placeholder="Søk etter Rust..." class="search-input" style="display:none;" aria-label="Søk etter Rust kommando">
                 <button id="search-icon" aria-label="Søk" class="search-icon-btn">
                     <span id="search-svg" class="search-svg">
                         <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -41,25 +41,28 @@
                 </button>
             </div>
         </section>
-        <section id="categories-container" aria-label="Go kommando kategorier"></section>
+        <section id="categories-container" aria-label="Rust kommando kategorier"></section>
     </main>
     <footer>
         &copy; TheFrostBunny | <a href="https://github.com/TheFrostBunny" target="_blank" rel="noopener" class="github-link">GitHub</a>
     </footer>
     <script src="/Javascript/script.js"></script>
     <script>
-fetch('./Lister/Go.json')
+fetch('./Lister/Rust.json')
     .then(response => response.json())
     .then(data => {
         const container = document.getElementById('categories-container');
         const libSelect = document.getElementById('lib-select');
 
         function getCategoryLibrary(cat) {
-            const libs = ['fmt','os','io','strings','math','net/http','custom'];
+            const libs = [
+                'grunnleggende','ownership','structs','pattern','error',
+                'collections','iterators','traits','modules'
+            ];
             for (const lib of libs) {
-                if (cat.name && cat.name.toLowerCase() === lib) return lib;
+                if (cat.name && cat.name.toLowerCase().replace(/[^a-zæøå]/g,'').includes(lib)) return lib;
             }
-            return 'custom';
+            return 'grunnleggende';
         }
 
         function renderCategories(selectedLib, searchText) {
@@ -146,6 +149,8 @@ fetch('./Lister/Go.json')
                         const note = document.createElement('p');
                         note.id = `cmd-${catIdx}-${cmdIdx}-note`;
                         note.textContent = cmd.note;
+                        note.style.fontStyle = 'italic';
+                        note.style.color = 'var(--text-secondary)';
                         detailsDiv.appendChild(note);
                     }
 

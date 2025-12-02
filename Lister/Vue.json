@@ -1,0 +1,89 @@
+{
+  "categories": [
+    {
+      "name": "Vue Komponenter",
+      "commands": [
+        {
+          "syntax": "<template><div>{{ message }}</div></template>",
+          "description": "Template-seksjon som definerer komponentens HTML-struktur",
+          "detailsTitle": "Vue Template Syntax",
+          "details": [
+            "Template-seksjon inneholder HTML med Vue-spesifikk syntax",
+            "Doble krøllparentes {{ }} for tekst-interpolation",
+            "v-direktiver for dynamisk oppførsel",
+            "Kun ett rot-element i Vue 2, flere tillatt i Vue 3"
+          ],
+          "exampleTitle": "Eksempel på Vue Template",
+          "example": "<template>\n  <div class=\"hello\">\n    <h1>{{ title }}</h1>\n    <p>{{ message }}</p>\n    <button @click=\"updateMessage\">Click me</button>\n  </div>\n</template>\n\n<script>\nexport default {\n  data() {\n    return {\n      title: 'Hello Vue!',\n      message: 'Welcome to Vue.js'\n    }\n  },\n  methods: {\n    updateMessage() {\n      this.message = 'Button clicked!'\n    }\n  }\n}\n</script>",
+          "note": "Vue 3 tillater flere rot-elementer i template."
+        },
+        {
+          "syntax": "data() { return { property: value }; }",
+          "description": "Definerer reaktiv data for Vue-komponenten",
+          "detailsTitle": "Vue Data Function",
+          "details": [
+            "data() er en funksjon som returnerer et objekt",
+            "Alle properties blir reaktive og trigger re-rendering",
+            "Må være funksjon (ikke objekt) for å unngå deling mellom instanser",
+            "Tilgjengelig via 'this' i andre komponent-metoder"
+          ],
+          "exampleTitle": "Eksempel på Vue Data",
+          "example": "<script>\nexport default {\n  name: 'UserProfile',\n  data() {\n    return {\n      user: {\n        name: 'John Doe',\n        email: 'john@example.com',\n        age: 30\n      },\n      isEditing: false,\n      errors: []\n    }\n  },\n  methods: {\n    toggleEdit() {\n      this.isEditing = !this.isEditing\n    },\n    updateUser(newData) {\n      this.user = { ...this.user, ...newData }\n    }\n  }\n}\n</script>",
+          "note": "Data må returneres fra en funksjon for å sikre unik instans."
+        }
+      ]
+    },
+    {
+      "name": "Vue Directives",
+      "commands": [
+        {
+          "syntax": "v-if=\"condition\"",
+          "description": "Viser eller skjuler element basert på en betingelse",
+          "detailsTitle": "Conditional Rendering",
+          "details": [
+            "v-if legger til/fjerner element fra DOM basert på betingelse",
+            "v-else-if og v-else for flere betingelser",
+            "v-show skjuler med CSS (display: none) i stedet",
+            "Bruk v-if for sjeldne endringer, v-show for hyppige"
+          ],
+          "exampleTitle": "Eksempel på v-if",
+          "example": "<template>\n  <div>\n    <h1 v-if=\"userType === 'admin'\">Admin Panel</h1>\n    <h1 v-else-if=\"userType === 'user'\">User Dashboard</h1>\n    <h1 v-else>Welcome, Guest</h1>\n    \n    <div v-if=\"isLoggedIn\">\n      <p>Welcome back, {{ username }}!</p>\n      <button @click=\"logout\">Logout</button>\n    </div>\n    <div v-else>\n      <p>Please log in to continue</p>\n      <button @click=\"showLogin\">Login</button>\n    </div>\n  </div>\n</template>",
+          "note": "v-if har høyere toggle-kostnad, v-show har høyere initial render-kostnad."
+        },
+        {
+          "syntax": "v-for=\"item in items\" :key=\"item.id\"",
+          "description": "Itererer over arrays, objekter eller tall for å generere elementer",
+          "detailsTitle": "List Rendering",
+          "details": [
+            "v-for itererer over samlinger og genererer elementer",
+            ":key er påkrevd for å hjelpe Vue med å spore endringer",
+            "Kan iterere over arrays, objekter, strings og tall",
+            "Bruk unik key for optimal ytelse"
+          ],
+          "exampleTitle": "Eksempel på v-for",
+          "example": "<template>\n  <div>\n    <!-- Array iteration -->\n    <ul>\n      <li v-for=\"todo in todos\" :key=\"todo.id\">\n        {{ todo.text }} - {{ todo.completed ? 'Done' : 'Pending' }}\n      </li>\n    </ul>\n    \n    <!-- Object iteration -->\n    <div v-for=\"(value, key) in user\" :key=\"key\">\n      {{ key }}: {{ value }}\n    </div>\n    \n    <!-- With index -->\n    <div v-for=\"(item, index) in items\" :key=\"item.id\">\n      {{ index }} - {{ item.name }}\n    </div>\n  </div>\n</template>",
+          "note": "Alltid bruk :key med unik verdi for optimal list-oppdateringer."
+        }
+      ]
+    },
+    {
+      "name": "Vue Lifecycle",
+      "commands": [
+        {
+          "syntax": "mounted() { /* kod */ }",
+          "description": "Lifecycle hook som kjører etter at komponenten er montert til DOM",
+          "detailsTitle": "Vue Lifecycle Hooks",
+          "details": [
+            "mounted() kjører når komponenten er lagt til i DOM",
+            "Perfekt for DOM-manipulasjon og API-kall",
+            "this.$el er tilgjengelig og refererer til rot-elementet",
+            "Andre hooks: created, beforeMount, beforeDestroy, destroyed"
+          ],
+          "exampleTitle": "Eksempel på Lifecycle Hooks",
+          "example": "<script>\nexport default {\n  data() {\n    return {\n      users: [],\n      loading: true\n    }\n  },\n  async mounted() {\n    // Komponent er montert, DOM er klar\n    console.log('Component mounted')\n    await this.fetchUsers()\n    this.setupEventListeners()\n  },\n  beforeDestroy() {\n    // Rydd opp før komponent ødelegges\n    this.removeEventListeners()\n  },\n  methods: {\n    async fetchUsers() {\n      try {\n        const response = await fetch('/api/users')\n        this.users = await response.json()\n      } finally {\n        this.loading = false\n      }\n    }\n  }\n}\n</script>",
+          "note": "Bruk mounted() for DOM-avhengige operasjoner og API-kall."
+        }
+      ]
+    }
+  ]
+}

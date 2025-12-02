@@ -7,10 +7,17 @@
     <title>HTML Kommando Huskeliste</title>
     <link rel="icon" href="./Assets/Logo.png" type="image/png">
 </head>
-<body class="app-bg">
-    <a href="index.html" class="back-link" id="back-link">&larr; Tilbake</a>
-    <h1 id="page-title">Javascript Kommando Huskeliste</h1>
-    <label for="lib-select" style="font-weight:bold; color:rgb(41, 219, 219);">Velg kategori:</label>
+<body class="app-bg" aria-label="JavaScript Kommando Huskeliste">
+    <nav aria-label="Tilbake til forsiden">
+        <a href="index.html" class="back-link" id="back-link">&larr; Tilbake</a>
+    </nav>
+    <header>
+        <h1 id="page-title">JavaScript Kommando Huskeliste</h1>
+    </header>
+    <main>
+        <section class="topbar" aria-label="Filtrering og søk">
+            <div class="topbar-left">
+                <label for="lib-select" style="font-weight:bold; color:rgb(41, 219, 219);">Velg kategori:</label>
     <select id="lib-select">
         <option value="alle">Alle</option>
         <option value="grunnleggende">Grunnleggende</option>
@@ -30,10 +37,24 @@
         <option value="avansert">avansert</option>
         <option value="flere">flere</option>
     </select>
-    <div id="categories-container"></div>
-       <footer>
-    &copy; TheFrostBunny | <a href="https://github.com/TheFrostBunny" target="_blank" style="color: rgb(182, 183, 235);">GitHub</a>
-</footer>
+            </div>
+            <div class="topbar-right">
+                <input type="text" id="search-input" placeholder="Søk etter JavaScript..." class="search-input" style="display:none;" aria-label="Søk etter JavaScript kommando">
+                <button id="search-icon" aria-label="Søk" class="search-icon-btn">
+                    <span id="search-svg" class="search-svg">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+        </section>
+        <section id="categories-container" aria-label="JavaScript kommando kategorier"></section>
+    </main>
+    <footer>
+        &copy; TheFrostBunny | <a href="https://github.com/TheFrostBunny" target="_blank" rel="noopener" class="github-link">GitHub</a>
+    </footer>
         <script src="/Javascript/script.js"></script>
         <script>
 fetch('./Lister/Javascript.json')
@@ -54,19 +75,31 @@ fetch('./Lister/Javascript.json')
             return 'grunnleggende';
         }
 
-        function renderCategories(selectedLib) {
+        function renderCategories(selectedLib, searchText) {
             container.innerHTML = '';
+            const search = (searchText || '').toLowerCase();
             data.categories.forEach((cat, catIdx) => {
                 const catLib = getCategoryLibrary(cat);
                 if (selectedLib !== 'alle' && catLib !== selectedLib) return;
+                // Søk: filtrer bort kategorier uten treff
+                let commands = cat.commands;
+                if (search) {
+                    commands = commands.filter(cmd =>
+                        (cmd.syntax && cmd.syntax.toLowerCase().includes(search)) ||
+                        (cmd.description && cmd.description.toLowerCase().includes(search)) ||
+                        (cmd.details && cmd.details.join(' ').toLowerCase().includes(search)) ||
+                        (cmd.example && cmd.example.toLowerCase().includes(search))
+                    );
+                    if (commands.length === 0 && !(cat.name && cat.name.toLowerCase().includes(search))) return;
+                }
                 const catDiv = document.createElement('div');
-                catDiv.className = 'category';
+                catDiv.className = 'category fade-in';
                 const catTitle = document.createElement('h2');
                 catTitle.id = `cat-${catIdx}-title`;
                 catTitle.textContent = cat.name;
                 catDiv.appendChild(catTitle);
 
-                cat.commands.forEach((cmd, cmdIdx) => {
+                commands.forEach((cmd, cmdIdx) => {
                     const cmdDiv = document.createElement('div');
                     cmdDiv.className = 'command';
 
@@ -154,9 +187,25 @@ fetch('./Lister/Javascript.json')
         }
 
         // Initielt vis alle
-        renderCategories('alle');
+        renderCategories('alle', '');
         libSelect.addEventListener('change', function() {
-            renderCategories(libSelect.value);
+            renderCategories(libSelect.value, document.getElementById('search-input').value);
+        });
+        document.getElementById('search-input').addEventListener('input', function() {
+            renderCategories(libSelect.value, this.value);
+        });
+        // Søk-ikon toggle
+        const searchIcon = document.getElementById('search-icon');
+        const searchInput = document.getElementById('search-input');
+        searchIcon.addEventListener('click', function() {
+            if (searchInput.style.display === 'none') {
+                searchInput.style.display = 'block';
+                searchInput.focus();
+            } else {
+                searchInput.value = '';
+                searchInput.style.display = 'none';
+                renderCategories(libSelect.value, '');
+            }
         });
     });
         </script>

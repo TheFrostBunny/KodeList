@@ -1,0 +1,75 @@
+{
+  "categories": [
+    {
+      "name": "Grunnleggende Typer",
+      "commands": [
+        {
+          "syntax": "let variableName: string = \"Hello\";",
+          "description": "Deklarerer en variabel med string type",
+          "detailsTitle": "String Type i TypeScript",
+          "details": [
+            "String type brukes for tekstdata",
+            "Kan være single eller double quotes",
+            "Template literals med backticks støttes: `Hello ${name}`",
+            "Automatisk type inference hvis verdi er oppgitt ved deklarering"
+          ],
+          "exampleTitle": "Eksempel på String Variabler",
+          "example": "let firstName: string = \"John\";\nlet lastName = \"Doe\"; // Type inference\nlet fullName: string = `${firstName} ${lastName}`;\nconsole.log(fullName); // Output: John Doe",
+          "note": "TypeScript kan ofte inferere typen automatisk basert på verdien."
+        },
+        {
+          "syntax": "let age: number = 25;",
+          "description": "Deklarerer en numerisk variabel",
+          "detailsTitle": "Number Type i TypeScript",
+          "details": [
+            "Number type håndterer både integer og floating point",
+            "Støtter hexadecimal, octal og binary literals",
+            "Spesielle verdier: Infinity, -Infinity, NaN",
+            "Alle numbers er floating point i JavaScript/TypeScript"
+          ],
+          "exampleTitle": "Eksempel på Number Variabler",
+          "example": "let age: number = 25;\nlet price: number = 99.99;\nlet hex: number = 0xff; // 255 in decimal\nlet binary: number = 0b1010; // 10 in decimal\nconsole.log(age, price, hex, binary);",
+          "note": "TypeScript number type er basert på IEEE 754 double precision floating point."
+        }
+      ]
+    },
+    {
+      "name": "Interfaces",
+      "commands": [
+        {
+          "syntax": "interface User { name: string; age: number; }",
+          "description": "Definerer struktur for et objekt",
+          "detailsTitle": "Interface Definisjon",
+          "details": [
+            "Definerer kontrakt for objekters struktur",
+            "Kan inneholde properties, methods og indexers",
+            "Støtter optional properties med ?",
+            "Kan utvides med extends keyword"
+          ],
+          "exampleTitle": "Eksempel på Interface",
+          "example": "interface User {\n  name: string;\n  age: number;\n  email?: string; // Optional property\n}\n\nconst user: User = {\n  name: \"Alice\",\n  age: 30\n};\n\nconsole.log(user.name);",
+          "note": "Interfaces eksisterer kun på compile-time og genererer ingen JavaScript kode."
+        }
+      ]
+    },
+    {
+      "name": "Generics",
+      "commands": [
+        {
+          "syntax": "function identity<T>(arg: T): T { return arg; }",
+          "description": "Lager en generisk funksjon som kan håndtere flere typer",
+          "detailsTitle": "Generic Functions",
+          "details": [
+            "Generics lar deg skrive gjenbrukbar kode",
+            "Type parameter spesifiseres med <T> syntax",
+            "Kan ha flere type parameters: <T, U, V>",
+            "Type constraints med extends: <T extends string>"
+          ],
+          "exampleTitle": "Eksempel på Generics",
+          "example": "function identity<T>(arg: T): T {\n  return arg;\n}\n\nlet stringResult = identity<string>(\"Hello\");\nlet numberResult = identity<number>(42);\n\n// Type inference\nlet autoResult = identity(\"World\"); // T inferred as string",
+          "note": "Generics gir type safety samtidig som de bevarer fleksibilitet."
+        }
+      ]
+    }
+  ]
+}

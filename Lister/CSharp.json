@@ -1,0 +1,89 @@
+{
+  "categories": [
+    {
+      "name": "Grunnleggende C#",
+      "commands": [
+        {
+          "syntax": "using System;",
+          "description": "Importerer System namespace for grunnleggende funksjonalitet",
+          "detailsTitle": "Using Statements",
+          "details": [
+            "using importerer namespaces og gjør klasser tilgjengelige",
+            "System namespace inneholder grunnleggende klasser som Console",
+            "Reduserer behovet for å skrive fullt kvalifiserte navn",
+            "Kan også brukes for using static for statiske medlemmer"
+          ],
+          "exampleTitle": "Eksempel på Using",
+          "example": "using System;\nusing System.Collections.Generic;\n\nnamespace MyApp\n{\n    class Program\n    {\n        static void Main(string[] args)\n        {\n            Console.WriteLine(\"Hello, World!\");\n        }\n    }\n}",
+          "note": "using statements plasseres øverst i filen."
+        },
+        {
+          "syntax": "int number = 42;",
+          "description": "Deklarerer en heltallsvariabel",
+          "detailsTitle": "Datatyper i C#",
+          "details": [
+            "int: 32-bit heltall (-2,147,483,648 til 2,147,483,647)",
+            "C# er sterkt typet - alle variabler må ha en type",
+            "Støtter type inference med var keyword",
+            "Nullable typer: int? kan være null"
+          ],
+          "exampleTitle": "Eksempel på Variabler",
+          "example": "int age = 25;\ndouble price = 99.99;\nbool isActive = true;\nstring name = \"John\";\nvar autoType = \"Dette er en string\"; // Type inference\nint? nullableInt = null;",
+          "note": "var kan kun brukes når kompilatoren kan bestemme typen."
+        }
+      ]
+    },
+    {
+      "name": "LINQ (Language Integrated Query)",
+      "commands": [
+        {
+          "syntax": "var result = list.Where(x => x > 5);",
+          "description": "Filtrerer elementer i en samling basert på en betingelse",
+          "detailsTitle": "LINQ Where Metode",
+          "details": [
+            "Where er en extension method for IEnumerable<T>",
+            "Bruker lambda expressions (=>) for betingelser",
+            "Returnerer IEnumerable<T> med filtrerte elementer",
+            "Lazy evaluation - kjøres ikke før iterering"
+          ],
+          "exampleTitle": "Eksempel på LINQ Where",
+          "example": "var numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };\n\nvar evenNumbers = numbers.Where(n => n % 2 == 0);\nvar largeNumbers = numbers.Where(n => n > 5);\n\nforeach (var num in evenNumbers)\n{\n    Console.WriteLine(num); // 2, 4, 6, 8, 10\n}",
+          "note": "LINQ operasjoner er lazy - de evalueres først ved iterering."
+        },
+        {
+          "syntax": "var result = list.Select(x => x.Property);",
+          "description": "Transformerer hvert element i en samling",
+          "detailsTitle": "LINQ Select Metode",
+          "details": [
+            "Select projiserer hvert element til en ny form",
+            "Ofte brukt for å trekke ut spesifikke properties",
+            "Kan transformere til helt andre typer",
+            "Kombineres ofte med andre LINQ metoder"
+          ],
+          "exampleTitle": "Eksempel på LINQ Select",
+          "example": "var people = new List<Person>\n{\n    new Person { Name = \"Alice\", Age = 30 },\n    new Person { Name = \"Bob\", Age = 25 }\n};\n\nvar names = people.Select(p => p.Name);\nvar ages = people.Select(p => p.Age);\nvar descriptions = people.Select(p => $\"{p.Name} is {p.Age} years old\");",
+          "note": "Select kan brukes til å transformere til anonyme typer også."
+        }
+      ]
+    },
+    {
+      "name": "Async/Await",
+      "commands": [
+        {
+          "syntax": "async Task<string> GetDataAsync()",
+          "description": "Definerer en asynkron metode som returnerer Task<T>",
+          "detailsTitle": "Async Method Declaration",
+          "details": [
+            "async keyword markerer metoden som asynkron",
+            "Task<T> representerer en asynkron operasjon som returnerer T",
+            "Task (uten T) for metoder som ikke returnerer verdi",
+            "Metoder bør ha 'Async' suffix i navnet"
+          ],
+          "exampleTitle": "Eksempel på Async Method",
+          "example": "public async Task<string> GetDataAsync()\n{\n    using (var client = new HttpClient())\n    {\n        var response = await client.GetStringAsync(\"https://api.example.com/data\");\n        return response;\n    }\n}\n\n// Kall metoden\nstring data = await GetDataAsync();",
+          "note": "await kan kun brukes inne i async metoder."
+        }
+      ]
+    }
+  ]
+}

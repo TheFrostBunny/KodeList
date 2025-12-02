@@ -12,6 +12,12 @@ KodeList er en ressurs som viser hvordan lister kan defineres og brukes i forskj
  SQL
  GIT
  GO
+ CSharp
+ NodeJS
+ React
+ Rust
+ Typescript
+ Vue
 
 ### Eksempler på Git-kommandoer i JSON-format
 
