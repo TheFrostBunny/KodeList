@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/style.css">
+    <title>Nyttige Lenker</title>
+    <link rel="icon" href="./Assets/Logo.png" type="image/png">
+</head>
+<body class="app-bg" aria-label="Nyttige lenker">
+    <nav aria-label="Tilbake til forsiden">
+        <a href="index.html" class="back-link" id="back-link">&larr; Tilbake</a>
+    </nav>
+    <header>
+        <h1 id="page-title">Nyttige Lenker</h1>
+    </header>
+    <main>
+        <section class="topbar" aria-label="Legg til ny lenke">
+            <form id="link-form" style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
+                <input type="url" id="link-url" placeholder="Lim inn URL..." required style="min-width:220px;">
+                <input type="text" id="link-title" placeholder="Tittel (valgfritt)" style="min-width:120px;">
+                <button type="submit">Legg til</button>
+            </form>
+        </section>
+        <section id="links-container" class="categories" aria-label="Lenkeliste">
+            <!-- Lenker vises her -->
+        </section>
+    </main>
+    <script>
+const linksKey = 'usefulLinks';
+function loadLinks() {
+    const container = document.getElementById('links-container');
+    container.innerHTML = '';
+    const links = JSON.parse(localStorage.getItem(linksKey) || '[]');
+    if (links.length === 0) {
+        container.innerHTML = '<p style="color:var(--text-secondary);margin-top:2rem;">Ingen lenker lagt til enda.</p>';
+        return;
+    }
+    links.forEach((link, idx) => {
+        const div = document.createElement('div');
+        div.className = 'category fade-in';
+        const a = document.createElement('a');
+        a.href = link.url;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.textContent = link.title || link.url;
+        a.className = 'link-card';
+        div.appendChild(a);
+        const delBtn = document.createElement('button');
+        delBtn.textContent = 'Fjern';
+        delBtn.className = 'copy-btn';
+        delBtn.style.marginLeft = '1rem';
+        delBtn.onclick = function() {
+            links.splice(idx, 1);
+            localStorage.setItem(linksKey, JSON.stringify(links));
+            loadLinks();
+        };
+        div.appendChild(delBtn);
+        container.appendChild(div);
+    });
+}
+document.getElementById('link-form').onsubmit = function(e) {
+    e.preventDefault();
+    const url = document.getElementById('link-url').value.trim();
+    const title = document.getElementById('link-title').value.trim();
+    if (!url) return;
+    const links = JSON.parse(localStorage.getItem(linksKey) || '[]');
+    links.unshift({ url, title });
+    localStorage.setItem(linksKey, JSON.stringify(links));
+    document.getElementById('link-url').value = '';
+    document.getElementById('link-title').value = '';
+    loadLinks();
+};
+window.onload = loadLinks;
+    </script>
+</body>
+</html>
