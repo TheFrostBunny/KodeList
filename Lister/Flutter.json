@@ -1,0 +1,258 @@
+{
+  "title": "Flutter Huskeliste",
+  "categories": [
+    {
+      "name": "Grunnleggende",
+      "commands": [
+        {
+          "syntax": "flutter create my_app",
+          "description": "Oppretter et nytt Flutter-prosjekt",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Kommandoen lager en ny mappe med alle nødvendige Flutter-filer",
+            "Du kan spesifisere --org, --platforms, --template for tilpasning",
+            "Kjør kommandoen i terminalen der du vil ha prosjektet"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "flutter create min_app\nflutter create --org com.example --platforms=android,ios min_app",
+          "note": "Prosjektet får en main.dart fil i lib/ mappen"
+        },
+        {
+          "syntax": "flutter run",
+          "description": "Kjører appen på emulator eller fysisk enhet",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Kompilerer og starter appen på valgt device",
+            "Støtter hot reload for rask utvikling",
+            "Du kan spesifisere --release for produksjon"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "flutter run\nflutter run --release",
+          "note": "Bruk 'flutter devices' for å se tilgjengelige enheter"
+        },
+        {
+          "syntax": "flutter doctor",
+          "description": "Sjekker Flutter- og systemoppsett",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Viser status for Flutter SDK, Android/iOS toolchains, og IDE plugins",
+            "Gir tips om manglende avhengigheter",
+            "Kjør denne etter installasjon eller ved problemer"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "flutter doctor",
+          "note": "Alle sjekker bør være grønne for optimal utvikling"
+        }
+      ]
+    },
+    {
+      "name": "Widgets",
+      "commands": [
+        {
+          "syntax": "Text('Hei verden')",
+          "description": "Viser tekst på skjermen",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Text er en av de mest brukte widgets i Flutter",
+            "Støtter styling med style parameter",
+            "Kan brukes hvor som helst i widget-treet"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "Text('Hei verden', style: TextStyle(fontSize: 24, color: Colors.blue))",
+          "note": "Bruk RichText for avansert tekstformatering"
+        },
+        {
+          "syntax": "Column(children: [...])",
+          "description": "Vertikal layout av widgets",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Column plasserer widgets under hverandre",
+            "Kan justeres med mainAxisAlignment og crossAxisAlignment",
+            "Bruk Expanded og Flexible for dynamisk plassering"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "Column(children: [\n  Text('Overskrift'),\n  Text('Undertittel'),\n  Icon(Icons.star)\n])",
+          "note": "Row gir horisontal layout"
+        },
+        {
+          "syntax": "Container(child: ..., padding: ..., color: ...)",
+          "description": "Allsidig widget for layout og styling",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Container kan ha padding, margin, border og bakgrunnsfarge",
+            "Brukes ofte for å gruppere og style widgets",
+            "Kan ha constraints for størrelse og posisjon"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "Container(\n  padding: EdgeInsets.all(16),\n  color: Colors.amber,\n  child: Text('Innhold')\n)",
+          "note": "Bruk BoxDecoration for avansert styling"
+        }
+      ]
+    },
+    {
+      "name": "State Management",
+      "commands": [
+        {
+          "syntax": "setState(() { ... })",
+          "description": "Oppdaterer UI ved å endre state",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "setState brukes i StatefulWidget for å oppdatere UI",
+            "Kalles når du endrer variabler som påvirker visning",
+            "Trigger en rebuild av widget-treet"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "setState(() {\n  teller++;\n})",
+          "note": "For større apper, bruk Provider, Riverpod eller Bloc"
+        },
+        {
+          "syntax": "Provider.of<Type>(context)",
+          "description": "Henter data fra Provider state management",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Provider er et populært state management bibliotek",
+            "Gir tilgang til data og metoder i hele widget-treet",
+            "Bruk ChangeNotifier for reaktiv state"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "final teller = Provider.of<TellerModel>(context);\nteller.øk();",
+          "note": "Riverpod er et nyere og mer robust alternativ"
+        }
+      ]
+    },
+    {
+      "name": "Navigation",
+      "commands": [
+        {
+          "syntax": "Navigator.push(context, MaterialPageRoute(...))",
+          "description": "Navigerer til en ny side",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Navigator håndterer sidebytte og historikk",
+            "MaterialPageRoute gir animasjon og material design",
+            "Bruk Navigator.pop(context) for å gå tilbake"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "Navigator.push(\n  context,\n  MaterialPageRoute(builder: (context) => NySide())\n)",
+          "note": "Bruk named routes for større apper"
+        },
+        {
+          "syntax": "Navigator.pop(context)",
+          "description": "Går tilbake til forrige side",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "pop fjerner den øverste siden fra navigasjonsstacken",
+            "Kan sende data tilbake med pop(value)",
+            "Bruk WillPopScope for å kontrollere tilbakeknappen"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "Navigator.pop(context)\nNavigator.pop(context, 'resultat')",
+          "note": "Bruk pushReplacement for å bytte side uten å kunne gå tilbake"
+        }
+      ]
+    },
+    {
+      "name": "Networking",
+      "commands": [
+        {
+          "syntax": "http.get(Uri.parse(url))",
+          "description": "Henter data fra internett med http package",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "http package må installeres: flutter pub add http",
+            "Bruk async/await for asynkrone kall",
+            "Kan parse JSON med jsonDecode()"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "import 'package:http/http.dart' as http;\n\nfinal response = await http.get(Uri.parse('https://api.example.com/data'));\nif (response.statusCode == 200) {\n  print(response.body);\n}",
+          "note": "Bruk Dio for mer avansert nettverksfunksjonalitet"
+        }
+      ]
+    },
+    {
+      "name": "Storage",
+      "commands": [
+        {
+          "syntax": "SharedPreferences prefs = await SharedPreferences.getInstance()",
+          "description": "Lagrer enkel data lokalt på enheten",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "SharedPreferences gir key-value lagring for små data",
+            "Må installeres: flutter pub add shared_preferences",
+            "Støtter int, double, bool, String og List<String>"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "prefs.setInt('teller', 5);\nint teller = prefs.getInt('teller') ?? 0;",
+          "note": "Bruk Hive eller sqflite for mer avansert lagring"
+        }
+      ]
+    },
+    {
+      "name": "Styling",
+      "commands": [
+        {
+          "syntax": "TextStyle(fontSize: 20, color: Colors.red)",
+          "description": "Stiler tekst og widgets",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "TextStyle brukes for å endre utseende på tekst",
+            "Kan kombineres med Theme.of(context) for dynamisk styling",
+            "Bruk BoxDecoration for container styling"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "Text('Hei', style: TextStyle(fontSize: 20, color: Colors.red))",
+          "note": "Bruk ThemeData for global styling"
+        }
+      ]
+    },
+    {
+      "name": "Testing",
+      "commands": [
+        {
+          "syntax": "test('beskrivelse', () { ... })",
+          "description": "Skriver enhetstester med flutter_test",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "flutter_test er innebygd for testing",
+            "test() definerer en test-case",
+            "Bruk expect() for assertions"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "test('teller øker', () {\n  final teller = Teller();\n  teller.øk();\n  expect(teller.verdi, 1);\n})",
+          "note": "Bruk WidgetTester for UI-testing"
+        }
+      ]
+    },
+    {
+      "name": "Deployment",
+      "commands": [
+        {
+          "syntax": "flutter build apk",
+          "description": "Bygger Android APK for distribusjon",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Kompilerer appen til en installasjonsfil",
+            "Støtter --release og --debug modes",
+            "Resultatet ligger i build/app/outputs/flutter-apk/"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "flutter build apk --release",
+          "note": "Bruk flutter build ios for iOS apps"
+        },
+        {
+          "syntax": "flutter build web",
+          "description": "Bygger web-versjon av appen",
+          "detailsTitle": "Detaljert Forklaring",
+          "details": [
+            "Kompilerer Flutter-appen til HTML, CSS og JS",
+            "Resultatet ligger i build/web/ mappen",
+            "Kan deployes til GitHub Pages eller Firebase Hosting"
+          ],
+          "exampleTitle": "Eksempel",
+          "example": "flutter build web",
+          "note": "Sjekk at pubspec.yaml har web som supported platform"
+        }
+      ]
+    }
+  ]
+}
