@@ -18,6 +18,8 @@ KodeList er en ressurs som viser hvordan lister kan defineres og brukes i forskj
  Rust
  Typescript
  Vue
+ Flutter
+ Java
 
 ### Eksempler på Git-kommandoer i JSON-format
 
