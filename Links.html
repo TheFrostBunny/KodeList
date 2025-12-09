@@ -7,84 +7,108 @@
     <title>Nyttige Lenker</title>
     <link rel="icon" href="./Assets/Logo.png" type="image/png">
 </head>
-<body class="app-bg" aria-label="Nyttige lenker">
+<body>
     <nav aria-label="Tilbake til forsiden">
         <a href="index.html" class="back-link" id="back-link">&larr; Tilbake</a>
     </nav>
-    <header>
-        <h1 id="page-title">Nyttige Lenker</h1>
+        <header>
+            <h1 id="page-title" class="page-title">Nyttige Lenker</h1>
+        </header>
+        <section class="topbar" aria-label="Filtrering og søk">
+            <div class="topbar-left">
+            </div>
+            <div class="topbar-right">
+                <input type="text" id="search-links" placeholder="Søk i lenker..." class="search-input" style="display:none;" aria-label="Søk i lenker">
+                <button id="search-icon" aria-label="Søk" class="search-icon-btn">
+                    <span id="search-svg" class="search-svg">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#51A2FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+        </section>
     </header>
     <main>
         <section id="recommended-links-container"></section>
-
+    <main>
+        <section id="recommended-links-container"></section>
     </main>
-    <footer>
-        &copy; TheFrostBunny | <a href="https://github.com/TheFrostBunny" target="_blank" rel="noopener" class="github-link">GitHub</a>
     </footer>
     <script>
+let allCategories = [];
+function renderLinks(filter = '') {
+    const container = document.getElementById('recommended-links-container');
+    container.innerHTML = '';
+    if (!allCategories.length) return;
+    const search = (filter || '').toLowerCase();
+    let anyMatch = false;
+    allCategories.forEach(category => {
+        const filteredLinks = (category.links || []).filter(link => {
+            return !search || (link.title && link.title.toLowerCase().includes(search)) || (link.url && link.url.toLowerCase().includes(search));
+        });
+        if (filteredLinks.length === 0) return;
+        anyMatch = true;
+        const section = document.createElement('section');
+        section.className = 'category';
+        section.style.marginBottom = '32px';
+        const h2 = document.createElement('h2');
+        h2.textContent = category.name;
+        h2.style.marginBottom = '18px';
+        h2.style.display = 'flex';
+        h2.style.alignItems = 'center';
+        h2.style.gap = '8px';
+        section.appendChild(h2);
+        const ul = document.createElement('ul');
+        ul.style.listStyle = 'none';
+        ul.style.padding = '0';
+        filteredLinks.forEach(link => {
+            const li = document.createElement('li');
+            li.style.marginBottom = '18px';
+            const a = document.createElement('a');
+            a.href = link.url;
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
+            a.textContent = link.title || link.url;
+            a.className = 'link-card';
+            a.style.display = 'block';
+            a.style.background = 'rgba(255,255,255,0.08)';
+            a.style.color = '#fff';
+            a.style.fontWeight = '600';
+            a.style.fontSize = '1.15em';
+            a.style.padding = '18px 24px';
+            a.style.borderRadius = '10px';
+            a.style.textDecoration = 'none';
+            a.style.boxShadow = '0 2px 8px rgba(0,0,0,0.12)';
+            a.style.transition = 'background 0.2s, color 0.2s, transform 0.2s';
+            a.onmouseover = function() {
+                a.style.background = 'rgba(255,255,255,0.18)';
+                a.style.color = '#fff';
+                a.style.transform = 'translateY(-2px) scale(1.03)';
+            };
+            a.onmouseout = function() {
+                a.style.background = 'rgba(255,255,255,0.08)';
+                a.style.color = '#fff';
+                a.style.transform = 'none';
+            };
+            li.appendChild(a);
+            ul.appendChild(li);
+        });
+        section.appendChild(ul);
+        container.appendChild(section);
+    });
+    if (!anyMatch) {
+        container.innerHTML = '<p style="color:var(--text-secondary);">Ingen lenker funnet.</p>';
+    }
+}
+
 function loadRecommendedLinks() {
     fetch('./Resources/Links.json')
         .then(response => response.json())
         .then(data => {
-            const container = document.getElementById('recommended-links-container');
-            container.innerHTML = '';
-            if (data.categories && Array.isArray(data.categories)) {
-                data.categories.forEach(category => {
-                    const section = document.createElement('section');
-                    section.className = 'category';
-                    section.style.marginBottom = '32px';
-                    const h2 = document.createElement('h2');
-                    h2.textContent = category.name;
-                    h2.style.marginBottom = '18px';
-                    h2.style.display = 'flex';
-                    h2.style.alignItems = 'center';
-                    h2.style.gap = '8px';
-                    section.appendChild(h2);
-                    const ul = document.createElement('ul');
-                    ul.style.listStyle = 'none';
-                    ul.style.padding = '0';
-                    if (category.links && Array.isArray(category.links)) {
-                        category.links.forEach(link => {
-                            const li = document.createElement('li');
-                            li.style.marginBottom = '18px';
-                            const a = document.createElement('a');
-                            a.href = link.url;
-                            a.target = '_blank';
-                            a.rel = 'noopener noreferrer';
-                            a.textContent = link.title || link.url;
-                            a.className = 'link-card';
-                            a.style.display = 'block';
-                            a.style.background = 'rgba(255,255,255,0.08)';
-                            a.style.color = '#fff';
-                            a.style.fontWeight = '600';
-                            a.style.fontSize = '1.15em';
-                            a.style.padding = '18px 24px';
-                            a.style.borderRadius = '10px';
-                            a.style.textDecoration = 'none';
-                            a.style.boxShadow = '0 2px 8px rgba(0,0,0,0.12)';
-                            a.style.transition = 'background 0.2s, color 0.2s, transform 0.2s';
-                            a.onmouseover = function() {
-                                a.style.background = 'rgba(255,255,255,0.18)';
-                                a.style.color = '#fff';
-                                a.style.transform = 'translateY(-2px) scale(1.03)';
-                            };
-                            a.onmouseout = function() {
-                                a.style.background = 'rgba(255,255,255,0.08)';
-                                a.style.color = '#fff';
-                                a.style.transform = 'none';
-                            };
-                            li.appendChild(a);
-                            ul.appendChild(li);
-                        });
-                    } else {
-                        ul.innerHTML = '<li style="color:var(--text-secondary);">Ingen lenker funnet.</li>';
-                    }
-                    section.appendChild(ul);
-                    container.appendChild(section);
-                });
-            } else {
-                container.innerHTML = '<p style="color:var(--text-secondary);">Ingen kategorier funnet.</p>';
-            }
+            allCategories = data.categories || [];
+            renderLinks(document.getElementById('search-links').value);
         })
         .catch(() => {
             const container = document.getElementById('recommended-links-container');
@@ -94,6 +118,21 @@ function loadRecommendedLinks() {
 
 window.onload = function() {
     loadRecommendedLinks();
+    const searchInput = document.getElementById('search-links');
+    const searchIcon = document.getElementById('search-icon');
+    searchInput.addEventListener('input', function() {
+        renderLinks(this.value);
+    });
+    searchIcon.addEventListener('click', function() {
+        if (searchInput.style.display === 'none') {
+            searchInput.style.display = 'block';
+            searchInput.focus();
+        } else {
+            searchInput.value = '';
+            searchInput.style.display = 'none';
+            renderLinks('');
+        }
+    });
 };
     </script>
 </body>
