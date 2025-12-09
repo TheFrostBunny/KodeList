@@ -5,27 +5,33 @@
       "links": [
         {
           "url": "https://docs.flutter.dev/",
-          "title": "Flutter Official Documentation"
+          "title": "Flutter Official Documentation",
+          "description": "Offisiell dokumentasjon for Flutter rammeverket."
         },
         {
           "url": "https://react.dev/",
-          "title": "React Official Documentation"
+          "title": "React Official Documentation",
+          "description": "Offisiell dokumentasjon for React."
         },
         {
           "url": "https://vite.dev/",
-          "title": "Vite Official Documentation"
+          "title": "Vite Official Documentation",
+          "description": "Rask utviklingsserver og byggverktøy for moderne webprosjekter."
         },
         {
           "url": "https://vuejs.org/",
-          "title": "Vue.js Official Documentation"
+          "title": "Vue.js Official Documentation",
+          "description": "Offisiell dokumentasjon for Vue.js."
         },
         {
           "url": "https://nuxt.com/",
-          "title": "Nuxt.js Official Documentation"
+          "title": "Nuxt.js Official Documentation",
+          "description": "Offisiell dokumentasjon for Nuxt.js rammeverket."
         },
         {
           "url": "https://tailwindcss.com/",
-          "title": "Tailwind CSS Official Documentation"
+          "title": "Tailwind CSS Official Documentation",
+          "description": "Utility-first CSS rammeverk for rask UI-utvikling."
         }
       ]
     },
@@ -34,31 +40,38 @@
       "links": [
         {
           "url": "https://www.w3schools.com/",
-          "title": "W3Schools"
+          "title": "W3Schools",
+          "description": "Lær webutvikling med eksempler og guider."
         },
         {
           "url": "https://coolors.co/",
-          "title": "Colors"
+          "title": "Colors",
+          "description": "Lag og utforsk fargepaletter."
         },
         {
           "url": "https://dbdiagram.io/home",
-          "title": "DB Diagram"
+          "title": "DB Diagram",
+          "description": "Visualiser og design databasediagrammer."
         },
         {
           "url": "https://www.figma.com/",
-          "title": "Figma"
+          "title": "Figma",
+          "description": "Samarbeidsverktøy for design og prototyping."
         },
         {
           "url": "https://www.flaticon.com/",
-          "title": "Flaticon"
+          "title": "Flaticon",
+          "description": "Gratis ikoner for web og design."
         },
         {
           "url": "https://www.canva.com/",
-          "title": "Canva"
+          "title": "Canva",
+          "description": "Lag grafikk, presentasjoner og mer med dra-og-slipp."
         },
         {
           "url": "https://vert.sh/",
-          "title": "Vert - File Converter"
+          "title": "Vert - File Converter",
+          "description": "Konverter filer mellom ulike formater enkelt."
         }
       ]
     }

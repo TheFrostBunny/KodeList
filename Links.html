@@ -46,7 +46,10 @@ function renderLinks(filter = '') {
     let anyMatch = false;
     allCategories.forEach(category => {
         const filteredLinks = (category.links || []).filter(link => {
-            return !search || (link.title && link.title.toLowerCase().includes(search)) || (link.url && link.url.toLowerCase().includes(search));
+            return !search ||
+                (link.title && link.title.toLowerCase().includes(search)) ||
+                (link.url && link.url.toLowerCase().includes(search)) ||
+                (link.description && link.description.toLowerCase().includes(search));
         });
         if (filteredLinks.length === 0) return;
         anyMatch = true;
@@ -92,6 +95,9 @@ function renderLinks(filter = '') {
                 a.style.color = '#fff';
                 a.style.transform = 'none';
             };
+            if (link.description) {
+                a.title = link.description;
+            }
             li.appendChild(a);
             ul.appendChild(li);
         });
