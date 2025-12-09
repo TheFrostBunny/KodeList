@@ -84,6 +84,90 @@
           "note": "await kan kun brukes inne i async metoder."
         }
       ]
+    },
+    {
+      "name": "Runtime",
+      "commands": [
+        {
+          "syntax": "dotnet run",
+          "description": "Kjører en .NET applikasjon fra kommandolinjen",
+          "detailsTitle": "dotnet run Kommando",
+          "details": [
+            "Kompilerer og kjører applikasjonen i ett steg",
+            "Brukes i prosjektkatalogen med .csproj fil",
+            "Støtter argumenter som kan sendes til Main metoden",
+            "Praktisk for rask testing under utvikling"
+          ],
+          "exampleTitle": "Eksempel på dotnet run",
+          "example": "cd MyDotNetApp\n\ndotnet run\n\ndotnet run -- arg1 arg2",
+          "note": "Sørg for at du er i riktig katalog med .csproj fil."
+        },
+        {
+          "syntax": "dotnet build",
+          "description": "Bygger en .NET applikasjon fra kommandolinjen",
+          "detailsTitle": "dotnet build Kommando",
+          "details": [
+            "Kompilerer kildekoden til en kjørbar fil eller bibliotek",
+            "Genererer nødvendige filer i bin/ katalogen",
+            "Støtter forskjellige konfigurasjoner (Debug/Release)",
+            "Kan brukes til å sjekke for kompilasjonsfeil"
+          ],
+          "exampleTitle": "Eksempel på dotnet build",
+          "example": "cd MyDotNetApp\n\ndotnet build\n\ndotnet build --configuration Release",
+          "note": "Bruk dotnet run for å kjøre applikasjonen etter bygging."
+        },
+        {
+          "syntax": "dotnet test",
+          "description": "Kjører enhetstester i en .NET applikasjon",
+          "detailsTitle": "dotnet test Kommando",
+          "details": [
+            "Oppdager og kjører tester i prosjektet",
+            "Støtter forskjellige test-rammeverk som xUnit, NUnit, MSTest",
+            "Genererer testresultater og rapporter",
+            "Kan filtrere tester basert på navn eller kategori"
+          ],
+          "exampleTitle": "Eksempel på dotnet test",
+          "example": "cd MyDotNetApp.Tests\n\ndotnet test\n\ndotnet test --filter FullyQualifiedName~MyTestMethod",
+          "note": "Sørg for at testprosjektet refererer til test-rammeverket."
+        }
+      ]
+    },
+    {
+      "name": "Migrasjoner",
+      "commands": [
+        {
+          "syntax": "Add-Migration InitialCreate",
+          "description": "Oppretter en ny migrasjon basert på modellendringer",
+          "detailsTitle": "Add-Migration Kommando (Visual Studio og dotnet CLI)",
+          "details": [
+            "Brukes i Package Manager Console i Visual Studio eller med dotnet CLI",
+            "Visual Studio: Add-Migration InitialCreate",
+            "dotnet CLI: dotnet ef migrations add InitialCreate",
+            "Genererer en migrasjonsfil med SQL for å oppdatere databasen",
+            "Navngi migrasjonen beskrivende for endringene",
+            "Krever at DbContext er konfigurert riktig"
+          ],
+          "exampleTitle": "Eksempel på Add-Migration",
+          "example": "Add-Migration InitialCreate\ndotnet ef migrations add InitialCreate\nAdd-Migration AddNewColumnToUsers\ndotnet ef migrations add AddNewColumnToUsers",
+          "note": "Kjør Update-Database eller dotnet ef database update etter å ha lagt til migrasjonen for å anvende endringene."
+        },
+        {
+          "syntax": "Update-Database",
+          "description": "Anvender migrasjoner på databasen",
+          "detailsTitle": "Update-Database Kommando (Visual Studio og dotnet CLI)",
+          "details": [
+            "Brukes i Package Manager Console i Visual Studio eller med dotnet CLI",
+            "Visual Studio: Update-Database",
+            "dotnet CLI: dotnet ef database update",
+            "Oppdaterer databasen til den nyeste migrasjonen",
+            "Kan spesifisere en bestemt migrasjon å rulle tilbake til",
+            "Krever at DbContext er konfigurert riktig"
+          ],
+          "exampleTitle": "Eksempel på Update-Database",
+          "example": "Update-Database\ndotnet ef database update\nUpdate-Database -Migration InitialCreate\ndotnet ef database update InitialCreate",
+          "note": "Sørg for at migrasjonene er opprettet før du kjører denne kommandoen."
+        }
+      ]
     }
   ]
 }
