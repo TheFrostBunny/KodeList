@@ -32,6 +32,26 @@
           "url": "https://tailwindcss.com/",
           "title": "Tailwind CSS Official Documentation",
           "description": "Utility-first CSS rammeverk for rask UI-utvikling."
+        },
+        {
+          "url": "https://firebase.google.com/docs",
+          "title": "Firebase Official Documentation",
+          "description": "Offisiell dokumentasjon for Firebase plattformen."
+        },
+        {
+          "url": "https://supabase.com/docs",
+          "title": "Supabase Official Documentation",
+          "description": "Offisiell dokumentasjon for Supabase plattformen."
+        },
+        {
+          "url": "https://www.mongodb.com/docs/",
+          "title": "MongoDB Official Documentation",
+          "description": "Offisiell dokumentasjon for MongoDB databasen."
+        },
+        {
+          "url": "https://reactnative.dev/docs/environment-setup",
+          "title": "React Native Official Documentation",
+          "description": "Offisiell dokumentasjon for React Native rammeverket."
         }
       ]
     },
@@ -72,6 +92,16 @@
           "url": "https://vert.sh/",
           "title": "Vert - File Converter",
           "description": "Konverter filer mellom ulike formater enkelt."
+        },
+        {
+          "url": "https://unsplash.com/",
+          "title": "Unsplash",
+          "description": "Gratis høyoppløselige bilder for alle prosjekter."
+        },
+        {
+          "url": "https://code.visualstudio.com/",
+          "title": "Visual Studio Code",
+          "description": "Kraftig og tilpassbar kodeeditor fra Microsoft."
         }
       ]
     }
