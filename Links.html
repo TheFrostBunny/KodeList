@@ -15,63 +15,83 @@
         <h1 id="page-title">Nyttige Lenker</h1>
     </header>
     <main>
-        <section class="topbar" aria-label="Legg til ny lenke">
-            <form id="link-form" style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
-                <input type="url" id="link-url" placeholder="Lim inn URL..." required style="min-width:220px;">
-                <input type="text" id="link-title" placeholder="Tittel (valgfritt)" style="min-width:120px;">
-                <button type="submit">Legg til</button>
-            </form>
-        </section>
-        <section id="links-container" class="categories" aria-label="Lenkeliste">
-            <!-- Lenker vises her -->
-        </section>
+        <section id="recommended-links-container"></section>
+
     </main>
     <script>
-const linksKey = 'usefulLinks';
-function loadLinks() {
-    const container = document.getElementById('links-container');
-    container.innerHTML = '';
-    const links = JSON.parse(localStorage.getItem(linksKey) || '[]');
-    if (links.length === 0) {
-        container.innerHTML = '<p style="color:var(--text-secondary);margin-top:2rem;">Ingen lenker lagt til enda.</p>';
-        return;
-    }
-    links.forEach((link, idx) => {
-        const div = document.createElement('div');
-        div.className = 'category fade-in';
-        const a = document.createElement('a');
-        a.href = link.url;
-        a.target = '_blank';
-        a.rel = 'noopener noreferrer';
-        a.textContent = link.title || link.url;
-        a.className = 'link-card';
-        div.appendChild(a);
-        const delBtn = document.createElement('button');
-        delBtn.textContent = 'Fjern';
-        delBtn.className = 'copy-btn';
-        delBtn.style.marginLeft = '1rem';
-        delBtn.onclick = function() {
-            links.splice(idx, 1);
-            localStorage.setItem(linksKey, JSON.stringify(links));
-            loadLinks();
-        };
-        div.appendChild(delBtn);
-        container.appendChild(div);
-    });
+function loadRecommendedLinks() {
+    fetch('./Resources/Links.json')
+        .then(response => response.json())
+        .then(data => {
+            const container = document.getElementById('recommended-links-container');
+            container.innerHTML = '';
+            if (data.categories && Array.isArray(data.categories)) {
+                data.categories.forEach(category => {
+                    const section = document.createElement('section');
+                    section.className = 'category';
+                    section.style.marginBottom = '32px';
+                    const h2 = document.createElement('h2');
+                    h2.textContent = category.name;
+                    h2.style.marginBottom = '18px';
+                    h2.style.display = 'flex';
+                    h2.style.alignItems = 'center';
+                    h2.style.gap = '8px';
+                    section.appendChild(h2);
+                    const ul = document.createElement('ul');
+                    ul.style.listStyle = 'none';
+                    ul.style.padding = '0';
+                    if (category.links && Array.isArray(category.links)) {
+                        category.links.forEach(link => {
+                            const li = document.createElement('li');
+                            li.style.marginBottom = '18px';
+                            const a = document.createElement('a');
+                            a.href = link.url;
+                            a.target = '_blank';
+                            a.rel = 'noopener noreferrer';
+                            a.textContent = link.title || link.url;
+                            a.className = 'link-card';
+                            a.style.display = 'block';
+                            a.style.background = 'rgba(255,255,255,0.08)';
+                            a.style.color = '#fff';
+                            a.style.fontWeight = '600';
+                            a.style.fontSize = '1.15em';
+                            a.style.padding = '18px 24px';
+                            a.style.borderRadius = '10px';
+                            a.style.textDecoration = 'none';
+                            a.style.boxShadow = '0 2px 8px rgba(0,0,0,0.12)';
+                            a.style.transition = 'background 0.2s, color 0.2s, transform 0.2s';
+                            a.onmouseover = function() {
+                                a.style.background = 'rgba(255,255,255,0.18)';
+                                a.style.color = '#fff';
+                                a.style.transform = 'translateY(-2px) scale(1.03)';
+                            };
+                            a.onmouseout = function() {
+                                a.style.background = 'rgba(255,255,255,0.08)';
+                                a.style.color = '#fff';
+                                a.style.transform = 'none';
+                            };
+                            li.appendChild(a);
+                            ul.appendChild(li);
+                        });
+                    } else {
+                        ul.innerHTML = '<li style="color:var(--text-secondary);">Ingen lenker funnet.</li>';
+                    }
+                    section.appendChild(ul);
+                    container.appendChild(section);
+                });
+            } else {
+                container.innerHTML = '<p style="color:var(--text-secondary);">Ingen kategorier funnet.</p>';
+            }
+        })
+        .catch(() => {
+            const container = document.getElementById('recommended-links-container');
+            container.innerHTML = '<p style="color:var(--text-secondary);">Kunne ikke laste anbefalte lenker.</p>';
+        });
 }
-document.getElementById('link-form').onsubmit = function(e) {
-    e.preventDefault();
-    const url = document.getElementById('link-url').value.trim();
-    const title = document.getElementById('link-title').value.trim();
-    if (!url) return;
-    const links = JSON.parse(localStorage.getItem(linksKey) || '[]');
-    links.unshift({ url, title });
-    localStorage.setItem(linksKey, JSON.stringify(links));
-    document.getElementById('link-url').value = '';
-    document.getElementById('link-title').value = '';
-    loadLinks();
+
+window.onload = function() {
+    loadRecommendedLinks();
 };
-window.onload = loadLinks;
     </script>
 </body>
 </html>

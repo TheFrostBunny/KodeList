@@ -1,16 +1,71 @@
 {
-  "links": [
+  "categories": [
     {
-      "url": "https://flutter.dev/",
-      "title": "Flutter Official Documentation"
+      "name": "Frontend",
+      "links": [
+        {
+          "url": "https://docs.flutter.dev/",
+          "title": "Flutter Official Documentation"
+        },
+        {
+          "url": "https://react.dev/",
+          "title": "React Official Documentation"
+        },
+        {
+          "url": "https://vite.dev/",
+          "title": "Vite Official Documentation"
+        },
+        {
+          "url": "https://vuejs.org/",
+          "title": "Vue.js Official Documentation"
+        },
+        {
+          "url": "https://nuxt.com/",
+          "title": "Nuxt.js Official Documentation"
+        },
+        {
+          "url": "https://tailwindcss.com/",
+          "title": "Tailwind CSS Official Documentation"
+        }
+      ]
     },
     {
-      "url": "https://developer.mozilla.org/",
-      "title": "MDN Web Docs"
+      "name": "Verktøy",
+      "links": [
+        {
+          "url": "https://www.w3schools.com/",
+          "title": "W3Schools"
+        },
+        {
+          "url": "https://coolors.co/",
+          "title": "Colors"
+        },
+        {
+          "url": "https://dbdiagram.io/home",
+          "title": "DB Diagram"
+        },
+        {
+          "url": "https://www.figma.com/",
+          "title": "Figma"
+        },
+        {
+          "url": "https://www.flaticon.com/",
+          "title": "Flaticon"
+        },
+        {
+          "url": "https://www.canva.com/",
+          "title": "Canva"
+        }
+      ]
     },
     {
-      "url": "https://github.com/TheFrostBunny",
-      "title": "TheFrostBunny GitHub"
+      "name": "Personlig",
+      "links": [
+        {
+          "url": "https://github.com/TheFrostBunny",
+          "title": "TheFrostBunny GitHub"
+        }
+      ]
     }
   ]
 }

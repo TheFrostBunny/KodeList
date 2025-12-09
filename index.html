@@ -86,7 +86,7 @@
                         <span class="font-semibold text-gray-800 dark:text-gray-100">Flutter</span>
                     </a>
                 </div>
-                <div class="mt-8 flex justify-center">
+                <div class="mt-8 flex justify-center gap-4">
                     <a href="Links.html" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg shadow transition-all duration-200" style="margin-top:1rem;">Nyttige Lenker</a>
                 </div>
             </div>
@@ -125,6 +125,30 @@
             });
         });
         
+        // Kopier alle lenker fra Links.json
+        document.getElementById('copy-links-btn').onclick = async function() {
+            try {
+                const response = await fetch('./Resources/Links.json');
+                const data = await response.json();
+                let allLinks = [];
+                if (data.categories && Array.isArray(data.categories)) {
+                    data.categories.forEach(category => {
+                        if (category.links && Array.isArray(category.links)) {
+                            category.links.forEach(link => {
+                                allLinks.push(`${link.title}: ${link.url}`);
+                            });
+                        }
+                    });
+                }
+                const text = allLinks.join('\n');
+                await navigator.clipboard.writeText(text);
+                const btn = document.getElementById('copy-links-btn');
+                btn.textContent = 'Kopiert!';
+                setTimeout(() => { btn.textContent = 'Kopier alle lenker'; }, 1800);
+            } catch (e) {
+                alert('Kunne ikke kopiere lenker.');
+            }
+        };
         // Init theme
         (function() {
             const saved = localStorage.getItem('theme');

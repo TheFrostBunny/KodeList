@@ -1,0 +1,14 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Bygg Tailwind CSS",
+			"type": "shell",
+			"command": "npx tailwindcss -i ./CSS/input.css -o ./CSS/output.css --minify",
+			"args": [],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		}
+	]
+}
