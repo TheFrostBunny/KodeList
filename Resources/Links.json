@@ -52,6 +52,11 @@
           "url": "https://reactnative.dev/docs/environment-setup",
           "title": "React Native Official Documentation",
           "description": "Offisiell dokumentasjon for React Native rammeverket."
+        },
+        {
+          "url": "https://appwrite.io/docs",
+          "title": "Appwrite Official Documentation",
+          "description": "Offisiell dokumentasjon for Appwrite backend-plattformen."
         }
       ]
     },
